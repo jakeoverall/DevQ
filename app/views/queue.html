@@ -21,7 +21,7 @@
 		</div>
 		<div class="col-md-4 action-icons text-center" >
 			<a href="" ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"><span></span></a>
-			<a ng-click="assigned(item)" class="yellow glyphicon glyphicon-ok pull-right"></a>		
+			<a ng-show="mentor()" ng-click="assigned(item)" class="yellow glyphicon glyphicon-ok pull-right"></a>		
 		</div>
 		
 	</div>
@@ -36,12 +36,13 @@
 	<div ng-repeat="item in queue | filter: {status: 'Yellow'}">
 		<div class="col-md-8" >
 			<h2>{{item.submittedBy}}</h2>
-			<p>
-				{{item.body}}
-			</p>
+		    <p>
+		        {{item.body}}
+		    </p>
+            <p class="text-muted">Assigned to: {{item.mentor}}</p>
 		</div>
 		<div class="col-md-4 action-icons text-center" >
-			<a ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"></a>
+			<a ng-show="mentor()" ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"></a>
 		</div>
 	</div>
 	
