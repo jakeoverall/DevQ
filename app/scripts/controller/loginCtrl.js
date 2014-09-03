@@ -2,10 +2,9 @@
 
 angular.module('devQ')
   .controller('loginCtrl', function ($scope, $state, environmentService) {
-      
+
       $scope.logMeIn = function () {
-          environmentService.saveUsername($scope.username).then(function () {
-              $state.go('secure.queue');
-          });
+          environmentService.saveUsername($scope.username);
+          $state.go('secure.queue');
       };
   });

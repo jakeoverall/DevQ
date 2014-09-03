@@ -33,7 +33,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             controller: 'queueCtrl',
             resolve: {
                 queueRef: function (firebaseService) {
-                    firebaseService.getQueue();
+                    return firebaseService.getQueue();
                 }
             }
         });
