@@ -4,7 +4,9 @@ var devQ = angular.module('devQ');
 
 devQ.controller('queueCtrl', [ '$scope', 'queueRef', function($scope, queueRef) {
 
-    $scope.queue = queueRef().$asArray();
+    debugger;
+
+    $scope.queue = queueRef.$asArray();
 
     $scope.enterQueue = function () {
         var question = {};

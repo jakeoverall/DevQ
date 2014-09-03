@@ -7,7 +7,7 @@ angular.module('devQ')
               return $window.env;
           },
           saveUsername: function (username) {
-              $window.localStorage.setItem('username', username);
+              return $window.localStorage.setItem('username', username);
           },
           getUsername: function () {
               return $window.localStorage.getItem('username');
