@@ -21,7 +21,7 @@
 		</div>
 		<div class="col-md-4 action-icons text-center" >
 			<a href="" ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"><span></span></a>
-			<a ng-show="mentor()" ng-click="assigned(item)" class="yellow glyphicon glyphicon-ok pull-right"></a>		
+			<a ng-click="assigned(item)" class="yellow glyphicon glyphicon-ok pull-right"></a>		
 		</div>
 		
 	</div>
@@ -42,7 +42,7 @@
             <p class="text-muted">Assigned to: {{item.mentor}}</p>
 		</div>
 		<div class="col-md-4 action-icons text-center" >
-			<a ng-show="mentor()" ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"></a>
+			<a ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"></a>
 		</div>
 	</div>
 	
