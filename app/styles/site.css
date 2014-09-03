@@ -1,2 +1,15 @@
 ﻿body {
+	background-color: #404041;
+}
+
+.jumbotron{
+	margin-top:15%;
+	border: 4px solid #5C5B5B;
+}
+
+.icon {
+	margin-top: -20%;
+	margin-right: 40%;
+	margin-left: 40%;
+	max-width: 20%;
 }
