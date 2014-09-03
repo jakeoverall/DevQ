@@ -2,17 +2,22 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'environmentService', function($scope, queueRef, environmentService) {
+devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'firebaseService', function($scope, queueRef, firebaseService) {
 
     $scope.queue = queueRef.$asArray();
 
     $scope.mentor = function() {
-        if (environmentService.getMentor() === null) {
-            return false;
-        } else {
-            return true;
-        };
+        return firebaseService.getMentor($scope.username.id).$asObject();
     };
+    console.log($scope.mentor());
+
+    //$scope.isMentor = function() {
+    //    if ($scope.mentor) {
+    //        return false;
+    //    } else {
+    //        return true;
+    //    };
+    //};
 
     $scope.enterQueue = function () {
         var question = {};
@@ -30,7 +35,7 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'environmentService', funct
 
     $scope.assigned = function(question) {
         question.status = 'yellow';
-        question.mentor = $scope.username || '';
+        question.mentor = $scope.mentor || '';
         $scope.queue.$save(question);
     };
 }]);
