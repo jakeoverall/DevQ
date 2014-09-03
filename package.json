@@ -1,0 +1,19 @@
+{
+  "name": "DevQ",
+  "version": "0.0.0",
+  "description": "A simple queue app for devmountain students",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joverall22/DevQ.git"
+  },
+  "author": "DevMountain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joverall22/DevQ/issues"
+  },
+  "homepage": "https://github.com/joverall22/DevQ"
+}
