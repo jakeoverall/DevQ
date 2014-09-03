@@ -11,6 +11,10 @@ angular.module('devQ')
           },
           getUsername: function () {
               return $window.localStorage.getItem('username');
+          },
+          saveMentor: function (username) {
+              $window.localStorage.setItem('username', username);
+              $window.localStorage.setItem('mentor', username);
           }
       };
   });
