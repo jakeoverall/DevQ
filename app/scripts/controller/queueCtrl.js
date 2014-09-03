@@ -4,7 +4,6 @@ var devQ = angular.module('devQ');
 
 devQ.controller('queueCtrl', [ '$scope', 'queueRef', function($scope, queueRef) {
 
-    debugger;
 
     $scope.queue = queueRef.$asArray();
 
@@ -14,9 +13,11 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', function($scope, queueRef) 
         question.status = 'Red';
         question.submittedBy = $scope.username || '';
         $scope.queue.$add(question);
+        $scope.message = "";
     };
 
     $scope.leaveQueue = function(question) {
+        debugger;
         question.status = 'Green';
         $scope.queue.$save(question);
     };

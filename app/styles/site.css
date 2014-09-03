@@ -10,6 +10,7 @@
 .panel {
 	margin-top:6%;
 	border: 4px solid #5C5B5B;	
+	padding-bottom: 50px;
 }
 
 .queue {
