@@ -1,9 +1,41 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" >
-<head>
-    <title></title>
+<head ng-app="devQ">
+    <title>Queue</title>
+    <link rel="stylesheet" type="text/css" href="/app/styles/site.css">
 </head>
 <body>
 
+
+
+
+	<div ui-view></div>
+
+
+
+
+
+
+
+
+	<scripts>
+		<!-- Environment -->
+			<script src="/app/scripts/env.js"></script>
+		<!-- Vendor -->
+			<script src="/bower_components/angular/angular.min.js"></script>
+			<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+			<script src="/bower_components/angualrfire/dist/angularfire.min.js"></script>
+			<script src="/bower_components/firebase/firebase.js"></script>
+			<script src="/bower_components/firebase-simple-login/firebase-simple-login.js"></script>
+			<script src="/bower_components/mockfirebase/dist/mockfirebase.js"></script>
+		<!-- App -->
+			<script src="/app/scripts/app.js"></script>
+		<!-- Controllers -->
+			<script src="/app/scripts/controller/loginCtrl.js"></script>
+			<script src="/app/scripts/controller/secureCtrl.js"></script>
+		<!-- Services -->
+			<script src="/app/scripts/services/environmentService.js"></script>
+			<script src="/app/scripts/services/firebaseService.js"></script>
+	<scripts>
 </body>
 </html>
