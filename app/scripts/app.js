@@ -1,4 +1,4 @@
-﻿var devQ = angular.module('devQ', ['firebase', 'ui.router']);
+﻿var devQ = angular.module('devQ', ['firebase', 'ui.router', 'restangular']);
 
 
 //Routes
@@ -22,8 +22,8 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             template: '<div ui-view></div>',
             controller: 'secureCtrl',
             resolve: {
-                username: function (environmentService) {
-                    return environmentService.getUsername();
+                username: function (authService) {
+                    return authService.getUser();
                 }
             }
         })

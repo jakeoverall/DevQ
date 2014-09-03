@@ -7,6 +7,9 @@ angular.module('devQ')
       return {
           getQueue: function () {
               return $firebase(new Firebase(firebaseUrl + '/queue'));
+          },
+          getMentor: function (id) {
+              return $firebase(new Firebase(firebaseUrl + '/users/' + id));
           }
       };
 
