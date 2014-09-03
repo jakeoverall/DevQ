@@ -1,10 +1,10 @@
 ﻿'use strict';
 
 angular.module('devQ')
-  .controller('loginCtrl', function ($scope, $state, enviromentService) {
+  .controller('loginCtrl', function ($scope, $state, environmentService) {
       
       $scope.logMeIn = function () {
-          enviromentService.saveUsername($scope.username).then(function () {
+          environmentService.saveUsername($scope.username).then(function () {
               $state.go('secure.queue');
           });
       };
