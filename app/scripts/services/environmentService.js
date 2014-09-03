@@ -15,6 +15,9 @@ angular.module('devQ')
           saveMentor: function (username) {
               $window.localStorage.setItem('username', username);
               $window.localStorage.setItem('mentor', username);
-          }
+          },
+          getMentor: function () {
+              return $window.localStorage.getItem('mentor');
+          },
       };
   });

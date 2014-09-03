@@ -2,10 +2,17 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('queueCtrl', [ '$scope', 'queueRef', function($scope, queueRef) {
-
+devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'environmentService', function($scope, queueRef, environmentService) {
 
     $scope.queue = queueRef.$asArray();
+
+    $scope.mentor = function() {
+        if (environmentService.getMentor() === null) {
+            return false;
+        } else {
+            return true;
+        };
+    };
 
     $scope.enterQueue = function () {
         var question = {};
@@ -13,11 +20,10 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', function($scope, queueRef) 
         question.status = 'Red';
         question.submittedBy = $scope.username || '';
         $scope.queue.$add(question);
-        $scope.message = "";
+        $scope.message = '';
     };
 
     $scope.leaveQueue = function(question) {
-        debugger;
         question.status = 'Green';
         $scope.queue.$save(question);
     };
