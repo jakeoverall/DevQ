@@ -16,7 +16,7 @@ devQ.controller('mentorCtrl', function ($scope, $state, authService) {
 
     $scope.logMeIn = function () {
         authService.logIn($scope.email, $scope.password).then(function () {
-            $state.go('secure.queue');
+            $state.go('secure.cohort');
         });
     };
 
