@@ -1,0 +1,29 @@
+{
+  "name": "DevQ",
+  "version": "0.0.0",
+  "homepage": "https://github.com/joverall22/DevQ",
+  "authors": [
+    "Jake Overall <joverall22@gmail.com>"
+  ],
+  "description": "a simple queue for DevMountain Students",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.23",
+    "angularfire": "~0.8.2",
+    "angular-ui-router": "~0.2.11",
+    "firebase": "~1.0.21",
+    "angular-ui-bootstrap": "~0.11.0",
+    "restangular": "~1.4.0"
+  }
+}
