@@ -13,3 +13,36 @@
 	margin-left: 40%;
 	max-width: 20%;
 }
+
+.queue-icon {
+	margin-top: -17%;
+	margin-right: 40%;
+	margin-left: 40%;
+	max-width: 20%;
+}
+
+.glyphicon {
+	font-size: 50px;
+	margin-left: 7%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.action-icons {
+	margin-top: 6%;
+	padding-right: 75px;
+}
+
+.yellow {
+	color:yellow;
+}
+
+.green {
+	color:green;
+}
