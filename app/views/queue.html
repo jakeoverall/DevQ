@@ -1,6 +1,17 @@
-<div class="jumbotron queue col-md-10 col-md-offset-1">
+<div class="container">
+	<div class="jumbotron">
+		<h2>Submit a Question</h2>
+		<form ng-sumbit="enterQueue()">
+			<input type="text" placeholder="Question (optional)" ng-model="message" class="form-control"> <br>
+			<input type="submit" value="Enter the Queue!" class="btn btn-info btn-lg">
+		</form>
+	</div>
+</div>
+
+
+<div class="panel queue col-md-5">
 	<img class="queue-icon" src="https://devmounta.in/img/badge.png">
-	<h1 class="text-center">Le Queue</h1>
+	<h1 class="text-center">In Queue</h1>
 	<hr>
 	<div class="col-md-8" >
 		<h2>Ean</h2>
@@ -10,7 +21,7 @@
 		</p>
 	</div>
 	<div class="col-md-4 action-icons text-center" >
-		<a ng-click="omg" class="green glyphicon glyphicon-off pull-right"></a>
+		<a ng-click="omg" class="green glyphicon glyphicon-remove pull-right"></a>
 		<a ng-click="omg" class="yellow glyphicon glyphicon-ok pull-right"></a>		
 	</div>
 	<div class="col-md-8" >
@@ -21,7 +32,7 @@
 		</p>
 	</div>
 	<div class="col-md-4 action-icons text-center" >
-		<a ng-click="omg" class="green glyphicon glyphicon-off pull-right"></a>
+		<a ng-click="omg" class="green glyphicon glyphicon-remove pull-right"></a>
 		<a ng-click="omg" class="yellow glyphicon glyphicon-ok pull-right"></a>		
 	</div>
 	<div class="col-md-8" >
@@ -32,8 +43,46 @@
 		</p>
 	</div>
 	<div class="col-md-4 action-icons text-center" >
-		<a ng-click="omg" class="green glyphicon glyphicon-off pull-right"></a>
+		<a ng-click="omg" class="green glyphicon glyphicon-remove pull-right"></a>
 		<a ng-click="omg" class="yellow glyphicon glyphicon-ok pull-right"></a>		
+	</div>		
+
+
+</div>
+
+<div class="panel col-md-5 col-xs-offset-1">
+	<img class="queue-icon" src="https://devmounta.in/img/badge.png">
+	<h1 class="text-center">Being Helped</h1>
+	<hr>
+	<div class="col-md-8" >
+		<h2>Ean</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. 
+		</p>
+	</div>
+	<div class="col-md-4 action-icons text-center" >
+		<a ng-click="omg" class="green glyphicon glyphicon-remove pull-right"></a>
+	</div>
+	<div class="col-md-8" >
+		<h2>Ean</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. 
+		</p>
+	</div>
+	<div class="col-md-4 action-icons text-center" >
+		<a ng-click="omg" class="green glyphicon glyphicon-remove pull-right"></a>
+	</div>
+	<div class="col-md-8" >
+		<h2>Ean</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. 
+		</p>
+	</div>
+	<div class="col-md-4 action-icons text-center" >
+		<a ng-click="omg" class="green glyphicon glyphicon-remove pull-right"></a>
 	</div>		
 
 
