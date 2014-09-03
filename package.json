@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/joverall22/DevQ/issues"
   },
-  "homepage": "https://github.com/joverall22/DevQ"
+  "homepage": "https://github.com/joverall22/DevQ",
+  "dependencies": {
+    "express": "^4.8.7"
+  }
 }
