@@ -102,6 +102,12 @@ angular.module('devQ')
               return deferred.promise;
           },
 
+          initRegistrantPassword: function(initPW) {
+            // replace 'pw' variable line below with firebase code to access password
+            var pw = '123456'
+            return (initPW === pw) ? true : false;
+          },
+
           changePassword: firebaseSimpleLogin.$changePassword
       };
   });

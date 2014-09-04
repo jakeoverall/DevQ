@@ -7,11 +7,11 @@ devQ.controller('mentorCtrl', function ($scope, $state, authService) {
 
     $scope.showReg = function () {
         if ($scope.reg) {
-            $scope.status = 'Log In';
+            $('.modal').modal('show')
         } else {
             $scope.status = 'Register';
+            $scope.reg = !$scope.reg;
         }
-        $scope.reg = !$scope.reg;
     };
 
     $scope.logMeIn = function () {
@@ -28,4 +28,15 @@ devQ.controller('mentorCtrl', function ($scope, $state, authService) {
         $scope.registerPassword = '';
         $scope.showReg();
     };
+
+
+    $scope.registerCont = function (initPW) {
+        var res = authService.initRegistrantPassword(initPW)
+        if(res) {
+            $scope.status = 'Log In';
+            $scope.reg = !$scope.reg;
+            $('.modal').modal('hide')
+        }
+        $scope.initPassword = '';
+    }
 });
