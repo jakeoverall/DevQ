@@ -1,17 +1,28 @@
 ﻿body {
-	background-color: #404041;
+	background: rgb(120, 120, 120);
+
+	padding-bottom: 150px;
 }
+
+/** {
+	border:1px solid black;
+}*/
+
 
 .jumbotron{
 	margin-top:3%;
-	border: 4px solid #5C5B5B;
+	border-radius: 1px !important;
+	-webkit-box-shadow: 1px 1px 1px 0px rgba(50, 50, 50, 0.59);
+	-moz-box-shadow:    1px 1px 1px 0px rgba(50, 50, 50, 0.59);
+	box-shadow:         1px 1px 1px 0px rgba(50, 50, 50, 0.59);
 }
 
 .panel {
 	margin-top:6%;
-	border: 4px solid #5C5B5B;	
-	padding-bottom: 50px;
-
+	border-radius: 1px;
+	-webkit-box-shadow: 1px 1px 1px 0px rgba(50, 50, 50, 0.59);
+	-moz-box-shadow:    1px 1px 1px 0px rgba(50, 50, 50, 0.59);
+	box-shadow:         1px 1px 1px 0px rgba(50, 50, 50, 0.59);
 }
 
 .block {
@@ -64,3 +75,94 @@ a:hover {
 .unanswered-queue {
 	background: red;
 }
+
+.navbar-default {
+	height: 100px;
+}
+
+input.ng-invalid.ng-dirty {
+	outline-color: red;
+}
+
+.bottom-nav {
+	padding: 27px;
+}
+
+.mentor-image {
+	border-radius: 100%;
+	max-width: 55px;
+	max-height: 55px;
+}
+
+.name-plate {
+	border-top-right-radius:50px;
+	border-bottom-right-radius:50px;
+	background: #eee;
+}
+
+.name-plate-name {
+	width:50%;
+	display:inline-block; 
+	padding-left:5px;
+}
+
+.status-light-red {
+	border-radius: 100%;
+	height:3px; 
+	width:3px; 
+	background:red; 
+	padding:5px; 
+	border-radius:100%;-webkit-box-shadow: 0px 0px 24px 1px rgba(255,56,56,1);
+	-moz-box-shadow: 0px 0px 24px 1px rgba(255,56,56,1);
+	box-shadow: 0px 0px 24px 1px rgba(255,56,56,1);
+	margin-bottom:5px; 
+	margin-left:10px;
+}
+
+.status-light-green {
+	border-radius: 100%;
+	height:3px; 
+	width:3px; 
+	background:#40e667; 
+	padding:5px; 
+	-webkit-box-shadow: 0px 0px 24px 1px rgba(64,230,103,1);
+	-moz-box-shadow: 0px 0px 24px 1px rgba(64,230,103,1);
+	box-shadow: 0px 0px 24px 1px rgba(64,230,103,1);
+	margin-bottom:5px; 
+	margin-left:10px;
+}
+
+.status-light-yellow {
+	border-radius: 100%;
+	height:3px; 
+	width:3px; 
+	background: #e7a61a; 
+	padding:5px; 
+	-webkit-box-shadow: 0px 0px 24px 1px rgba(255,205,56,1);
+	-moz-box-shadow: 0px 0px 24px 1px rgba(255,205,56,1);
+	box-shadow: 0px 0px 24px 1px rgba(255,205,56,1);	
+	margin-bottom:5px; 
+	margin-left:10px;
+}
+
+.mentor-image-box {
+	width:40%; 
+	display:inline-block; 
+	margin-right:-1px;
+	margin-top: 0px;
+}
+
+.panel-grey {
+	background: #eee;
+}
+
+
+
+
+
+
+
+
+
+
+
