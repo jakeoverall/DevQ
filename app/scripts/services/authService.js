@@ -14,7 +14,7 @@ angular.module('devQ')
 
             if (userId) {
                 var userObject = $firebase(new Firebase(firebaseEndpoint + '/users/' + userId)).$asObject();
-                
+
                 /*
                  * Protect against the case where a user is logged in yet has deleted her email address.
                  * This function effectively resets the user's email to the email that she used to register if the user or
@@ -101,36 +101,25 @@ angular.module('devQ')
 
               return deferred.promise;
           },
-<<<<<<< HEAD
 
-          initRegistrantPassword: function(initPW) {
-            var deferred = $q.defer();
-            $http({
-                method: 'GET',
-                url: 'http://localhost:1212/pin',
-                data: {
-                  pin: initPW
-                }
-              }).success(function(res) {
-                    deferred.resolve(res);
-                  }).
-                    error(function(res) {
-                      deferred.resolve
-                  });
-                  return deferred.promise
-              },
-                changePassword: firebaseSimpleLogin.$changePassword
-
-          };
-
-      
-  });
-
-
-
-
-=======
+          initRegistrantPassword: function (initPW) {
+              var deferred = $q.defer();
+              $http({
+                  method: 'POST',
+                  url: 'http://localhost:1212/pin',
+                  data: {
+                      pin: initPW
+                  }
+              }).success(function (res) {
+                  deferred.resolve(res);
+              }).
+                      error(function (res) {
+                          deferred.resolve
+                      });
+              return deferred.promise;
+          },
           changePassword: firebaseSimpleLogin.$changePassword
+
       };
+
   });
->>>>>>> joverall22-master
