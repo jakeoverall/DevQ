@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('devQ')
-  .service('authService', function authService($q, $firebase, $firebaseSimpleLogin, environmentService, Restangular) {
+  .service('authService', function authService($q, $http, $firebase, $firebaseSimpleLogin, environmentService, Restangular) {
 
       var firebaseEndpoint = environmentService.getEnv().firebase;
       var firebase = new Firebase(firebaseEndpoint);
@@ -117,10 +117,14 @@ angular.module('devQ')
                       deferred.resolve
                   });
                   return deferred.promise
-              }
-            // return (initPW === pw) ? true : false;
-          },
+              },
+                changePassword: firebaseSimpleLogin.$changePassword
 
-          changePassword: firebaseSimpleLogin.$changePassword
-      };
+          };
+
+      
   });
+
+
+
+

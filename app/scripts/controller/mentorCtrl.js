@@ -13,7 +13,6 @@ devQ.controller('mentorCtrl', function ($scope, $state, authService) {
             $scope.reg = !$scope.reg;
         }
         $scope.error = '';
-        $scope.reg = !$scope.reg;
     };
 
     $scope.logMeIn = function () {
