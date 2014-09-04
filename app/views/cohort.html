@@ -2,8 +2,8 @@
 	<img class="icon" src="https://devmounta.in/img/badge.png">
 	<h2>Select your cohort to join the queue</h2>
 	<form ng-submit="selectCohort()">
-	    <select class="form-control" ng-options="item in cohorts" ng-model="cohort" /> <br/>
-	    <hr>
+	    <select class="form-control" ng-options="cohort.id as cohort.name for cohort in cohorts" ng-model="cohort" />
+        <br>
 		<input type="submit" class="btn btn-info btn-lg" value="Enter the Queue!"> 
 	</form>
 </div>

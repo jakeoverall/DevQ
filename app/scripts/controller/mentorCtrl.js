@@ -11,12 +11,15 @@ devQ.controller('mentorCtrl', function ($scope, $state, authService) {
         } else {
             $scope.status = 'Register';
         }
+        $scope.error = '';
         $scope.reg = !$scope.reg;
     };
 
     $scope.logMeIn = function () {
         authService.logIn($scope.email, $scope.password).then(function () {
-            $state.go('secure.cohort');
+            $state.go('secure.dashboard');
+        }, function (error) {
+            $scope.error = error.message.slice(20);
         });
     };
 
@@ -27,5 +30,7 @@ devQ.controller('mentorCtrl', function ($scope, $state, authService) {
         $scope.registerEmail = '';
         $scope.registerPassword = '';
         $scope.showReg();
+    }, function (error) {
+        $scope.error = error.toString();
     };
 });
