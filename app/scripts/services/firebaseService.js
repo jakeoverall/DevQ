@@ -9,15 +9,14 @@ angular.module('devQ')
           getCohorts: function() {
               return $firebase(new Firebase(firebaseUrl + '/cohorts'));
           },
-          setCohort: function(cohort) {
-              firebaseUrl = firebaseUrl + '/' + cohort;
+          getQueue: function (queueId) {
+              return $firebase(new Firebase(firebaseUrl + '/cohorts/' + queueId));
           },
-          getQueue: function () {
-              return $firebase(new Firebase(firebaseUrl + '/queue'));
+          getMentors: function () {
+              return $firebase(new Firebase(firebaseUrl + '/users'));
           },
           getMentor: function (id) {
               return $firebase(new Firebase(firebaseUrl + '/users/' + id));
           }
       };
-
   });

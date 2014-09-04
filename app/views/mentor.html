@@ -7,7 +7,8 @@
     <div ng-show="reg">
         <h2>Mentor Login</h2>
         <form ng-submit="logMeIn()">
-            <input type="text" placeholder="Email" class="form-control" ng-model="email" required><br>
+            <p ng-show="error" class="text-danger">{{ error }}</p>
+            <input type="email" placeholder="Email" class="form-control" ng-model="email" required><br>
             <input type="password" placeholder="Password" class="form-control" ng-model="password" required><br>
             <input type="submit" class="btn btn-info btn-lg" value="Check the Queue!">
         </form>
@@ -16,8 +17,9 @@
     <div ng-show="!reg">
         <h2>Register</h2>
         <form ng-submit="register()">
+            <p ng-show="error" class="text-danger">{{ error }}</p>
             <input class="form-control" type="text" id="name" placeholder="Full Name" ng-model="registerName" required /><br />
-            <input class="form-control" type="text" id="registerUsername" placeholder="Email" ng-model="registerEmail" required /><br />
+            <input class="form-control" type="email" id="registerUsername" placeholder="Email" ng-model="registerEmail" required /><br />
             <input class="form-control" type="password" id="registerPassword" placeholder="Password" ng-model="registerPassword" required /><br />
             <input type="submit" class="btn btn-info btn-lg" value="Register" />
         </form>
