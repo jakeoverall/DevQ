@@ -36,12 +36,16 @@ devQ.controller('mentorCtrl', function ($scope, $state, authService) {
 
 
     $scope.registerCont = function (initPW) {
-        var res = authService.initRegistrantPassword(initPW)
-        if(res) {
-            $scope.status = 'Log In';
-            $scope.reg = !$scope.reg;
-            $('.modal').modal('hide')
-        }
-        $scope.initPassword = '';
-    }
+        authService.initRegistrantPassword(initPW).then(function (res) {
+            if (res.valid) {
+                $scope.pinError = '';
+                $scope.status = 'Log In';
+                $scope.reg = !$scope.reg;
+                $('.modal').modal('hide');
+            } else {
+                $scope.initPassword = '';
+                $scope.pinError = 'Incorrect Pin Provided';
+            }
+        });
+    };
 });

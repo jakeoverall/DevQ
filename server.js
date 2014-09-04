@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-var pin = 123456;
+var pin = '123456';
 
 app.use(express.static(__dirname + '/'));
 app.use(express.static(__dirname + '/bower_components'));
@@ -14,10 +14,12 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/pin', function(req, res) {
+app.post('/pin', function(req, res) {
     if (req.body.pin === pin) {
+        console.log('true');
         res.send({ valid: true });
     } else {
+        console.log('true');
         res.send({ valid: false });
     }
 });
