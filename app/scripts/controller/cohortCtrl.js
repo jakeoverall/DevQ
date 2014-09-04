@@ -6,7 +6,7 @@ angular.module('devQ')
       $scope.cohorts = cohortsRef.$asArray();
       
       $scope.selectCohort = function () {
-          firebaseService.getCohort($scope.cohort);
-          $state.go('queue');
+          var id = $scope.cohortId;
+          $state.go('queue', {queueId: id});
       };
   }]);

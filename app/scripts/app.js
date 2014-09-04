@@ -22,15 +22,15 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             templateUrl: '/app/views/mentor.html',
             controller: 'mentorCtrl'
         })
-        .state('cohort.queue', {
-            url: '/cohort/queueId:',
+        .state('queue', {
+            url: '/cohort/:queueId',
             templateUrl: '/app/views/queue.html',
             controller: 'queueCtrl',
             resolve: {
                 queueRef: function (firebaseService, $stateParams) {
                     return firebaseService.getQueue($stateParams.queueId);
                 }
-            }            
+            }
         })
         .state('secure', {
             abstract: true,
