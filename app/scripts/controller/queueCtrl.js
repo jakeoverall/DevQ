@@ -9,6 +9,13 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'firebaseService', function
     $scope.mentor = function() {
         return firebaseService.getMentor($scope.username.id).$asObject();
     };
+    console.log($scope.mentor());
+
+    $scope.isMentor = function() {
+       if($scope.mentor !== null){
+        return true;
+       }
+    };
     
     //$scope.isMentor = function() {
     //    if ($scope.mentor) {

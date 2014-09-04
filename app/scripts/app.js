@@ -30,7 +30,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                 queueRef: function (firebaseService, $stateParams) {
                     return firebaseService.getQueue($stateParams.queueId);
                 }
-            }
+            }            
         })
         .state('secure', {
             abstract: true,

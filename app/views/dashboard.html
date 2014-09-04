@@ -1,14 +1,218 @@
-<h1>Testing Dashboard</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 panel">
+			<h1 class="text-center">Cohorts</h1>
+			<div class="panel panel-grey"  style="padding-bottom:none !important">
+				<div class="panel-heading" >
+					<h4>SLC Web Dev After Hours</h4>
+				</div>
+				<div class="panel-body">
+					<p>7 in queue || 3 mentors</p>
+				</div>				
+			</div>
+			<div class="panel panel-grey"  style="padding-bottom:none !important">
+				<div class="panel-heading" >
+					<h4>Provo Immersive</h4>
+				</div>
+				<div class="panel-body">
+					<p>4 in queue || 2 mentors</p>
+				</div>				
+			</div>
+			<div class="panel panel-grey"  style="padding-bottom:none !important">
+				<div class="panel-heading" >
+					<h4>Provo iOS After Hours</h4>
+				</div>
+				<div class="panel-body">
+					<p>12 in queue || 1 mentors</p>
+				</div>				
+			</div>
+			<div class="panel panel-grey"  style="padding-bottom:none !important">
+				<div class="panel-heading" >
+					<h4>Provo Web Dev After Hours</h4>
+				</div>
+				<div class="panel-body">
+					<p>2 in queue || 3 mentors</p>
+				</div>				
+			</div>
+			<div class="panel panel-grey"  style="padding-bottom:none !important">
+				<div class="panel-heading" >
+					<h4>Online Web Dev After Hours</h4>
+				</div>
+				<div class="panel-body">
+					<p>0 in queue || 0 mentors</p>
+				</div>				
+			</div>	
+			<div class="panel-body text-center">
+				<input type="submit" value="Add Cohort" class="btn btn-lg btn-info">
+				<input type="submit" value="View Question" class="btn btn-lg btn-primary">
+			</div>										
+		</div>
+		<div class="col-md-7 panel pull-right">
+					<h1 class="text-center">Mentors</h1>
+				<div class="col-md-4">
+					<div class="panel name-plate">
+						<div class="panel-header">
+							<div class="name-plate-name">
+								<h4>Jake</h4>
+								<div class="status-light-green"></div>
+							</div>
+							<div style="" class="pull-right mentor-image-box">
+								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+							</div>
 
-<!-- <div class="jumbotron col-md-6 col-md-offset-3">
-    <img class="icon" src="https://devmounta.in/img/badge.png">
-    <h2>Select your cohort to join the queue</h2>
-    <form ng-submit="selectCohort()">
-        <select class="form-control" ng-options="item in cohorts" ng-model="cohort" /><br>
-        <input type="submit" class="btn btn-info btn-lg" value="Enter the Queue!">
-    </form>
+						</div>
+					</div>
+					<div class="panel name-plate">
+						<div class="panel-header">
+							<div class="name-plate-name">
+								<h4>Amy Kate</h4>
+								<div class="status-light-yellow"></div>
+							</div>
+							<div style="" class="pull-right mentor-image-box">
+								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+							</div>
+
+						</div>
+					</div>
+					<div class="panel name-plate">
+						<div class="panel-header">
+							<div class="name-plate-name">
+								<h4>Chris</h4>
+								<div class="status-light-red"></div>
+							</div>
+							<div style="" class="pull-right mentor-image-box">
+								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+							</div>
+
+						</div>
+					</div>
+					<div class="panel name-plate">
+						<div class="panel-header">
+							<div class="name-plate-name">
+								<h4>Brannon</h4>
+								<div class="status-light-green"></div>
+							</div>
+							<div style="" class="pull-right mentor-image-box">
+								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+							</div>
+
+						</div>
+					</div>
+					<div class="panel name-plate">
+						<div class="panel-header">
+							<div class="name-plate-name">
+								<h4>Tyler</h4>
+								<div class="status-light-yellow"></div>
+							</div>
+							<div style="" class="pull-right mentor-image-box">
+								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+							</div>
+
+						</div>
+					</div>						
+
+				</div>
+				<div class="col-md-4">
+					<div class="panel name-plate">
+						<div class="panel-header">
+							<div class="name-plate-name">
+								<h4>Cahlan</h4>
+								<div class="status-light-red"></div>
+							</div>
+							<div style="" class="pull-right mentor-image-box">
+								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+							</div>
+
+						</div>
+					</div>
+					<div class="panel name-plate">
+						<div class="panel-header">
+							<div class="name-plate-name">
+								<h4>Paul</h4>
+								<div class="status-light-yellow"></div>
+							</div>
+							<div style="" class="pull-right mentor-image-box">
+								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+							</div>
+
+						</div>
+					</div>
+					<div class="panel name-plate">
+						<div class="panel-header">
+							<div class="name-plate-name">
+								<h4>Ryan</h4>
+								<div class="status-light-yellow"></div>
+							</div>
+							<div style="" class="pull-right mentor-image-box">
+								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+							</div>
+
+						</div>
+					</div>
+					<div class="panel name-plate">
+						<div class="panel-header">
+							<div class="name-plate-name">
+								<h4>Trent</h4>
+								<div class="status-light-green"></div>
+							</div>
+							<div style="" class="pull-right mentor-image-box">
+								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+							</div>
+
+						</div>
+					</div>
+					<div class="panel name-plate">
+						<div class="panel-header">
+							<div class="name-plate-name">
+								<h4>Kurt</h4>
+								<div class="status-light-red"></div>
+							</div>
+							<div style="" class="pull-right mentor-image-box">
+								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+							</div>
+
+						</div>
+					</div>							
+
+				</div>	
+				<div class="col-md-4">
+					<div class="panel name-plate">
+						<div class="panel-header">
+							<div class="name-plate-name">
+								<h4>Pablito</h4>
+								<div class="status-light-green"></div>
+							</div>
+							<div style="" class="pull-right mentor-image-box">
+								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+							</div>
+
+						</div>
+					</div>
+					<div class="panel name-plate">
+						<div class="panel-header">
+							<div class="name-plate-name">
+								<h4>Colt</h4>
+								<div class="status-light-green"></div>
+							</div>
+							<div style="" class="pull-right mentor-image-box">
+								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+							</div>
+
+						</div>
+					</div>
+					<div class="panel name-plate">
+						<div class="panel-header">
+							<div class="name-plate-name">
+								<h4>Ean</h4>
+								<div class="status-light-yellow"></div>
+							</div>
+							<div style="" class="pull-right mentor-image-box">
+								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+							</div>
+
+						</div>
+					</div>							
+				</div>
+		</div>
+	</div>
 </div>
-
-<div class="navbar-fixed-bottom">
-    <a ui-sref="mentor">Mentor Login</a>
-</div> -->
