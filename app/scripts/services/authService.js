@@ -46,6 +46,45 @@ angular.module('devQ')
             return userObject || promise;
 
         },
+
+          getStudent = function (studentId) {
+            var studentObject,
+              promise;
+
+            if (studentId) {
+                var studentObject = $firebase(new Firebase(firebaseEndpoint + '/students/' + studentId)).$asObject();
+
+                /*
+                 * Protect against the case where a user is logged in yet has deleted her email address.
+                 * This function effectively resets the user's email to the email that she used to register if the user or
+                 * her email were somehow deleted.
+                 *
+                 * We may want this reset function to be a bit more elaborate in the future if we determine that more user
+                 * attributes are essential to the application and should at least receive defaults.
+                */
+                studentObject.$loaded().then(function (student) {
+                    if (!student || !student.username) {
+                        firebaseSimpleLogin.$getCurrentUser().then(function (currentStudent) {
+                            studentObject.username = currentStudent.username;
+                            studentObject.$save();
+                        });
+                    }
+                });
+
+            } else {
+                promise = firebaseSimpleLogin.$getCurrentUser();
+
+                promise.then(function (currentStudent) {
+                    if (currentStudent) {
+                        Restangular.setDefaultHeaders({ "Authorization": currentStudent.firebaseAuthToken });
+                    }
+                });
+
+            }
+
+            return studentObject || promise;
+
+        },
         getResolvedPromise = function (resolution) {
             var deferred = $q.defer();
             deferred.resolve(resolution);
@@ -55,11 +94,12 @@ angular.module('devQ')
 
       return {
           getUser: getUser,
+          getStudent: getStudent,
 
-          logIn: function (email, password) {
+          logIn: function (signInObj) {
               return firebaseSimpleLogin.$login('password', {
-                  email: email,
-                  password: password,
+                  email: signInObj.email,
+                  password: signInObj.password,
                   rememberMe: true // Override default session length (browser session) to be 30 days.
               });
           },
@@ -73,6 +113,24 @@ angular.module('devQ')
                   userObject.email = user.email;
                   userObject.name = name;
                   userObject.$save().then(deferred.resolve, deferred.reject);
+
+              }, deferred.reject);
+
+              return deferred.promise;
+          },
+
+          registerStudent: function (studentInfo) {
+            var deferred = $q.defer();
+            
+              firebaseSimpleLogin.$createUser(studentInfo.email, studentInfo.password).then(function (student) {
+                  // Create our own custom user object to house the user's data
+                  
+                  var studentObject = $firebase(new Firebase(firebaseEndpoint + '/students/' + student.id)).$asObject();
+debugger;
+                  studentObject.email = studentInfo.email;
+                  studentObject.studentName = studentInfo.studentName;
+                  studentObject.cohortId = studentInfo.cohortId
+                  studentObject.$save().then(deferred.resolve, deferred.reject);
 
               }, deferred.reject);
 
