@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" ng-show="!isMentor()">
 	<div class="jumbotron">
-		<h2>Submit a Question</h2>
+		<h2>Enter your name</h2>
 		<form>
-			<input type="text" placeholder="Question (optional)" ng-model="message" class="form-control"> <br>
+			<input type="text" placeholder="Name" ng-model="name" class="form-control"> <br>
 			<input type="submit" ng-click="enterQueue()" value="Enter the Queue!" class="btn btn-info btn-lg">
 		</form>
 	</div>

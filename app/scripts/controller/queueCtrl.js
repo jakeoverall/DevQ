@@ -11,13 +11,11 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'firebaseService', function
     };
     console.log($scope.mentor());
 
-    //$scope.isMentor = function() {
-    //    if ($scope.mentor) {
-    //        return false;
-    //    } else {
-    //        return true;
-    //    };
-    //};
+    $scope.isMentor = function() {
+       if($scope.mentor !== null){
+        return true;
+       }
+    };
 
     $scope.enterQueue = function () {
         var question = {};

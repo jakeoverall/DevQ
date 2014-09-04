@@ -17,6 +17,16 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             templateUrl: '/app/views/mentor.html',
             controller: 'mentorCtrl'
         })
+        .state('queue', {
+            url: '/queue',
+            templateUrl: '/app/views/queue.html',
+            controller: 'queueCtrl',
+            resolve: {
+                queueRef: function (firebaseService) {
+                    return firebaseService.getQueue();
+                }
+            }            
+        })
         .state('secure', {
             abstract: true,
             template: '<div ui-view></div>',
