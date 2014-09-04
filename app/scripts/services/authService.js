@@ -101,6 +101,7 @@ angular.module('devQ')
 
               return deferred.promise;
           },
+<<<<<<< HEAD
 
           initRegistrantPassword: function(initPW) {
             var deferred = $q.defer();
@@ -128,3 +129,8 @@ angular.module('devQ')
 
 
 
+=======
+          changePassword: firebaseSimpleLogin.$changePassword
+      };
+  });
+>>>>>>> joverall22-master

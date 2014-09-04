@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/joverall22/DevQ",
   "dependencies": {
+    "body-parser": "^1.7.0",
     "express": "^4.8.7"
   }
 }
