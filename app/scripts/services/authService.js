@@ -101,7 +101,6 @@ angular.module('devQ')
 
               return deferred.promise;
           },
-
           changePassword: firebaseSimpleLogin.$changePassword
       };
   });
