@@ -1,4 +1,4 @@
-<div class="jumbotron col-md-6 col-md-offset-3">
+<!-- <div class="jumbotron col-md-6 col-md-offset-3">
 	<img class="icon" src="https://devmounta.in/img/badge.png">
 	<h2>Select your cohort to join the queue</h2>
 	<form ng-submit="selectCohort()">
@@ -10,4 +10,34 @@
 
 <div class="navbar-fixed-bottom">
 	<a ui-sref="mentor">Mentor Login</a>
+</div> -->
+
+<div class="jumbotron col-md-6 col-md-offset-3">
+    <img class="icon" src="https://devmounta.in/img/badge.png">
+
+    <a href="" ng-click="showReg()">{{status}}</a>
+
+    <div ng-show="reg">
+        <h2>Student Login</h2>
+        <form ng-submit="logMeIn()">
+            <p ng-show="error" class="text-danger">{{ error }}</p>
+            <input type="email" placeholder="Email" class="form-control" ng-model="student.email" required><br>
+            <input type="password" placeholder="Password" class="form-control" ng-model="student.password" required><br>
+            <input type="submit" class="btn btn-info btn-lg" value="Enter the Queue!">
+        </form>
+    </div>
+
+    <div ng-show="!reg">
+        <h2>Student Register</h2>
+        <form ng-submit="registerStudent()">
+            <p ng-show="error" class="text-danger">{{ error }}</p>
+            <input class="form-control" type="text" id="name" placeholder="Full Name" ng-model="register.studentName" required /><br />
+            <input class="form-control" type="email" id="registerEmail" placeholder="Email" ng-model="register.email" required /><br />
+            <input class="form-control" type="password" id="registerPassword" placeholder="Password" ng-model="register.password" required /><br />
+            <select class="form-control" ng-model="register.cohortId" ng-options="cohort.$id as cohort.name for cohort in cohorts | filter: {status: true}">
+            	<option value="">-- choose cohort --</option>
+            </select>
+            <input type="submit" class="btn btn-info btn-lg" value="Register" />
+        </form>
+    </div>
 </div>

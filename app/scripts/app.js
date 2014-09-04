@@ -22,7 +22,17 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             templateUrl: '/app/views/mentor.html',
             controller: 'mentorCtrl'
         })
-        .state('queue', {
+        .state('student', {
+            abstract: true,
+            template: '<div ui-view></div>',
+            controller: 'studentCtrl',
+            resolve: {
+                studentRef: function (authService) {
+                    return authService.getStudent();
+                }
+            }
+        })
+        .state('student.queue', {
             url: '/cohort/:queueId',
             templateUrl: '/app/views/queue.html',
             controller: 'queueCtrl',
@@ -32,17 +42,17 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                 }
             }
         })
-        .state('secure', {
-            abstract: true,
-            template: '<div ui-view></div>',
-            controller: 'secureCtrl',
-            resolve: {
-                username: function (authService) {
-                    return authService.getUser();
-                }
-            }
-        })
-        .state('secure.dashboard', {
+        // .state('mentor', {
+        //     abstract: true,
+        //     template: '<div ui-view></div>',
+        //     controller: 'secureCtrl',
+        //     resolve: {
+        //         username: function (authService) {
+        //             return authService.getUser();
+        //         }
+        //     }
+        // })
+        .state('mentor.dashboard', {
             url: '/dashboard',
             templateUrl: '/app/views/dashboard.html',
             controller: 'dashboardCtrl',
@@ -55,7 +65,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                 }
             }
         })
-        .state('secure.cohort', {
+        .state('mentor.cohort', {
             url: '/cohort/:queueId',
             templateUrl: '/app/views/cohort.html',
             controller: 'queueCtrl',

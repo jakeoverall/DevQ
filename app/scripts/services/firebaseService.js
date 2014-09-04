@@ -10,13 +10,18 @@ angular.module('devQ')
               return $firebase(new Firebase(firebaseUrl + '/cohorts'));
           },
           getQueue: function (queueId) {
-              return $firebase(new Firebase(firebaseUrl + '/cohorts/' + queueId));
+              return $firebase(new Firebase(firebaseUrl + '/cohorts/' + queueId + '/questions'));
           },
           getMentors: function () {
               return $firebase(new Firebase(firebaseUrl + '/users'));
           },
           getMentor: function (id) {
               return $firebase(new Firebase(firebaseUrl + '/users/' + id));
+          },
+          currentStudent: function(id) {
+              return $firebase(new Firebase(firebaseUrl + '/students/' + id)).$asObject().$loaded().then(function(res) {
+                return res;
+              });
           }
       };
   });
