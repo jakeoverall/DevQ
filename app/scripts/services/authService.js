@@ -102,6 +102,25 @@ angular.module('devQ')
               return deferred.promise;
           },
 
+          initRegistrantPassword: function(initPW) {
+            var deferred = $q.defer();
+            $http({
+                method: 'GET',
+                url: 'http://localhost:1212/pin',
+                data: {
+                  pin: initPW
+                }
+              }).success(function(res) {
+                    deferred.resolve(res);
+                  }).
+                    error(function(res) {
+                      deferred.resolve
+                  });
+                  return deferred.promise
+              }
+            // return (initPW === pw) ? true : false;
+          },
+
           changePassword: firebaseSimpleLogin.$changePassword
       };
   });

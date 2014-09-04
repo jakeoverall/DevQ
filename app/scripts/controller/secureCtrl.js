@@ -7,3 +7,4 @@ angular.module('devQ')
       }
       $scope.username = username;
   });
+  
