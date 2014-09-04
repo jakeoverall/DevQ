@@ -166,3 +166,15 @@ input.ng-invalid.ng-dirty {
 
 
 
+/* modal styles */
+.modal .modal-content {
+	background-color: #eee;
+	border: 4px solid #5C5B5B;
+	padding: 10px;
+}
+
+.modal .modal-content .btn-primary {
+	color: #fff;
+	background-color: #5bc0de;
+	border-color: #46b8da;
+}
