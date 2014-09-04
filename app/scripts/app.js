@@ -12,8 +12,8 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             templateUrl: '/app/views/cohort.html',
             controller: 'cohortCtrl',
             resolve: {
-                cohortsRef: function(firebaseService) {
-                    firebaseService.getCohorts();
+                cohortsRef: function (firebaseService) {
+                    return firebaseService.getCohorts();
                 }
             }
         })
@@ -22,13 +22,13 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             templateUrl: '/app/views/mentor.html',
             controller: 'mentorCtrl'
         })
-        .state('queue', {
-            url: '/queue',
+        .state('cohort.queue', {
+            url: '/cohort/queueId:',
             templateUrl: '/app/views/queue.html',
             controller: 'queueCtrl',
             resolve: {
-                queueRef: function(firebaseService) {
-                    return firebaseService.getQueue();
+                queueRef: function (firebaseService, $stateParams) {
+                    return firebaseService.getQueue($stateParams.queueId);
                 }
             }
         })
@@ -37,7 +37,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             template: '<div ui-view></div>',
             controller: 'secureCtrl',
             resolve: {
-                username: function(authService) {
+                username: function (authService) {
                     return authService.getUser();
                 }
             }
@@ -45,15 +45,27 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
         .state('secure.dashboard', {
             url: '/dashboard',
             templateUrl: '/app/views/dashboard.html',
+            controller: 'dashboardCtrl',
+            resolve: {
+                cohortsRef: function (firebaseService) {
+                    return firebaseService.getCohorts();
+                },
+                mentorsRef: function (firebaseService) {
+                    return firebaseService.getMentors();
+                }
+            }
+        })
+        .state('secure.cohort', {
+            url: '/cohort/:queueId',
+            templateUrl: '/app/views/cohort.html',
+            controller: 'queueCtrl',
+            resolve: {
+                queueRef: function (firebaseService, $stateParams) {
+                    return firebaseService.getqueue($stateParams.queueId);
+                },
+                mentorsRef: function (firebaseService) {
+                    return firebaseService.mentorsRef();
+                }
+            }
         });
-    //.state('secure.queue', {
-    //    url: '/queue',
-    //    templateUrl: '/app/views/queue.html',
-    //    controller: 'queueCtrl',
-    //    resolve: {
-    //        queueRef: function (firebaseService) {
-    //            return firebaseService.getQueue();
-    //        }
-    //    }
-    //});
 }]);
