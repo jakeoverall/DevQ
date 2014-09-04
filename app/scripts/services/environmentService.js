@@ -5,19 +5,19 @@ angular.module('devQ')
       return {
           getEnv: function () {
               return $window.env;
-          },
-          saveUsername: function (username) {
-              return $window.localStorage.setItem('username', username);
-          },
-          getUsername: function () {
-              return $window.localStorage.getItem('username');
-          },
-          saveMentor: function (username) {
-              $window.localStorage.setItem('username', username);
-              $window.localStorage.setItem('mentor', username);
-          },
-          getMentor: function () {
-              return $window.localStorage.getItem('mentor');
-          },
+          }
+          //saveUsername: function (username) {
+          //    return $window.localStorage.setItem('username', username);
+          //},
+          //getUsername: function () {
+          //    return $window.localStorage.getItem('username');
+          //},
+          //saveMentor: function (username) {
+          //    $window.localStorage.setItem('username', username);
+          //    $window.localStorage.setItem('mentor', username);
+          //},
+          //getMentor: function () {
+          //    return $window.localStorage.getItem('mentor');
+          //},
       };
   });

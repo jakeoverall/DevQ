@@ -16,6 +16,14 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'firebaseService', function
         return true;
        }
     };
+    
+    //$scope.isMentor = function() {
+    //    if ($scope.mentor) {
+    //        return false;
+    //    } else {
+    //        return true;
+    //    };
+    //};
 
     $scope.enterQueue = function () {
         var question = {};
