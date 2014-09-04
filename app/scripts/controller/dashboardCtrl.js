@@ -2,10 +2,16 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('dashboardCtrl', ['$scope', '$state', 'cohortsRef', 'mentorsRef', 'firebaseService', function ($scope, $state, cohortsRef, mentorsRef) {
+devQ.controller('dashboardCtrl', ['$scope', '$state', 'cohortsRef', 'mentorsRef','authService', 'firebaseService', function ($scope, $state, cohortsRef, mentorsRef, authService) {
 
     $scope.cohorts = cohortsRef.$asArray();
     $scope.mentors = mentorsRef.$asArray();
+
+    $scope.logOff = function() {
+        authService.logOut().then(function() {
+           $state.go('mentor');
+        });
+    };
 
     $scope.addCohort = function() {
     	var cohort = {};

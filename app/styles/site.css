@@ -9,6 +9,10 @@
 }*/
 
 
+.topper {
+	margin-top: 12px;	
+}
+
 .jumbotron{
 	margin-top:3%;
 	border-radius: 1px !important;
@@ -174,4 +178,8 @@ input.ng-invalid.ng-dirty {
 	color: #fff;
 	background-color: #5bc0de;
 	border-color: #46b8da;
+}
+
+.name-plate {
+	margin-top:-20px;
 }

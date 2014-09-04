@@ -110,7 +110,6 @@ angular.module('devQ')
               firebaseSimpleLogin.$createUser(email, password).then(function (user) {
                   // Create our own custom user object to house the user's data
                   var userObject = $firebase(new Firebase(firebaseEndpoint + '/users/' + user.id)).$asObject();
-                  
                   userObject.email = user.email;
                   userObject.name = name;
                   userObject.$save().then(deferred.resolve, deferred.reject);
@@ -141,6 +140,7 @@ debugger;
           logOut: function () {
               return getResolvedPromise(firebaseSimpleLogin.$logout());
           },
+
 
           resetPassword: function (email) {
               var deferred = $q.defer();
