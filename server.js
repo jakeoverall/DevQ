@@ -1,9 +1,11 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 var pin = 123456;
 
 app.use(express.static(__dirname + '/'));
 app.use(express.static(__dirname + '/bower_components'));
+app.use(bodyParser());
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
