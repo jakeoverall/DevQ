@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('devQ')
-  .service('authService', function authService($q, $firebase, $firebaseSimpleLogin, environmentService, Restangular) {
+  .service('authService', function authService($q, $http, $firebase, $firebaseSimpleLogin, environmentService, Restangular) {
 
       var firebaseEndpoint = environmentService.getEnv().firebase;
       var firebase = new Firebase(firebaseEndpoint);
@@ -101,6 +101,36 @@ angular.module('devQ')
 
               return deferred.promise;
           },
+<<<<<<< HEAD
+
+          initRegistrantPassword: function(initPW) {
+            var deferred = $q.defer();
+            $http({
+                method: 'GET',
+                url: 'http://localhost:1212/pin',
+                data: {
+                  pin: initPW
+                }
+              }).success(function(res) {
+                    deferred.resolve(res);
+                  }).
+                    error(function(res) {
+                      deferred.resolve
+                  });
+                  return deferred.promise
+              },
+                changePassword: firebaseSimpleLogin.$changePassword
+
+          };
+
+      
+  });
+
+
+
+
+=======
           changePassword: firebaseSimpleLogin.$changePassword
       };
   });
+>>>>>>> joverall22-master
