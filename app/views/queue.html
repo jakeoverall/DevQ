@@ -100,7 +100,7 @@
     <hr>
     <div ng-repeat="question in queue | filter: {status: 'Red'}">
         <div class="col-md-8">
-            <h2>{{question.submittedBy}}</h2>
+            <h2>{{question.submittedBy.name}}</h2>
             <p>
                 {{question.text}}
                 <br />
