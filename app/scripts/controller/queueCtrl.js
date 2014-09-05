@@ -35,8 +35,4 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'firebaseService', function
         question.mentor = $scope.mentor || '';
         $scope.queue.$save(question);
     };
-
-    $scope.mentorView = function() {
-        if(isMentor());
-    };
 }]);
