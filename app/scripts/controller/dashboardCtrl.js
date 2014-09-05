@@ -7,6 +7,18 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'cohortsRef', 'mentorsRef'
     $scope.cohorts = cohortsRef.$asArray();
     $scope.mentors = mentorsRef.$asArray();
 
+    $scope.statusClass = function(mentor) {
+        if(mentor) {
+            if(mentor.status === 'Available') {
+                return 'status-light-`een';
+            } else if(mentor.status === 'Busy') {
+                return 'status-light-yellow';
+            } else {
+                return 'status-light-red';
+            }
+        }
+    };
+
     $scope.toggleStatus = function () {
         if ($scope.mentor.status === 'Available') {
             $scope.mentor.status = 'Away';
@@ -18,6 +30,8 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'cohortsRef', 'mentorsRef'
     };
 
     $scope.logOff = function() {
+        $scope.mentor.status = 'Away';
+        $scope.mentor.$save();
         authService.logOut().then(function() {
            $state.go('mentor');
         });
