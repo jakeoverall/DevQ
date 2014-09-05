@@ -2,10 +2,7 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('dashboardCtrl', ['$scope', '$state', 'cohortsRef', 'mentorsRef','authService', 'firebaseService', function ($scope, $state, cohortsRef, mentorsRef, authService) {
-
-    $scope.cohorts = cohortsRef.$asArray();
-    $scope.mentors = mentorsRef.$asArray();
+devQ.controller('dashboardCtrl', ['$scope', '$state','authService', 'firebaseService', function ($scope, $state, authService) {
 
     $scope.statusClass = function(mentor) {
         if(mentor) {
@@ -59,6 +56,7 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'cohortsRef', 'mentorsRef'
     };
 
     $scope.viewCohort = function (cohort) {
+        debugger;
         $state.go('secure.queue', { queueId: cohort.$id });
     };
 }]);
