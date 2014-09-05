@@ -218,6 +218,12 @@ input.ng-invalid.ng-dirty {
 	transition: 0.3s;
 }
 
+.btn-success {
+	background:#fff;
+	color: #4cae4c;
+	transition: 0.3s;
+}
+
 .btn-warning {
 	background:#fff;
 	color: #eea236;
@@ -255,4 +261,8 @@ input.ng-invalid.ng-dirty {
 
 .opacity {
 	opacity: 0.4;
+}
+
+.img-grav {
+	max-height: 40px;
 }

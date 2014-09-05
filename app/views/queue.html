@@ -1,11 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-show="!isMentor">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-      </button>
-      <a class="navbar-brand">{{student.studentName}}</a>
-    </div>
+    <img class=" mentor-image pull-left" style="margin-left:-14px;" ng-src="http://www.gravatar.com/avatar/{{user.md5_hash}}">
+    <h2 style="margin-top:10px" class="col-md-2">{{student.studentName}}</h2> 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
@@ -40,6 +36,7 @@
     </div>
   </div>
 </nav>
+<a ui-sref="secure.dashboard" ng-show="isMentor" class="btn btn-danger navbar-fixed-top">Return to Mentor Dashboard</a>
 <div class="col-md-12"></div>
 <div class="panel queue col-md-5">
     <img class="queue-icon" src="https://devmounta.in/img/badge.png">
@@ -48,7 +45,7 @@
     <div ng-repeat="question in queue | filter: {status: 'Red'}">
         <div class="panel panel-grey">
                 <div class="panel-heading">
-                    <h2>{{question.submittedBy.studentName}}</h2><br>
+                    <h2><img gravatar-src-once="question.submittedBy.email" class=""> {{question.submittedBy.studentName}}</h2><br>
                     <p>
                         {{question.text}}
                         <br />
@@ -69,12 +66,14 @@
     <hr>
     <div ng-repeat="item in queue | filter: {status: 'Yellow'}">
         <div class="col-md-12 panel panel-grey">
-            <h2>{{item.submittedBy.studentName}}</h2>
+            <h2><img gravatar-src-once="item.submittedBy.email" class="">{{item.submittedBy.studentName}}</h2>
             <p>
                 <a ng-click="leaveQueue(item)" ng-show="isMentor" class="btn btn-success">Done</a>
             </p>
-            <p class="text-muted">Assigned to: {{item.mentor.name}},  {{item.mentor.title}}</p>
-            <p class="text-muted"></p>
+            <div class="pull-right">
+              <p class="text-muted" ><img gravatar-src-once="item.mentor.email" class="img-grav"> <br>{{item.mentor.name}} </p>
+              <p class="text-muted"></p>
+            </div>
         </div>
     </div>
 </div>
