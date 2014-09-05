@@ -6,6 +6,7 @@ angular.module('devQ')
           $state.go('cohort');
       }
       firebaseService.getMentor(mentorRef.id).then(function (mentor) {
+          $scope.user = mentorRef;
           $scope.mentor = mentor;
       });
   });
