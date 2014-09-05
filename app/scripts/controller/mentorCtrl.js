@@ -5,9 +5,11 @@ devQ.controller('mentorCtrl', function ($scope, $state, authService) {
     $scope.reg = true;
     $scope.status = 'Register';
 
+    $scope.titles = ['Mentor', 'Instructor'];
+
     $scope.showReg = function () {
         if ($scope.reg) {
-            $('.modal').modal('show')
+            $('.modal').modal('show');
         } else {
             $scope.status = 'Register';
             $scope.reg = !$scope.reg;
@@ -16,7 +18,8 @@ devQ.controller('mentorCtrl', function ($scope, $state, authService) {
     };
 
     $scope.logMeIn = function () {
-        authService.logIn($scope.email, $scope.password).then(function () {
+        $scope.error = '';
+        authService.logIn($scope.user).then(function () {
             $state.go('secure.dashboard');
         }, function (error) {
             $scope.error = error.message.slice(20);
@@ -24,11 +27,8 @@ devQ.controller('mentorCtrl', function ($scope, $state, authService) {
     };
 
     $scope.register = function () {
-        authService.register($scope.registerEmail, $scope.registerPassword, $scope.registerName);
-        $scope.email = $scope.registerEmail;
-        $scope.registerName = '';
-        $scope.registerEmail = '';
-        $scope.registerPassword = '';
+        authService.register($scope.mentorInfo);
+        $scope.mentorInfo = '';
         $scope.showReg();
     }, function (error) {
         $scope.error = error.toString();

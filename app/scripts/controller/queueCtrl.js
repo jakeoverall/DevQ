@@ -6,32 +6,23 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'firebaseService', function
 
     $scope.queue = queueRef.$asArray();
 
-    //$scope.mentor = function() {
-    //    return firebaseService.getMentor($scope.username.id).$asObject();
-    //};
-    //console.log($scope.mentor());
-
-    //$scope.isMentor = function() {
-    //   if($scope.mentor !== null){
-    //    return true;
-    //   }
-    //};
-    
-    //$scope.isMentor = function() {
-    //    if ($scope.mentor) {
-    //        return false;
-    //    } else {
-    //        return true;
-    //    };
-    //};
+    $scope.checkMentor = function () {
+        debugger;
+        if ($scope.mentor === null) {
+            $scope.isMentor = false;
+        } else {
+            $scope.isMentor = true;
+        }
+    };
 
     $scope.enterQueue = function () {
         var question = {};
-        question.body = $scope.message || '';
+        question.text = $scope.text || '';
         question.status = 'Red';
-        question.submittedBy = $scope.username || '';
+        question.submittedBy = $scope.student || '';
+        question.submittedAt = new Date().toISOString();
         $scope.queue.$add(question);
-        $scope.message = '';
+        $scope.text = '';
     };
 
     $scope.leaveQueue = function(question) {
@@ -43,5 +34,9 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'firebaseService', function
         question.status = 'yellow';
         question.mentor = $scope.mentor || '';
         $scope.queue.$save(question);
+    };
+
+    $scope.mentorView = function() {
+        if(isMentor());
     };
 }]);

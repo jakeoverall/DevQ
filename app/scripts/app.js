@@ -1,4 +1,4 @@
-﻿var devQ = angular.module('devQ', ['firebase', 'ui.router', 'restangular']);
+﻿var devQ = angular.module('devQ', ['firebase', 'ui.router', 'restangular', 'angularMoment', 'ui.gravatar']);
 
 
 //Routes
@@ -42,17 +42,17 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                 }
             }
         })
-        // .state('mentor', {
-        //     abstract: true,
-        //     template: '<div ui-view></div>',
-        //     controller: 'secureCtrl',
-        //     resolve: {
-        //         username: function (authService) {
-        //             return authService.getUser();
-        //         }
-        //     }
-        // })
-        .state('mentor.dashboard', {
+         .state('secure', {
+             abstract: true,
+             template: '<div ui-view></div>',
+             controller: 'secureCtrl',
+             resolve: {
+                 mentorRef: function (authService) {
+                     return authService.getUser();
+                 }
+             }
+         })
+        .state('secure.dashboard', {
             url: '/dashboard',
             templateUrl: '/app/views/dashboard.html',
             controller: 'dashboardCtrl',
@@ -65,16 +65,13 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                 }
             }
         })
-        .state('mentor.cohort', {
+        .state('secure.queue', {
             url: '/cohort/:queueId',
             templateUrl: '/app/views/cohort.html',
             controller: 'queueCtrl',
             resolve: {
                 queueRef: function (firebaseService, $stateParams) {
-                    return firebaseService.getqueue($stateParams.queueId);
-                },
-                mentorsRef: function (firebaseService) {
-                    return firebaseService.mentorsRef();
+                    return firebaseService.getQueue($stateParams.queueId);
                 }
             }
         });

@@ -25,6 +25,9 @@
     "firebase": "~1.0.21",
     "angular-ui-bootstrap": "~0.11.0",
     "restangular": "~1.4.0",
-    "bootstrap": "~3.2.0"
+    "bootstrap": "~3.2.0",
+    "moment": "~2.8.2",
+    "angular-moment": "~0.8.1",
+    "angular-gravatar": "~0.2.1"
   }
 }
