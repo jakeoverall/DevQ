@@ -1,87 +1,87 @@
-<div class="panel queue col-md-5 name-plate">
-	<h3 class="text-center">MYNAME</h3>
-	<div>
-		<div class="col-md-12" >
-			<label>Add a Question!</label>
-			<input class="form-control" type='text' placeholder="Question"><br>
-			<input type="submit" class="btn btn-info" value="Add a Question">
-		</div>
-		<div class="col-md-4 action-icons text-center" >
-		</div>
-		
-	</div>
-
-	
+<div class="panel queue col-md-5 name-plate" ng-show="!mentor">
+    <h3 class="text-center">{{student.studentName}}</h3>
+    <div>
+        <div class="col-md-12">
+            <label>Add a Question!</label>
+            <input class="form-control" type='text' placeholder="Question" ng-model="text">
+            <br />
+            <input type="submit" class="btn btn-info" value="Add a Question" ng-click="enterQueue()">
+        </div>
+        <div class="col-md-4 action-icons text-center">
+        </div>
+    </div>
 </div>
+
 <div class="panel col-md-5 col-xs-offset-1 name-plate">
-	<h3 class="text-center">Mentors working here</h3>
-				<div class="col-md-6" >
-					<div class="panel">
-						<div class="panel-header">
-							<div class="name-plate-name">
-								<h4>Ean Platter{{mentor.name}}</h4>
-								<div class="status-light-green text-center" style="">Available</div>
-							</div>
-							<div style="" class="pull-right mentor-image-box">
-								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
-							</div>
+    <h3 class="text-center">Mentors working here</h3>
+    <div class="col-md-6">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="name-plate-name">
+                    <h4>Ean Platter{{mentor.name}}</h4>
+                    <div class="status-light-green text-center" style="">Available</div>
+                </div>
+                <div style="" class="pull-right mentor-image-box">
+                    <img class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel">
+            <div class="panel-header">
+                <div class="name-plate-name">
+                    <h4>Ean Platter{{mentor.name}}</h4>
+                    <div class="status-light-yellow text-center" style="">Busy</div>
+                </div>
+                <div style="" class="pull-right mentor-image-box">
+                    <img class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+                </div>
 
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6" >
-					<div class="panel">
-						<div class="panel-header">
-							<div class="name-plate-name">
-								<h4>Ean Platter{{mentor.name}}</h4>
-								<div class="status-light-yellow text-center" style="">Busy</div>
-							</div>
-							<div style="" class="pull-right mentor-image-box">
-								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
-							</div>
+            </div>
+        </div>
+    </div>
 
-						</div>
-					</div>
-				</div>				
-	
 </div>
 <div class="col-md-12"></div>
 <div class="panel queue col-md-5">
-	<img class="queue-icon" src="https://devmounta.in/img/badge.png">
-	<h1 class="text-center">In Queue</h1>
-	<hr>
-	<div ng-repeat="item in queue | filter: {status: 'Red'}">
-		<div class="col-md-8" >
-			<h2>{{item.submittedBy}}</h2>
-			<p>
-				{{item.body}}
-			</p>
-		</div>
-		<div class="col-md-4 action-icons text-center" >
-			<a href="" ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"><span></span></a>
-			<a ng-click="assigned(item)" class="yellow glyphicon glyphicon-ok pull-right"></a>		
-		</div>
-		
-	</div>
+    <img class="queue-icon" src="https://devmounta.in/img/badge.png">
+    <h1 class="text-center">In Queue</h1>
+    <hr>
+    <div ng-repeat="question in queue | filter: {status: 'Red'}">
+        <div class="col-md-8">
+            <h2>{{question.submittedBy}}</h2>
+            <p>
+                {{question.text}}
+                <br />
+                <span am-time-ago="question.submittedAt"></span>
+            </p>
+        </div>
+        <div class="col-md-4 action-icons text-center">
+            <a href="" ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"><span></span></a>
+            <a ng-click="assigned(item)" class="yellow glyphicon glyphicon-ok pull-right"></a>
+        </div>
 
-	
+    </div>
+
+
 </div>
 
 <div class="panel col-md-5 col-xs-offset-1">
-	<img class="queue-icon" src="https://devmounta.in/img/badge.png">
-	<h1 class="text-center">Being Helped</h1>
-	<hr>
-	<div ng-repeat="item in queue | filter: {status: 'Yellow'}">
-		<div class="col-md-8" >
-			<h2>{{item.submittedBy}}</h2>
-		    <p>
-		        {{item.body}}
-		    </p>
+    <img class="queue-icon" src="https://devmounta.in/img/badge.png">
+    <h1 class="text-center">Being Helped</h1>
+    <hr>
+    <div ng-repeat="item in queue | filter: {status: 'Yellow'}">
+        <div class="col-md-8">
+            <h2>{{item.submittedBy}}</h2>
+            <p>
+                {{item.body}}
+            </p>
             <p class="text-muted">Assigned to: {{item.mentor}}</p>
-		</div>
-		<div class="col-md-4 action-icons text-center" >
-			<a ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"></a>
-		</div>
-	</div>
-	
+        </div>
+        <div class="col-md-4 action-icons text-center">
+            <a ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"></a>
+        </div>
+    </div>
+
 </div>

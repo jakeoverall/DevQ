@@ -1,63 +1,81 @@
-<div class="container col-md-1 col-md-offset-8 pull-right">
-	<input type="submit" value="Sign Out" class="btn btn-warning topper" ng-click="logOff()">
+<div class="container col-md-3 col-md-offset-8 pull-right">
+
+    <div class="panel name-plate">
+        <div class="panel-footer">
+            <div class="text-right">
+                <button class="btn btn-primary topper" ng-click="toggleStatus()">Change Status</button>
+                <input type="submit" value="Sign Out" class="btn btn-warning topper" ng-click="logOff()">
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="name-plate-name">
+                <h4>{{mentor.name}} <br/> <span class="text-muted reduce-font">{{mentor.title}}</span></h4>
+                <div class="status-light-green text-center" style="">{{mentor.status}}</div>
+            </div>
+            <div style="" class="pull-right mentor-image-box">
+                <img class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+            </div>
+        </div>
+    </div>
 </div>
+
 <div class="container">
-	<div class="row">
-		<div class="col-md-4 panel">
-			<img class="queue-icon" src="https://devmounta.in/img/badge.png">			
-			<h1 class="text-center">Cohorts</h1>
-			<div ng-repeat="cohort in cohorts | filter:{status: true} " class="panel panel-grey"  style="padding-bottom:none !important">
-				<div class="panel-heading" >
-					<h4>{{cohort.name}}</h4>
-				</div>
-				<div class="panel-body">
-					<input type='submit' value="Remove Cohort" class="btn btn-danger" ng-click="removeCohort(cohort)">
-				</div>				
-			</div>
-			<div class="panel-body text-center">
-				<input type="submit" value="Add Cohort" class="btn btn-lg btn-info" data-toggle="modal" data-target="#myModal">
-				<input type="submit" value="View Question" class="btn btn-lg btn-primary">
-			</div>										
-		</div>
-		<div class="col-md-7 panel pull-right" >
-			<img class="queue-icon-mentors" src="https://devmounta.in/img/badge.png">			
+    <div class="row">
+        <div class="col-md-4 panel">
+            <img class="queue-icon" src="https://devmounta.in/img/badge.png">
+            <h1 class="text-center">Cohorts</h1>
+            <div ng-repeat="cohort in cohorts | filter:{status: true} " class="panel panel-grey">
+                <div class="panel-heading">
+                    <h4>{{cohort.name}}</h4>
+                </div>
+                <div class="panel-body">
+                    <input type='submit' value="Remove Cohort" class="btn btn-danger" ng-click="removeCohort(cohort)">
+                </div>
+            </div>
+            <div class="panel-body text-center">
+                <input type="submit" value="Add Cohort" class="btn btn-lg btn-info" data-toggle="modal" data-target="#myModal">
+                <input type="submit" value="View Question" class="btn btn-lg btn-primary">
+            </div>
+        </div>
+        <div class="col-md-7 panel pull-right">
+            <img class="queue-icon-mentors" src="https://devmounta.in/img/badge.png">
 
-					<h1 class="text-center">Mentors</h1>
-				<div class="col-md-4" ng-repeat="mentor in mentors">
-					<div class="panel name-plate">
-						<div class="panel-header">
-							<div class="name-plate-name">
-								<h4>{{mentor.name}}</h4>
-								<div class="status-light-green text-center" style="">Available</div>
-							</div>
-							<div style="" class="pull-right mentor-image-box">
-								<img  class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
-							</div>
+            <h1 class="text-center">Mentors</h1>
+            <br/>
+            <div class="col-md-6" ng-repeat="mentor in mentors">
+                <div class="panel name-plate">
+                    <div class="name-plate-name">
+                        <h4>{{mentor.name}} <br/> <span class="text-muted reduce-font">{{mentor.title}}</span></h4>
+                        <div class="status-light-green text-center" style="">{{mentor.status}}</div>
+                    </div>
+                    <div class="text-right mentor-image-box">
+                        <img class="mentor-image pull-right" src="https://media.licdn.com/media/p/5/005/015/1ed/03a04f0.jpg">
+                    </div>
 
-						</div>
-					</div>
-				</div>	
-		</div>
-	</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Cohort</h4>
-      </div>
-      <div class="modal-body">
-        <input type="text" required ng-model="cohortName" class="form-control" placholder="Cohort Name">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" ng-click="addCohort()" data-dismiss="modal">Save changes</button>
-      </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Cohort</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" required ng-model="cohortName" class="form-control" placholder="Cohort Name">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="addCohort()" data-dismiss="modal">Save changes</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 

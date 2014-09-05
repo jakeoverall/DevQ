@@ -98,6 +98,7 @@ input.ng-invalid.ng-dirty {
 }
 
 .name-plate {
+    margin: 3px;
 	background: #eee;
 }
 
@@ -107,6 +108,11 @@ input.ng-invalid.ng-dirty {
 	padding-left:5px;
 }
 
+.reduce-font {
+    margin-top: -20px;
+    margin-bottom: 10px;
+    font-size: 11px;
+}
 
 .status-light-red {
 	border-radius: 4px;

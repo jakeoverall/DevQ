@@ -27,9 +27,9 @@ angular.module('devQ')
 
         authService.logIn($scope.student).then(function (res) {
         	authService.getStudent().then(function(studentObj) {
-        		firebaseService.currentStudent(studentObj.id).then(function(curStudent) {
-        			$state.go('student.queue', {queueId: curStudent.cohortId});
-        		})        		
+        	    firebaseService.currentStudent(studentObj.id).then(function(curStudent) {
+        	        $state.go('student.queue', { queueId: curStudent.cohortId });
+        	    });
         	});            
         }, function (error) {
             $scope.error = error.message.slice(20);

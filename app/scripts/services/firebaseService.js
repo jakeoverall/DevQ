@@ -16,7 +16,9 @@ angular.module('devQ')
               return $firebase(new Firebase(firebaseUrl + '/users'));
           },
           getMentor: function (id) {
-              return $firebase(new Firebase(firebaseUrl + '/users/' + id));
+              return $firebase(new Firebase(firebaseUrl + '/users/' + id)).$asObject().$loaded().then(function (res) {
+                  return res;
+              });
           },
           currentStudent: function(id) {
               return $firebase(new Firebase(firebaseUrl + '/students/' + id)).$asObject().$loaded().then(function(res) {

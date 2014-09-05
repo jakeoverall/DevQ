@@ -27,11 +27,12 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'firebaseService', function
 
     $scope.enterQueue = function () {
         var question = {};
-        question.body = $scope.message || '';
+        question.text = $scope.text || '';
         question.status = 'Red';
-        question.submittedBy = $scope.username || '';
+        question.submittedBy = $scope.student.studentName || '';
+        question.submittedAt = new Date().toISOString();
         $scope.queue.$add(question);
-        $scope.message = '';
+        $scope.text = '';
     };
 
     $scope.leaveQueue = function(question) {
