@@ -7,10 +7,10 @@ angular.module('devQ')
 
       return {
           getCohorts: function() {
-              return $firebase(new Firebase(firebaseUrl + '/cohorts'));
+              return $firebase(new Firebase(firebaseUrl + '/db/cohorts'));
           },
           getQueue: function (queueId) {
-              return $firebase(new Firebase(firebaseUrl + '/cohorts/' + queueId + '/questions'));
+              return $firebase(new Firebase(firebaseUrl + '/db/cohorts/' + queueId + '/questions'));
           },
           getMentors: function () {
               return $firebase(new Firebase(firebaseUrl + '/users'));
