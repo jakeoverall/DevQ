@@ -112,7 +112,7 @@ angular.module('devQ')
                   userObject.email = mentorInfo.email;
                   userObject.name = mentorInfo.name;
                   userObject.title = mentorInfo.title;
-                  userObject.status = 'Available';
+                  userObject.status = 'Away';
                   userObject.$save().then(deferred.resolve, deferred.reject);
 
               }, deferred.reject);
