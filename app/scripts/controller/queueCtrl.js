@@ -42,7 +42,7 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef', function ($scope, queueRef) 
         $scope.queue.$save(question);
     };
 
-    $scope.assigned = function (question) {
+    $scope.assigned = function(question) {
         if (mentor) {
             question.status = 'yellow';
             question.mentor = $scope.mentor || '';
