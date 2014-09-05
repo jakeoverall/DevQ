@@ -129,7 +129,7 @@ angular.module('devQ')
                   var studentObject = $firebase(new Firebase(firebaseEndpoint + '/students/' + student.id)).$asObject();
                   studentObject.email = studentInfo.email;
                   studentObject.studentName = studentInfo.studentName;
-                  studentObject.cohortId = studentInfo.cohortId
+                  studentObject.cohortId = studentInfo.cohortId;
                   studentObject.$save().then(deferred.resolve, deferred.reject);
 
               }, deferred.reject);
