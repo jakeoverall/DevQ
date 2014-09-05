@@ -10,7 +10,8 @@
             <input type="email" placeholder="Email" class="form-control" ng-model="user.email" required><br>
             <input type="password" placeholder="Password" class="form-control" ng-model="user.password" required><br>
             <input type="submit" class="btn btn-info btn-lg" value="Sign In">
-        </form>
+        </form><br>
+        <p>Not a mentor? <a ui-sref="cohort">Go to student login.</a> </p>
     </div>
 
     <div ng-show="!reg">
@@ -35,6 +36,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title">Enter Password</h4>
+                <p>If you are a mentor and don't know this password please contact Cahlan</p>
                 <p class="text-muted alert-danger">{{pinError}}</p>
             </div>
             <div class="modal-body">

@@ -48,4 +48,8 @@ devQ.controller('mentorCtrl', function ($scope, $state, authService) {
             }
         });
     };
+
+
+    
 });
+

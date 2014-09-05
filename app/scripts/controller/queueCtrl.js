@@ -9,9 +9,9 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'firebaseService', function
     $scope.checkMentor = function () {
         debugger;
         if ($scope.mentor === null) {
-            $scope.isMentor = false;
-        } else {
             $scope.isMentor = true;
+        } else {
+            $scope.isMentor = false;
         }
     };
 
