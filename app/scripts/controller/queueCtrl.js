@@ -29,7 +29,7 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'firebaseService', function
         var question = {};
         question.text = $scope.text || '';
         question.status = 'Red';
-        question.submittedBy = $scope.student.studentName || '';
+        question.submittedBy = $scope.student || '';
         question.submittedAt = new Date().toISOString();
         $scope.queue.$add(question);
         $scope.text = '';
