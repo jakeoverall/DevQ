@@ -1,10 +1,12 @@
 ﻿'use strict';
 
 angular.module('devQ')
-  .controller('secureCtrl', function ($scope, username, $state) {
-      if (!username || username === 'undefined') {
-          $state.go('login');
+  .controller('secureCtrl', function ($scope, mentorRef, $state, firebaseService) {
+      if (!mentorRef || mentorRef === 'undefined') {
+          $state.go('cohort');
       }
-      $scope.username = username;
+      firebaseService.getMentor(mentorRef.id).then(function (mentor) {
+          $scope.mentor = mentor;
+      });
   });
   

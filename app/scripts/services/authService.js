@@ -104,14 +104,15 @@ angular.module('devQ')
               });
           },
 
-          register: function (email, password, name) {
+          register: function (mentorInfo) {
               var deferred = $q.defer();
-
-              firebaseSimpleLogin.$createUser(email, password).then(function (user) {
+              firebaseSimpleLogin.$createUser(mentorInfo.email, mentorInfo.password).then(function (user) {
                   // Create our own custom user object to house the user's data
                   var userObject = $firebase(new Firebase(firebaseEndpoint + '/users/' + user.id)).$asObject();
-                  userObject.email = user.email;
-                  userObject.name = name;
+                  userObject.email = mentorInfo.email;
+                  userObject.name = mentorInfo.name;
+                  userObject.title = mentorInfo.title;
+                  userObject.status = 'Available';
                   userObject.$save().then(deferred.resolve, deferred.reject);
 
               }, deferred.reject);
@@ -126,7 +127,6 @@ angular.module('devQ')
                   // Create our own custom user object to house the user's data
                   
                   var studentObject = $firebase(new Firebase(firebaseEndpoint + '/students/' + student.id)).$asObject();
-debugger;
                   studentObject.email = studentInfo.email;
                   studentObject.studentName = studentInfo.studentName;
                   studentObject.cohortId = studentInfo.cohortId
