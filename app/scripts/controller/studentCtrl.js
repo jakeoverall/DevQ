@@ -6,6 +6,7 @@ angular.module('devQ')
           $state.go('cohort');
       }
       firebaseService.currentStudent(studentRef.id).then(function (curStudent) {
+          $scope.user = studentRef;
           $scope.student = curStudent;
       });
   });
