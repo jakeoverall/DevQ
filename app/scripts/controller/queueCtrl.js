@@ -6,24 +6,14 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'firebaseService', function
 
     $scope.queue = queueRef.$asArray();
 
-    //$scope.mentor = function() {
-    //    return firebaseService.getMentor($scope.username.id).$asObject();
-    //};
-    //console.log($scope.mentor());
-
-    //$scope.isMentor = function() {
-    //   if($scope.mentor !== null){
-    //    return true;
-    //   }
-    //};
-    
-    //$scope.isMentor = function() {
-    //    if ($scope.mentor) {
-    //        return false;
-    //    } else {
-    //        return true;
-    //    };
-    //};
+    $scope.checkMentor = function () {
+        debugger;
+        if ($scope.mentor === null) {
+            $scope.isMentor = false;
+        } else {
+            $scope.isMentor = true;
+        }
+    };
 
     $scope.enterQueue = function () {
         var question = {};
