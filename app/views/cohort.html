@@ -35,7 +35,7 @@
             <input class="form-control" type="email" id="registerEmail" placeholder="Email" ng-model="register.email" required /><br />
             <input class="form-control" type="password" id="registerPassword" placeholder="Password" ng-model="register.password" required /><br />
             <select class="form-control" ng-model="register.cohortId" ng-options="cohort.$id as cohort.name for cohort in cohorts | filter: {status: true}">
-            	<option value="">-- choose cohort --</option>
+            	<option value="">-- choose your cohort --</option>
             </select>
             <input type="submit" class="btn btn-info btn-lg" value="Register" />
         </form>
