@@ -57,7 +57,7 @@
                 </div>
                 <div class="panel-body">
                     <input type='submit' value="Remove Me From Queue" class="btn btn-danger" ng-click="leaveQueue(question)">
-                    <input ng-show="isMentor" type='submit' value="Assist This Student" class="btn btn-warning" ng-click="leaveQueue(question)">
+                    <input ng-show="isMentor" type='submit' value="Assist This Student" class="btn btn-warning" ng-click="assigned(question)">
 
                 </div>
             </div>
@@ -68,15 +68,16 @@
     <h1 class="text-center">Being Helped</h1>
     <hr>
     <div ng-repeat="item in queue | filter: {status: 'Yellow'}">
-        <div class="col-md-8">
-            <h2>{{item.submittedBy}}</h2>
+        <div class="col-md-12 panel panel-grey">
+            <h2>{{item.submittedBy.studentName}}</h2>
             <p>
-                {{item.body}}
+                <a ng-click="leaveQueue(item)" ng-show="isMentor" class="btn btn-success">Done</a>
             </p>
-            <p class="text-muted">Assigned to: {{item.mentor}}</p>
+            <p class="text-muted">Assigned to: {{item.mentor.name}},  {{item.mentor.title}}</p>
+            <p class="text-muted"></p>
         </div>
-        <div class="col-md-4 action-icons text-center">
+ <!--        <div class="col-md-4 action-icons text-center">
             <a ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"></a>
-        </div>
+        </div> -->
     </div>
 </div>

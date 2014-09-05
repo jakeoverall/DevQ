@@ -28,7 +28,6 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', function($scope, queueRef) 
     };
 
     $scope.leaveQueue = function (question) {
-        debugger;
         if (question.submittedBy.email === $scope.student.email || mentor) {
             question.status = 'Green';
             $scope.queue.$save(question);
@@ -36,7 +35,6 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', function($scope, queueRef) 
     };
 
     $scope.assigned = function(question) {
-        debugger;
         if (mentor) {
             question.status = 'yellow';
             question.mentor = $scope.mentor || '';
