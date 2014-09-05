@@ -57,7 +57,7 @@
                 </div>
                 <div class="panel-body">
                     <input type='submit' value="Remove Me From Queue" class="btn btn-danger" ng-click="leaveQueue(question)">
-                    <input ng-show="isMentor" type='submit' value="Assist This Student" class="btn btn-warning" ng-click="leaveQueue(question)">
+                    <input ng-show="isMentor" type='submit' value="Assist This Student" class="btn btn-warning" ng-click="assigned(question)">
 
                 </div>
             </div>
@@ -76,7 +76,7 @@
             <p class="text-muted">Assigned to: {{item.mentor}}</p>
         </div>
         <div class="col-md-4 action-icons text-center">
-            <a ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"></a>
+            <a ng-show="isMentor" ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"></a>
         </div>
     </div>
 </div>

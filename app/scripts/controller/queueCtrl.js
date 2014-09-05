@@ -2,7 +2,7 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('queueCtrl', [ '$scope', 'queueRef', function($scope, queueRef) {
+devQ.controller('queueCtrl', ['$scope', 'queueRef', function ($scope, queueRef) {
 
     var mentor = $scope.mentor || false;
 
@@ -28,18 +28,26 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', function($scope, queueRef) 
     };
 
     $scope.leaveQueue = function (question) {
-        debugger;
-        if (question.submittedBy.email === $scope.student.email || mentor) {
+        if ($scope.student) {
+            if (question.submittedBy.email === $scope.student.email) {
+                question.status = 'Green';
+            } else {
+                return;
+            }
+        } else if (mentor) {
             question.status = 'Green';
-            $scope.queue.$save(question);
+            $scope.mentor.status = 'Available';
+            $scope.mentor.$save();
         }
+        $scope.queue.$save(question);
     };
 
-    $scope.assigned = function(question) {
-        debugger;
+    $scope.assigned = function (question) {
         if (mentor) {
             question.status = 'yellow';
             question.mentor = $scope.mentor || '';
+            $scope.mentor.status = 'Busy';
+            $scope.mentor.$save();
             $scope.queue.$save(question);
         }
     };
