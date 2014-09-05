@@ -7,21 +7,6 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'cohortsRef', 'mentorsRef'
     $scope.cohorts = cohortsRef.$asArray();
     $scope.mentors = mentorsRef.$asArray();
 
-    $scope.statusClass = function(mentor) {
-        if(mentor) {
-            if(mentor.status === 'Available') {
-                return 'status-light-green';
-            } else if(mentor.status === 'Away') {
-                return 'status-light-red';
-            } else if(mentor.status === 'Busy') {
-                return 'status-light-yellow';
-            } else {
-                return 'status-light-red';
-            }            
-        }
-
-    };
-
     $scope.toggleStatus = function () {
         if ($scope.mentor.status === 'Available') {
             $scope.mentor.status = 'Away';
@@ -33,23 +18,25 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'cohortsRef', 'mentorsRef'
     };
 
     $scope.logOff = function() {
-        $scope.mentor.status = 'Away'; 
-        $scope.mentor.$save();               
         authService.logOut().then(function() {
            $state.go('mentor');
         });
     };
 
     $scope.addCohort = function() {
-    	var cohort = {};
-    	cohort.status = true;
-    	cohort.name = $scope.cohortName;
-    	$scope.cohorts.$add(cohort);
-    	$scope.cohortName = '';
-    }
+        var cohort = {};
+        cohort.status = true;
+        cohort.name = $scope.cohortName;
+        $scope.cohorts.$add(cohort);
+        $scope.cohortName = '';
+    };
 
     $scope.removeCohort = function(cohort) {
-    	cohort.status = false;
-    	$scope.cohorts.$save(cohort);
-    }
+        cohort.status = false;
+        $scope.cohorts.$save(cohort);
+    };
+
+    $scope.viewCohort = function (cohort) {
+        $state.go('secure.queue', { queueId: cohort.$id });
+    };
 }]);
