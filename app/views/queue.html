@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -99,19 +99,28 @@
     <h1 class="text-center">In Queue</h1>
     <hr>
     <div ng-repeat="question in queue | filter: {status: 'Red'}">
-        <div class="col-md-8">
+        <div class="panel panel-grey">
+                <div class="panel-heading">
+                    <h2>{{question.submittedBy.name}}</h2><br>
+                    <p>
+                        {{question.text}}
+                        <br />
+                        <span am-time-ago="question.submittedAt"></span>
+                    </p>                    
+                </div>
+                <div class="panel-body">
+                    <input type='submit' value="Remove Me From Queue" class="btn btn-danger" ng-click="leaveQueue(item)">
+                </div>
+            </div>
+        <!-- <div class="col-md-8">
             <h2>{{question.submittedBy.name}}</h2>
-            <p>
-                {{question.text}}
-                <br />
-                <span am-time-ago="question.submittedAt"></span>
-            </p>
+
         </div>
         <div class="col-md-4 action-icons text-center">
             <a href="" ng-click="leaveQueue(item)" class="green glyphicon glyphicon-remove pull-right"><span></span></a>
             <a ng-click="assigned(item)" class="yellow glyphicon glyphicon-ok pull-right"></a>
         </div>
-
+ -->
     </div>
 
 

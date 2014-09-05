@@ -114,7 +114,7 @@ input.ng-invalid.ng-dirty {
 .status-light-red {
 	border-radius: 4px;
 	background: #fff;
-	border:1px solid rgba(255,56,56,1);;
+	border:1px solid rgba(255,56,56,1);
 	padding:1px; 
 	margin-bottom:5px; 
 	margin-left:0px;
@@ -227,4 +227,24 @@ input.ng-invalid.ng-dirty {
 .navbar-default {
 	border-radius: 0px;
 	border:none;
+}
+
+.top-mentor-image {
+	margin-left:-14px;
+}
+
+.margin-top {
+	margin-top:10px;
+}
+
+.format-title {
+	margin-top:22px;
+	margin-left:-60px !important;
+}
+
+.status-class {
+	margin-top:13px; 
+	padding-left:20px; 
+	padding-right:20px;
+	margin-left:4px;
 }
