@@ -11,8 +11,8 @@
 
 
       <form class="navbar-form navbar-right pull-right" role="search">
-        <button type="submit" class="btn btn-primary " ng-click="toggleStatus()">Change Status</button>
-        <button type="submit" class="btn btn-warning " ng-click="logOff()">Sign Out</button>
+        <a  class="btn btn-primary " ng-click="toggleStatus()">Change Status</a>
+        <a type="submit" class="btn btn-warning " ng-click="logOff()">Sign Out</a>
       </form>
 
 
@@ -29,7 +29,7 @@
                     <h4>{{cohort.name}}</h4>
                 </div>
                 <div class="panel-body">
-                    <input type='submit' value="View Cohort" class="btn btn-info" ng-click="viewCohort(cohort)">
+                    <a type='submit' value="" class="btn btn-info" ng-click="viewCohort(cohort)">View Cohort</a>
                     <input type='submit' value="Remove Cohort" class="btn btn-danger" ng-click="removeCohort(cohort)">
                 </div>
             </div>
@@ -44,7 +44,7 @@
             <h1 class="text-center">Mentors</h1>
             <br/>
             <div class="col-md-6" ng-repeat="mentor in mentors">
-                <div class="panel name-plate mentor-roster">
+                <div class="panel name-plate mentor-roster" ng-class="setOpacity(mentor)">
                     <div class="name-plate-name">
                         <h4>{{mentor.name}} <br/> <span class="text-muted reduce-font">{{mentor.title}}</span></h4>
                         <div class=" text-center" ng-class="statusClass(mentor)" style="">{{mentor.status}}</div>
