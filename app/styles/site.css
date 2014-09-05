@@ -95,6 +95,7 @@ input.ng-invalid.ng-dirty {
 }
 
 .name-plate {
+	transition: 0.4s;
     margin: 3px;
 	background: #eee;
 }
@@ -118,6 +119,7 @@ input.ng-invalid.ng-dirty {
 	padding:1px; 
 	margin-bottom:5px; 
 	margin-left:0px;
+	transition: 0.4s;
 
 }
 
@@ -128,6 +130,7 @@ input.ng-invalid.ng-dirty {
 	padding:1px; 
 	margin-bottom:5px; 
 	margin-left:0px;
+	transition: 0.4s;
 
 }
 
@@ -138,6 +141,7 @@ input.ng-invalid.ng-dirty {
 	padding:1px; 
 	margin-bottom:5px; 
 	margin-left:0px;
+	transition: 0.4s;
 
 }
 
@@ -247,4 +251,8 @@ input.ng-invalid.ng-dirty {
 	padding-left:20px; 
 	padding-right:20px;
 	margin-left:4px;
+}
+
+.opacity {
+	opacity: 0.4;
 }
