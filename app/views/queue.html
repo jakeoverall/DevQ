@@ -1,4 +1,54 @@
-<div class="panel queue col-md-5 name-plate" ng-show="!mentor">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">{{student.studentName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a>Ask a question:</a>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" ng-model="text" class="form-control" placeholder="Question">
+        </div>
+        <button type="submit" class="btn btn-info" ng-click="enterQueue()">Enter Queue</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a>Ean Platter{{mentor.name}}</a>
+        </li>
+        <li>
+            <div class="status-light-green nav-status text-center" style="">Available</div>
+        </li>
+        <li>
+            <a>Paul Chatterson{{mentor.name}}</a>
+        </li>
+        <li>
+            <div class="status-light-green nav-status text-center" style="">Available</div>
+        </li>        
+        <li>
+            <a>Jake Overall{{mentor.name}}</a>
+        </li>
+        <li>
+            <div class="status-light-yellow nav-status text-center" style="">Busy</div>
+        </li>        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- <div class="panel queue col-md-5 name-plate" ng-show="!mentor">
     <h3 class="text-center">{{student.studentName}}</h3>
     <div>
         <div class="col-md-12">
@@ -12,7 +62,7 @@
     </div>
 </div>
 
-<div class="panel col-md-5 col-xs-offset-1 name-plate">
+<div class="panel col-md-5 col-xs-offset-1 name-plate pull-right">
     <h3 class="text-center">Mentors working here</h3>
     <div class="col-md-6">
         <div class="panel">
@@ -42,7 +92,7 @@
         </div>
     </div>
 
-</div>
+</div> -->
 <div class="col-md-12"></div>
 <div class="panel queue col-md-5">
     <img class="queue-icon" src="https://devmounta.in/img/badge.png">

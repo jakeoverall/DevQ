@@ -80,10 +80,6 @@ a:hover {
 	background: red;
 }
 
-.navbar-default {
-	height: 100px;
-}
-
 input.ng-invalid.ng-dirty {
 	outline-color: red;
 }
@@ -163,16 +159,6 @@ input.ng-invalid.ng-dirty {
 	background: #eee;
 }
 
-
-
-
-
-
-
-
-
-
-
 /* modal styles */
 .modal .modal-content {
 	background-color: #eee;
@@ -189,3 +175,9 @@ input.ng-invalid.ng-dirty {
 .name-plate {
 	margin-top:-20px;
 }
+
+.nav-status {
+	margin-top: 13px;
+	margin-left: -5px;
+}
+
