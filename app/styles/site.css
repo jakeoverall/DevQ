@@ -1,7 +1,8 @@
 ﻿body {
 	background: rgb(120, 120, 120);
-
+	font-family: 'Roboto', sans-serif;
 	padding-bottom: 150px;
+	padding-top: 50px;
 }
 
 /** {
@@ -80,10 +81,6 @@ a:hover {
 	background: red;
 }
 
-.navbar-default {
-	height: 100px;
-}
-
 input.ng-invalid.ng-dirty {
 	outline-color: red;
 }
@@ -117,7 +114,7 @@ input.ng-invalid.ng-dirty {
 .status-light-red {
 	border-radius: 4px;
 	background: #fff;
-	border:2px solid rgba(255,56,56,1);;
+	border:1px solid rgba(255,56,56,1);;
 	padding:1px; 
 	margin-bottom:5px; 
 	margin-left:0px;
@@ -127,7 +124,7 @@ input.ng-invalid.ng-dirty {
 .status-light-green {
 	border-radius: 4px;
 	background:#fff; 
-	border:2px solid #40e667;
+	border:1px solid #40e667;
 	padding:1px; 
 	margin-bottom:5px; 
 	margin-left:0px;
@@ -137,7 +134,7 @@ input.ng-invalid.ng-dirty {
 .status-light-yellow {
 	border-radius: 4px;
 	background:#fff; 
-	border:2px solid #e7a61a;
+	border:1px solid #e7a61a;
 	padding:1px; 
 	margin-bottom:5px; 
 	margin-left:0px;
@@ -163,16 +160,6 @@ input.ng-invalid.ng-dirty {
 	background: #eee;
 }
 
-
-
-
-
-
-
-
-
-
-
 /* modal styles */
 .modal .modal-content {
 	background-color: #eee;
@@ -188,4 +175,56 @@ input.ng-invalid.ng-dirty {
 
 .name-plate {
 	margin-top:-20px;
+}
+
+.nav-status {
+	margin-top: 13px;
+	margin-left: -5px;
+}
+
+.nav-form {
+	width:150px !important;
+    -webkit-transition: width 0.3s ease-in-out !important;  
+    -moz-transition: width 0.3s ease-in-out !important;  
+    -o-transition: width 0.3s ease-in-out !important;  
+    -ms-transition: width 0.3s ease-in-out !important;  
+    transition: width 0.3s ease-in-out !important;  
+
+}
+
+.nav-form:focus {
+	width:250px !important;
+}
+
+.btn-info {
+	background:#fff;
+	color: #31b0d5;
+	transition: 0.3s;
+}
+
+.btn-danger {
+	background:#fff;
+	color: #c9302c;
+	transition: 0.3s;
+}
+
+.btn-primary {
+	background:#fff;
+	color: #3071a9;
+	transition: 0.3s;
+}
+
+.btn-warning {
+	background:#fff;
+	color: #eea236;
+	transition: 0.3s;
+}
+
+.mentor-roster {
+	margin: 10px 0 10px 0;
+}
+
+.navbar-default {
+	border-radius: 0px;
+	border:none;
 }
