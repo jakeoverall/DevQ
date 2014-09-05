@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module('devQ')
-  .controller('studentCtrl', function ($scope, studentRef, $state) {
+  .controller('studentCtrl', function ($scope, studentRef, $state, firebaseService) {
       if (!studentRef || studentRef === 'undefined') {
-          $state.go('login');
+          $state.go('cohort');
       }
-      $scope.student = studentRef;
+      firebaseService.currentStudent(studentRef.id).then(function (curStudent) {
+          $scope.student = curStudent;
+      });
   });
