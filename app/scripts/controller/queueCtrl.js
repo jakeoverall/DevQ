@@ -2,18 +2,20 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'firebaseService', function($scope, queueRef) {
+devQ.controller('queueCtrl', [ '$scope', 'queueRef', function($scope, queueRef) {
+
+    var mentor = $scope.mentor || false;
 
     $scope.queue = queueRef.$asArray();
 
-    $scope.checkMentor = function () {
-        debugger;
-        if ($scope.mentor === null) {
+    var checkMentor = function () {
+        if (mentor) {
             $scope.isMentor = true;
         } else {
             $scope.isMentor = false;
         }
     };
+    checkMentor();
 
     $scope.enterQueue = function () {
         var question = {};
@@ -25,14 +27,20 @@ devQ.controller('queueCtrl', [ '$scope', 'queueRef', 'firebaseService', function
         $scope.text = '';
     };
 
-    $scope.leaveQueue = function(question) {
-        question.status = 'Green';
-        $scope.queue.$save(question);
+    $scope.leaveQueue = function (question) {
+        debugger;
+        if (question.submittedBy.email === $scope.student.email || mentor) {
+            question.status = 'Green';
+            $scope.queue.$save(question);
+        }
     };
 
     $scope.assigned = function(question) {
-        question.status = 'yellow';
-        question.mentor = $scope.mentor || '';
-        $scope.queue.$save(question);
+        debugger;
+        if (mentor) {
+            question.status = 'yellow';
+            question.mentor = $scope.mentor || '';
+            $scope.queue.$save(question);
+        }
     };
 }]);
