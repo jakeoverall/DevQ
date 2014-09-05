@@ -4,9 +4,6 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand">{{student.studentName}}</a>
     </div>
@@ -24,7 +21,26 @@
         </div>
         <button type="submit" class="btn btn-info" ng-click="enterQueue()">Enter Queue</button>
       </form>
-      <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">Present Mentors <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+        <li>
+            <a>Ean Platter{{mentor.name}}</a>
+        </li>
+        <li>
+            <div class="status-light-green nav-status text-center col-md-8" style="margin-left:10px;">Available</div>
+        </li>   
+                <li>
+            <a>Ean Platter{{mentor.name}}</a>
+        </li>
+        <li>
+            <div class="status-light-green nav-status text-center col-md-8" style="margin-left:10px;">Available</div>
+        </li>
+          </ul>
+        </li>
+      </ul>      
+      <!-- <ul class="nav navbar-nav navbar-right">
         <li>
             <a>Ean Platter{{mentor.name}}</a>
         </li>
@@ -43,7 +59,7 @@
         <li>
             <div class="status-light-yellow nav-status text-center" style="">Busy</div>
         </li>        
-      </ul>
+      </ul> -->
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -110,6 +126,8 @@
                 </div>
                 <div class="panel-body">
                     <input type='submit' value="Remove Me From Queue" class="btn btn-danger" ng-click="leaveQueue(item)">
+                    <input type='submit' value="Assist This Student" class="btn btn-warning" ng-click="leaveQueue(item)">
+
                 </div>
             </div>
         <!-- <div class="col-md-8">
