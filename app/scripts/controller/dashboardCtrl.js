@@ -10,7 +10,7 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'cohortsRef', 'mentorsRef'
     $scope.statusClass = function(mentor) {
         if(mentor) {
             if(mentor.status === 'Available') {
-                return 'status-light-`een';
+                return 'status-light-green';
             } else if(mentor.status === 'Busy') {
                 return 'status-light-yellow';
             } else {
@@ -18,6 +18,14 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'cohortsRef', 'mentorsRef'
             }
         }
     };
+
+    $scope.setOpacity = function(mentor) {
+        if(mentor) {
+            if(mentor.status === 'Away') {
+                return 'opacity';
+            }
+        }
+    }
 
     $scope.toggleStatus = function () {
         if ($scope.mentor.status === 'Available') {
