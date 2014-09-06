@@ -6,7 +6,7 @@ angular.module('devQ')
       var firebaseUrl = environmentService.getEnv().firebase;
 
       return {
-          getCohorts: function() {
+          getCohorts: function () {
               return $firebase(new Firebase(firebaseUrl + '/db/cohorts'));
           },
           getQueue: function (queueId) {
@@ -20,9 +20,9 @@ angular.module('devQ')
                   return res;
               });
           },
-          currentStudent: function(id) {
-              return $firebase(new Firebase(firebaseUrl + '/students/' + id)).$asObject().$loaded().then(function(res) {
-                return res;
+          currentStudent: function (id) {
+              return $firebase(new Firebase(firebaseUrl + '/students/' + id)).$asObject().$loaded().then(function (res) {
+                  return res;
               });
           }
       };

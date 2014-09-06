@@ -2,20 +2,38 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('queueCtrl', ['$scope', 'queueRef', function ($scope, queueRef) {
+devQ.controller('queueCtrl', ['$scope', 'queueRef', 'firebaseService', function ($scope, queueRef, firebaseService) {
+    var getMentor = function () {
+        firebaseService.getMentor($scope.user.id).then(function (res) {
+            $scope.mentor = res;
+            var mentor = res || false;
+            checkMentor(mentor);
+        });
+    };
+    var getstudent = function () {
+        debugger;
+        firebaseService.currentStudent($scope.studentUser.id).then(function (res) {
+            $scope.student = res;
+        });
+    };
 
-    var mentor = $scope.mentor || false;
+    if ($scope.user) {
+        getMentor();
+    } else {
+        getstudent();
+    }
+
+
 
     $scope.queue = queueRef.$asArray();
 
-    var checkMentor = function () {
+    var checkMentor = function (mentor) {
         if (mentor) {
             $scope.isMentor = true;
         } else {
             $scope.isMentor = false;
         }
     };
-    checkMentor();
 
     $scope.enterQueue = function () {
         var question = {};
@@ -34,7 +52,7 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef', function ($scope, queueRef) 
             } else {
                 return;
             }
-        } else if (mentor) {
+        } else if ($scope.mentor) {
             question.status = 'Green';
             $scope.mentor.status = 'Available';
             $scope.mentor.$save();
@@ -42,8 +60,9 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef', function ($scope, queueRef) 
         $scope.queue.$save(question);
     };
 
-    $scope.assigned = function(question) {
-        if (mentor) {
+    $scope.assigned = function (question) {
+        debugger;
+        if ($scope.mentor) {
             question.status = 'yellow';
             question.mentor = $scope.mentor || '';
             $scope.mentor.status = 'Busy';
