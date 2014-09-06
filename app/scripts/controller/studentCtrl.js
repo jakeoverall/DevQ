@@ -1,13 +1,11 @@
 'use strict';
 
 angular.module('devQ')
-  .controller('studentCtrl', function ($scope, studentRef, $state, firebaseService, mentorsRef) {
+  .controller('studentCtrl', function ($scope, studentRef, mentorsRef, $state) {
       if (!studentRef) {
           $state.go('cohort');
       }
-      firebaseService.currentStudent(studentRef.id).then(function (curStudent) {
-          $scope.user = studentRef;
-          $scope.student = curStudent;
-      });
+
+      $scope.studentUser = studentRef;
       $scope.mentors = mentorsRef.$asArray();
   });

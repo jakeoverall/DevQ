@@ -1,20 +1,17 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-show="!isMentor">
+<nav class="navbar-nav nav-dash-head navbar-fixed-top" role="navigation" ng-show="!isMentor">
   <div class="container-fluid">
-    <img class=" mentor-image pull-left" style="margin-left:-14px;" ng-src="http://www.gravatar.com/avatar/{{user.md5_hash}}">
-    <h2 style="margin-top:10px" class="col-md-2">{{student.studentName}}</h2> 
+    <img class=" mentor-image pull-left" style="margin-left:-14px;" gravatar-src-once="student.email">
+    <h2 style="margin-top:10px" class="col-md-4">{{student.studentName}}</h2> 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a>Ask a question:</a>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
+            <label>Ask a question</label>
           <input type="text" ng-model="text" class="nav-form form-control" placeholder="Question">
         </div>
-        <button type="submit" class="btn btn-info" ng-click="enterQueue()">Enter Queue</button>
+        <a  class="btn btn-info" ng-click="enterQueue()">Enter Queue</a>
+        <button type="submit" class="btn btn-danger" ng-click="logOff()">Sign Out</button>
       </form>
-    <ul class="nav navbar-nav">
+<!--     <ul class="nav navbar-nav">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown">Present Mentors <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -32,20 +29,24 @@
         </li>
           </ul>
         </li>
-      </ul>      
+      </ul>  -->     
     </div>
   </div>
 </nav>
-<a ui-sref="secure.dashboard" ng-show="isMentor" class="btn btn-danger navbar-fixed-top">Return to Mentor Dashboard</a>
+<div class="pull-right" style="position:fixed; right:0; top:0;">
+    <a ui-sref="secure.dashboard" ng-show="isMentor" class="btn btn-danger" style="margin-top:"-50px>To Dashboard</a>
+</div>
 <div class="col-md-12"></div>
-<div class="panel queue col-md-5">
-    <img class="queue-icon" src="https://devmounta.in/img/badge.png">
-    <h1 class="text-center">In Queue</h1>
+<div class="panel queue col-md-5 dash-head">
+    <div class="col-md-1">
+        <img class="" style="max-height:60px;max-width:60px;"  src="https://devmounta.in/img/badge.png">
+    </div>        
+    <h2 style="margin-top: 14px; margin-left:70px">Queue</h2>
     <hr>
     <div ng-repeat="question in queue | filter: {status: 'Red'}">
-        <div class="panel panel-grey">
-                <div class="panel-heading">
-                    <h2><img gravatar-src-once="question.submittedBy.email" class=""> {{question.submittedBy.studentName}}</h2><br>
+        <div class="">
+                <div class="">
+                    <h2><img gravatar-src-once="question.submittedBy.email" class=""> {{question.submittedBy.studentName}}</h2>
                     <p>
                         {{question.text}}
                         <br />
@@ -53,27 +54,30 @@
                     </p>                    
                 </div>
                 <div class="panel-body">
-                    <input type='submit' value="Remove Me From Queue" class="btn btn-danger" ng-click="leaveQueue(question)">
-                    <input ng-show="isMentor" type='submit' value="Assist This Student" class="btn btn-warning" ng-click="assigned(question)">
+                    <input type='submit' value="Remove" class="btn btn-danger" ng-click="leaveQueue(question)">
+                    <input ng-show="isMentor" type='submit' value="Assist Student" class="btn btn-warning" ng-click="assigned(question)">
 
                 </div>
             </div>
     </div>
 </div>
-<div class="panel col-md-5 col-xs-offset-1">
-    <img class="queue-icon" src="https://devmounta.in/img/badge.png">
-    <h1 class="text-center">Being Helped</h1>
+<div class="panel col-md-5 col-xs-offset-1 dash-head">
+    <div class="col-md-1">
+        <img class="" style="max-height:60px;max-width:60px;"  src="https://devmounta.in/img/badge.png">
+    </div>        
+    <h2 style="margin-top: 14px; margin-left:70px">Being Helped</h2>
     <hr>
     <div ng-repeat="item in queue | filter: {status: 'Yellow'}">
-        <div class="col-md-12 panel panel-grey">
-            <h2><img gravatar-src-once="item.submittedBy.email" class="">{{item.submittedBy.studentName}}</h2>
+        <div class="col-md-12">
+            <h2><img gravatar-src-once="item.submittedBy.email"> {{item.submittedBy.studentName}}</h2>
             <p>
-                <a ng-click="leaveQueue(item)" ng-show="isMentor" class="btn btn-success">Done</a>
+<img gravatar-src-once="item.mentor.email" class="img-grav">                
+                {{item.mentor.name}}
+                <a ng-click="leaveQueue(item)" ng-show="isMentor" class="pull-right btn btn-danger">Done</a>
+
             </p>
-            <div class="pull-right">
-              <p class="text-muted" ><img gravatar-src-once="item.mentor.email" class="img-grav"> <br>{{item.mentor.name}} </p>
-              <p class="text-muted"></p>
-            </div>
+
+        <hr>            
         </div>
     </div>
 </div>

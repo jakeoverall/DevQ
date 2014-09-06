@@ -5,11 +5,9 @@ angular.module('devQ')
       if (!mentorRef) {
           $state.go('cohort');
       }
-      firebaseService.getMentor(mentorRef.id).then(function (mentor) {
-          $scope.user = mentorRef;
-          $scope.mentor = mentor;
-      });
+
+      $scope.user = mentorRef;
+
       $scope.cohorts = cohortsRef.$asArray();
       $scope.mentors = mentorsRef.$asArray();
   });
-  

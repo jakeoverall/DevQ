@@ -2,7 +2,11 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('dashboardCtrl', ['$scope', '$state','authService', 'firebaseService', function ($scope, $state, authService) {
+devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseService', function ($scope, $state, authService, firebaseService) {
+
+    firebaseService.getMentor($scope.user.id).then(function(res) {
+        $scope.mentor = res;
+    });
 
     $scope.statusClass = function(mentor) {
         if(mentor) {
@@ -22,7 +26,7 @@ devQ.controller('dashboardCtrl', ['$scope', '$state','authService', 'firebaseSer
                 return 'opacity';
             }
         }
-    }
+    };
 
     $scope.toggleStatus = function () {
         if ($scope.mentor.status === 'Available') {
@@ -56,7 +60,6 @@ devQ.controller('dashboardCtrl', ['$scope', '$state','authService', 'firebaseSer
     };
 
     $scope.viewCohort = function (cohort) {
-        debugger;
         $state.go('secure.queue', { queueId: cohort.$id });
     };
     console.log($scope.cohorts)

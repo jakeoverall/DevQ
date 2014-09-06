@@ -2,20 +2,40 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('queueCtrl', ['$scope', 'queueRef','$window', function ($scope, queueRef, $window) {
+// <<<<<<< HEAD
+// devQ.controller('queueCtrl', ['$scope', 'queueRef','$window', function ($scope, queueRef, $window) {
+// =======
+devQ.controller('queueCtrl', ['$scope', 'queueRef', 'firebaseService', 'authService', '$state', function ($scope, queueRef, firebaseService, authService, $state) {
+    var getMentor = function () {
+        firebaseService.getMentor($scope.user.id).then(function (res) {
+            $scope.mentor = res;
+            var mentor = res || false;
+            checkMentor(mentor);
+        });
+    };
+    var getstudent = function () {
+        firebaseService.currentStudent($scope.studentUser.id).then(function (res) {
+            $scope.student = res;
+        });
+    };
 
-    var mentor = $scope.mentor || false;
+    if ($scope.user) {
+        getMentor();
+    } else {
+        getstudent();
+    }
+
+
 
     $scope.queue = queueRef.$asArray();
 
-    var checkMentor = function () {
+    var checkMentor = function (mentor) {
         if (mentor) {
             $scope.isMentor = true;
         } else {
             $scope.isMentor = false;
         }
     };
-    checkMentor();
 
     $scope.enterQueue = function () {
         var question = {};
@@ -34,7 +54,7 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef','$window', function ($scope, 
             } else {
                 return;
             }
-        } else if (mentor) {
+        } else if ($scope.mentor) {
             question.status = 'Green';
             $scope.mentor.status = 'Available';
             $scope.mentor.$save();
@@ -42,8 +62,14 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef','$window', function ($scope, 
         $scope.queue.$save(question);
     };
 
-    $scope.assigned = function(question) {
-        if (mentor) {
+    $scope.logOff = function() {
+        authService.logOut().then(function() {
+           $state.go('cohort');
+        });
+    };    
+
+    $scope.assigned = function (question) {
+        if ($scope.mentor) {
             question.status = 'yellow';
             question.mentor = $scope.mentor || '';
             $scope.mentor.status = 'Busy';
@@ -52,7 +78,7 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef','$window', function ($scope, 
         }
     };
 
-    $window.onbeforeunload = function() {
-      return "Data will be lost if you leave the page, are you sure?";
-    };    
+    // $window.onbeforeunload = function() {
+    //   return "Data will be lost if you leave the page, are you sure?";
+    // };    
 }]);
