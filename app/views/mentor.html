@@ -13,8 +13,8 @@
         </form><br>
         <p>Not a mentor? <a ui-sref="cohort">Go to student login.</a> </p>
     </div>
-
-    <div ng-show="!reg">
+<hr>
+    <div ng-show="reg">
         <h2>Register</h2>
         <form ng-submit="register()">
             <p ng-show="error" class="text-danger">{{ error }}</p>
@@ -30,7 +30,7 @@
 </div>
 
 <!-- modal -->
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<!-- <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
@@ -46,6 +46,6 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" ng-click="registerCont(initPassword)">Continue</button>
             </div>
-        </div><!-- /.modal-content -->
+        </div> /.modal-content -->
     </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+</div> <!-- /.modal -->

@@ -2,7 +2,7 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('queueCtrl', ['$scope', 'queueRef', function ($scope, queueRef) {
+devQ.controller('queueCtrl', ['$scope', 'queueRef','$window', function ($scope, queueRef, $window) {
 
     var mentor = $scope.mentor || false;
 
@@ -51,4 +51,8 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef', function ($scope, queueRef) 
             $scope.queue.$save(question);
         }
     };
+
+    $window.onbeforeunload = function() {
+      return "Data will be lost if you leave the page, are you sure?";
+    };    
 }]);

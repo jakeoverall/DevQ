@@ -59,4 +59,5 @@ devQ.controller('dashboardCtrl', ['$scope', '$state','authService', 'firebaseSer
         debugger;
         $state.go('secure.queue', { queueId: cohort.$id });
     };
+    console.log($scope.cohorts)
 }]);
