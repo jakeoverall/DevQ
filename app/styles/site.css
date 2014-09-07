@@ -365,10 +365,20 @@ input.ng-invalid.ng-dirty {
 }
 
 .mentee-tab-bumper {
-	padding:50px;
+	padding:20px;
+}
+
+.mentee-face {
+	border-radius:100%;
+	max-width: 40%;
+	margin-left:30%;
+	margin-right:30%;
+	margin-top:-50px;
+
 }
 
 .cardo {
-	background-color: red;
-/*	background: url(https://devmounta.in/img/bg-speck.png)
-*/}
+	background-color: rgba(0, 0, 0, 0.368627);
+	background-size: cover;
+	background-image: url('https://devmounta.in/img/bg-speck.png');
+}
