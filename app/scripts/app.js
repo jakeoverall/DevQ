@@ -88,6 +88,15 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                     return firebaseService.getStudents();
                 }
             }
+        }).state('secure.mentees', {
+            url:'/mentees',
+            templateUrl: '/app/views/mentees.html',
+            controller: 'rosterCtrl',
+            // resolve: {
+            //     rosterRef: function(firebaseService) {
+            //         return firebaseService.getStudents();
+            //     }
+            // }
         });
 
 

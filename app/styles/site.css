@@ -363,3 +363,12 @@ input.ng-invalid.ng-dirty {
 
 
 }
+
+.mentee-tab-bumper {
+	padding:50px;
+}
+
+.cardo {
+	background-color: red;
+/*	background: url(https://devmounta.in/img/bg-speck.png)
+*/}

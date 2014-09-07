@@ -10,37 +10,46 @@
         </div>
         <hr>		
 		<div ng-repeat="student in students">
-			<h2>{{student.studentName}},</h2> 
-			<h3>
-				Mentor: {{student.mentorName}}
-			</h3>			
-			<div class="dropdown">
-			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-			    Manage Student
-			    <span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation">
-			    	<a href='' ng-click="addStudent(student)">Add Student</a>
-				</li>
-
-			    <li role="presentation">
-			    	<a href='' ng-click="removeStudent(student)">Remove Student</a>
-			    </li>
-
-			    <li role="presentation">
-			    	<a href='' ng-click="graduate(student)">Graduate Student</a>
-			    </li>
-
-			    <li role="presentation">
-			    	<a href='' ng-click="boot(student)">Drop Student</a>
-			    </li>
-
-			    <li role="presentation">
-			    	<a href='' ng-click="revert(student)">Revert Student</a>
-			    </li>
-			  </ul>
+			<div class="col-md-1">
+				<img gravatar-src-once="student.email">
 			</div>
+			<div class="col-md-11">
+				<h2>{{student.studentName}},</h2> 
+				<h3>
+					Mentor: {{student.mentorName}}
+				</h3>	
+			</div>
+			<div>
+				<div class="dropdown">
+			  		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+			    	Manage Student
+			    	<span class="caret"></span>
+			  		</button>
+				  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				    <li role="presentation">
+				    	<a href='' ng-click="addStudent(student)">Add Student</a>
+					</li>
+
+				    <li role="presentation">
+				    	<a href='' ng-click="removeStudent(student)">Remove Student</a>
+				    </li>
+
+				    <li role="presentation">
+				    	<a href='' ng-click="graduate(student)">Graduate Student</a>
+				    </li>
+
+				    <li role="presentation">
+				    	<a href='' ng-click="boot(student)">Drop Student</a>
+				    </li>
+
+				    <li role="presentation">
+				    	<a href='' ng-click="revert(student)">Revert Student</a>
+				    </li>
+				  </ul>
+			</div>
+			</div>						
+			
+			<hr>
 		</div>
 	</div>
 </div>
