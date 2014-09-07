@@ -2,7 +2,10 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('queueCtrl', ['$scope', 'queueRef', 'firebaseService', function ($scope, queueRef, firebaseService) {
+// <<<<<<< HEAD
+// devQ.controller('queueCtrl', ['$scope', 'queueRef','$window', function ($scope, queueRef, $window) {
+// =======
+devQ.controller('queueCtrl', ['$scope', 'queueRef', 'firebaseService', 'authService', '$state', function ($scope, queueRef, firebaseService, authService, $state) {
     var getMentor = function () {
         firebaseService.getMentor($scope.user.id).then(function (res) {
             $scope.mentor = res;
@@ -11,7 +14,6 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef', 'firebaseService', function 
         });
     };
     var getstudent = function () {
-        debugger;
         firebaseService.currentStudent($scope.studentUser.id).then(function (res) {
             $scope.student = res;
         });
@@ -60,8 +62,13 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef', 'firebaseService', function 
         $scope.queue.$save(question);
     };
 
+    $scope.logOff = function() {
+        authService.logOut().then(function() {
+           $state.go('cohort');
+        });
+    };    
+
     $scope.assigned = function (question) {
-        debugger;
         if ($scope.mentor) {
             question.status = 'yellow';
             question.mentor = $scope.mentor || '';
@@ -70,4 +77,8 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef', 'firebaseService', function 
             $scope.queue.$save(question);
         }
     };
+
+    // $window.onbeforeunload = function() {
+    //   return "Data will be lost if you leave the page, are you sure?";
+    // };    
 }]);

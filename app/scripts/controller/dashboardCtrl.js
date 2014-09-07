@@ -20,6 +20,14 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseSe
         }
     };
 
+    $scope.setOpacity = function(mentor) {
+        if(mentor) {
+            if(mentor.status === 'Away') {
+                return 'opacity';
+            }
+        }
+    };
+
     $scope.toggleStatus = function () {
         if ($scope.mentor.status === 'Available') {
             $scope.mentor.status = 'Away';
@@ -54,4 +62,5 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseSe
     $scope.viewCohort = function (cohort) {
         $state.go('secure.queue', { queueId: cohort.$id });
     };
+    console.log($scope.cohorts)
 }]);

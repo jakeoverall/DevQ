@@ -1,4 +1,4 @@
-<div class="jumbotron col-md-6 col-md-offset-3">
+<div class="jumbotron col-md-6 col-md-offset-3 dash-head">
     <img class="icon" src="https://devmounta.in/img/badge.png">
 
     <a href="" ng-click="showReg()">{{status}}</a>
@@ -9,7 +9,7 @@
             <p ng-show="error" class="text-danger">{{ error }}</p>
             <input type="email" placeholder="Email" class="form-control" ng-model="user.email" required><br>
             <input type="password" placeholder="Password" class="form-control" ng-model="user.password" required><br>
-            <input type="submit" class="btn btn-info btn-lg" value="Sign In">
+            <input type="submit" class="btn btn-info" value="Sign In">
         </form><br>
         <p>Not a mentor? <a ui-sref="cohort">Go to student login.</a> </p>
     </div>

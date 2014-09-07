@@ -24,6 +24,22 @@ angular.module('devQ')
               return $firebase(new Firebase(firebaseUrl + '/students/' + id)).$asObject().$loaded().then(function (res) {
                   return res;
               });
+          },
+
+          getStudents: function() {
+            return $firebase(new Firebase(firebaseUrl + '/students'));
+          },
+
+          assignStudent: function(mentorId) {
+            return $firebase(new Firebase(firebaseUrl + '/users/' + mentorId + '/students')).$asArray().$loaded().then(function(res) {
+              return res;
+            });
+          },
+          removeStudentFromMentor: function(mentorId, theBooty){
+            return $firebase(new Firebase(firebaseUrl + '/users/' + mentorId + '/students/' + theBooty)).$asObject().$loaded().then(function(res){
+              debugger;
+              return res;
+            });
           }
       };
   });

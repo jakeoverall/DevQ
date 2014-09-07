@@ -78,5 +78,24 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                     return firebaseService.getQueue($stateParams.queueId);
                 }
             }
+        })
+        .state('secure.studentRoster', {
+            url:'/roster',
+            templateUrl: '/app/views/roster.html',
+            controller: 'rosterCtrl',
+            resolve: {
+                rosterRef: function(firebaseService) {
+                    return firebaseService.getStudents();
+                }
+            }
         });
+
+
+
+
+
+
+
+
+
 }]);

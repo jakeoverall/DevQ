@@ -1,9 +1,36 @@
-﻿body {
-	background: rgb(120, 120, 120);
-	font-family: 'Roboto', sans-serif;
-	padding-bottom: 150px;
-	padding-top: 50px;
+﻿html {
+    height: 100%;
 }
+
+body {
+/*	background: url(http://middlemusic.net/wp/wp-content/uploads/2013/10/textures-texture-texture-background-wallpaper-wallpapers-light-background-gradient-light.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+*/	
+font-family: 'Roboto', sans-serif;
+    height: 100%;
+    margin: 0;
+    margin-top:50px;
+background-image: -webkit-gradient(
+	linear,
+	right bottom,
+	left bottom,
+	color-stop(0, #60A8F3),
+	color-stop(1, #7FFFEC)
+);
+background-image: -o-linear-gradient(left, #60A8F3 0%, #7FFFEC 100%);
+background-image: -moz-linear-gradient(left, #60A8F3 0%, #7FFFEC 100%);
+background-image: -webkit-linear-gradient(left, #60A8F3 0%, #7FFFEC 100%);
+background-image: -ms-linear-gradient(left, #60A8F3 0%, #7FFFEC 100%);
+background-image: linear-gradient(to left, #60A8F3 0%, #7FFFEC 100%);
+
+
+}
+a {
+	text-decoration: none;
+	color: #19688F;
+}
+
 
 /** {
 	border:1px solid black;
@@ -201,27 +228,68 @@ input.ng-invalid.ng-dirty {
 }
 
 .btn-info {
-	background:#fff;
-	color: #31b0d5;
+	border-radius: 0px;
+	background:transparent;
+	color: #fff;
 	transition: 0.3s;
+	width: 120px;
+
+}
+
+.btn-info:hover {
+	width:130px;
 }
 
 .btn-danger {
-	background:#fff;
-	color: #c9302c;
+	border-radius: 0px;	
+	background:transparent;
+	color: #fff;
 	transition: 0.3s;
+	width: 120px;
+
+}
+
+.btn-danger:hover {
+	width:130px;
 }
 
 .btn-primary {
-	background:#fff;
-	color: #3071a9;
+	border-radius: 0px;	
+	background:transparent;
+	color: #fff;
 	transition: 0.3s;
+	width: 120px;
+
+}
+
+.btn-primary:hover {
+	width:130px;
+}
+
+.btn-success {
+	border-radius: 0px;	
+	background:transparent;
+	color: #fff;
+	transition: 0.3s;
+	width: 120px;
+
+}
+
+.btn-success:hover {
+	width:130px;
 }
 
 .btn-warning {
-	background:#fff;
-	color: #eea236;
+	border-radius: 0px;	
+	background:transparent;
+	color: #fff;
 	transition: 0.3s;
+	width: 120px;
+
+}
+
+.btn-warning:hover {
+	width:130px;
 }
 
 .mentor-roster {
@@ -255,4 +323,43 @@ input.ng-invalid.ng-dirty {
 
 .opacity {
 	opacity: 0.4;
+}
+
+.img-grav {
+	max-height: 40px;
+}
+
+.dash-head { 
+	padding:10px;
+	background: rgba(0, 0, 0, 0.368627);
+	margin-top:4%; 
+	color: #D6D6D6; 
+/*	-webkit-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.45);
+	-moz-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.45);
+	box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.45);
+*/}
+
+.dash-head-modal { 
+	padding:10px;
+	background: rgba(0, 0, 0, 0.7);
+	margin-top:4%; 
+	color: #D6D6D6; 
+}
+
+.nav-dash-head {
+	background: rgba(0, 0, 0, 0.368627);
+	color: #D6D6D6; 
+
+}
+
+.form-control {
+	background:rgba(0,0,0,0.45);
+	border-radius: 0px;
+	border:none;
+	color:#D6D6D6;
+	-webkit-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
+	box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
+
+
 }
