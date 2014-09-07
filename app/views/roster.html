@@ -1,0 +1,19 @@
+
+<div class="container">
+	<div class="dash-head">
+		<a ui-sref='secure.dashboard'>Dashboard</a>
+		<div ng-repeat="student in students">
+			Student Name:{{student.studentName}}, Mentor Name:{{student.mentorName}}, Alumni?:{{student.alumni}}, Dropped?:{{student.dropped}} 
+			
+
+			<div>
+				<a href='' ng-click="addStudent(student)">add Student</a><br>
+				<a href='' ng-click="removeStudent(student)">remove Student</a><br>
+				<a href='' ng-click="graduate(student)">graduate Student</a><br>
+				<a href='' ng-click="boot(student)">drop Student</a><br>
+				<a href='' ng-click="revert(student)">revert Student</a><br>
+			</div>	
+
+		</div>
+	</div>
+</div>
