@@ -22,6 +22,7 @@ devQ.controller('rosterCtrl',[ '$scope', 'firebaseService', 'rosterRef', functio
 	$scope.addStudent = function(student) {
 		student.mentorId = $scope.mentor.$id;
 		student.mentorName = $scope.mentor.name;
+		$scope.students.$save(student);
 	};
 
 	$scope.removeStudent = function(student) {
