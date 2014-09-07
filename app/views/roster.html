@@ -1,7 +1,14 @@
+<a ui-sref="secure.dashboard" class="btn btn-danger" style="margin-top:-88px;">To Dashboard</a>
 
 <div class="container">
 	<div class="dash-head">
-		<a ui-sref='secure.dashboard'>Dashboard</a>
+        <div class="row">
+            <div class="col-md-1" style="margin-right:-26px;">
+                <img class="" style="max-height:60px;max-width:60px;"  src="https://devmounta.in/img/badge.png">
+            </div>
+        <h2 style="margin-top: 14px;">Student Roster</h2>
+        </div>
+        <hr>		
 		<div ng-repeat="student in students">
 			Student Name:{{student.studentName}}, Mentor Name:{{student.mentorName}}, Alumni?:{{student.alumni}}, Dropped?:{{student.dropped}} 
 			
