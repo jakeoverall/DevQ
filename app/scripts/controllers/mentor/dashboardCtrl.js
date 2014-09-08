@@ -43,6 +43,26 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseSe
         }
     };
 
+    $scope.toggleMonitorMode = function () {
+        if ($scope.mentor.status !== 'Monitor') {
+            $scope.mentor.status = 'Monitor';
+            $scope.mentor.$save();
+        } else {
+            $scope.mentor.status = 'Available';
+            $scope.mentor.$save();
+        }
+    };    
+
+    $scope.activateMonitorMode = function() {
+        $scope.mentor.status = 'Monitor';
+    };
+
+    $scope.isMonitorMode = function() {
+        if($scope.mentor.status === 'Monitor') {
+            return true;
+        }
+    }; 
+
     $scope.logOff = function() {
         $scope.mentor.status = 'Away';
         $scope.mentor.$save();

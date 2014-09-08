@@ -8,9 +8,9 @@
     <div class="col-md-1 pull-right text-center" ng-class="statusClass(mentor)" style="">{{mentor.status}}</div>
 
       <form class="navbar-form navbar-right pull-right">
+        <a ng-click="toggleMonitorMode()" class="btn btn-danger">Monitor Mode</a>
           <a class="btn btn-warning" ui-sref="secure.mentor.mentees({mentorId: mentor.$id})">My Students</a>              
         <a class="btn btn-info" ui-sref="secure.mentor.studentRoster({mentorId: mentor.$id})" >Student Roster</a>      
-        <a type="submit" value="Add Cohort" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Cohort</a>      
         <a  class="btn btn-info " ng-click="toggleStatus()">Change Status</a>
         <a type="submit" class="btn btn-danger " ng-click="logOff()">Sign Out</a>
       </form>
