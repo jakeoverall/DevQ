@@ -11,8 +11,8 @@
         <hr>
         <div class="col-md-4" style="margin-bottom:10px">
                     <div class="col-md-12">
-                        <h2>Search Mentors</h2>
-                        <input type='text' class="form-control" ng-model="searchCohorts" placeholder="Search Mentors" style="margin-bottom:20px;">
+                        <h2>Search Cohorts</h2>
+                        <input type='text' class="form-control" ng-model="searchCohorts" placeholder="Search Cohorts" style="margin-bottom:20px;">
                     </div>            
             <div ng-repeat="cohort in cohorts | filter:{status: true} | filter: searchCohorts " class="" style="background:#424242; margin: -10px; padding:10px;">
                 <div class="">
