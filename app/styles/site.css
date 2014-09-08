@@ -360,8 +360,19 @@ input.ng-invalid.ng-dirty {
 	-webkit-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
 	-moz-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
 	box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
+	transition:0.5s;
+}
 
-
+.form-control:focus {
+	background:rgba(0,0,0,0.45);
+	border-radius: 0px;
+	height:40px;
+	width:95%;
+	border:none;
+	color:#D6D6D6;
+	-webkit-box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.2);
+	box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.2);
 }
 
 .mentee-tab-bumper {

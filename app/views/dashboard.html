@@ -1,25 +1,4 @@
-<nav class="navbar navbar-default nav-dash-head navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-      <img class=" mentor-image pull-left" style="margin-left:-14px;" ng-src="http://www.gravatar.com/avatar/{{user.md5_hash}}">
-    <h2 style="margin-top:10px" class="col-md-2">{{mentor.name}}</h2> 
-
-
-
-    <div class="col-md-1 pull-right text-center" ng-class="statusClass(mentor)" style="color: #424242;margin-top:13px; padding-left:20px; padding-right:20px;margin-left:4px;">{{mentor.status}}</div>
-
-
-
-      <form class="navbar-form navbar-right pull-right">
-        <a class="btn btn-warning" ui-sref="secure.mentees" >My Students</a>              
-        <a class="btn btn-info" ui-sref="secure.studentRoster" >Student Roster</a>      
-        <a type="submit" value="Add Cohort" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Cohort</a>      
-        <a  class="btn btn-info " ng-click="toggleStatus()">Change Status</a>
-        <a type="submit" class="btn btn-danger " ng-click="logOff()">Sign Out</a>
-      </form>
-
-
-    </div><!-- /.navbar-collapse -->
-  </nav><!-- /.container-fluid -->
+<mentor-nav></mentor-nav>
 
 <div class="container">
     <div class="col-sm-12 dash-head">
@@ -43,7 +22,10 @@
             </div>            
         </div>
         <div class="col-md-8 pull-right" style="margin-right:-40px;">
-            <div class="col-md-6" ng-repeat="mentor in mentors" style="background:#424242; margin:-10px; padding:10px;">
+            <div class="col-md-12">
+
+            </div>
+            <div class="col-md-6" ng-repeat="mentor in mentors | filter: searchMentors" style="background:#424242; margin:-10px; padding:10px;">
                 <div class="panel name-plate mentor-roster" ng-class="setOpacity(mentor)">
                     <div class="name-plate-name">
                         <h4 style="color:#424242">{{mentor.name}} <br/> <span style="color:#424242" class="text-muted reduce-font">{{mentor.title}}</span></h4>
