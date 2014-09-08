@@ -121,10 +121,19 @@ input.ng-invalid.ng-dirty {
 	max-height: 55px;
 }
 
+.mentors-image {
+	max-width: 65px;
+	max-height: 65px;
+	margin-bottom:-45px;
+	margin-right: 100px;	
+	border-radius: 100%;
+}
+
 .name-plate {
 	transition: 0.4s;
     margin: 3px;
-	background: #eee;
+    color: #D6D6D6;
+	background: transparent;
 }
 
 .name-plate-name {
@@ -197,7 +206,7 @@ input.ng-invalid.ng-dirty {
 	width:40%; 
 	display:inline-block; 
 	margin-right:-1px;
-	margin-top: 0px;
+	margin-top: -150px;
 }
 
 .panel-grey {
