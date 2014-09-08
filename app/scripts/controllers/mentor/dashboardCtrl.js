@@ -6,6 +6,10 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseSe
 
     firebaseService.getMentor($scope.user.id).then(function(res) {
         $scope.mentor = res;
+        if ($scope.mentor.title === 'Student' || $scope.mentor.title === undefined) {
+            alert('You do not have permission to access this area');
+            $state.go('cohort');
+        };
     });
 
     $scope.questionStatusFilter = 'Red';
