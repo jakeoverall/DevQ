@@ -2,9 +2,7 @@
 
 var devQ = angular.module('devQ');
 
-// <<<<<<< HEAD
-// devQ.controller('queueCtrl', ['$scope', 'queueRef','$window', function ($scope, queueRef, $window) {
-// =======
+
 devQ.controller('queueCtrl', ['$scope', 'queueRef', 'firebaseService', 'authService', '$state', function ($scope, queueRef, firebaseService, authService, $state) {
     var getMentor = function () {
         firebaseService.getMentor($scope.user.id).then(function (res) {
