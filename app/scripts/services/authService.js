@@ -165,7 +165,7 @@ angular.module('devQ')
               var deferred = $q.defer();
               $http({
                   method: 'POST',
-                  url: 'http://devqueueserver.herokuapp.com/pin',
+                  url: 'https://devqueueserver.herokuapp.com/pin',
                   data: {
                       pin: initPW
                   }
