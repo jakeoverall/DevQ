@@ -2,6 +2,7 @@
 
 angular.module('devQ')
   .controller('studentCtrl', function ($scope, studentRef, mentorsRef, $state) {
+      debugger;
       if (!studentRef) {
           $state.go('cohort');
       }

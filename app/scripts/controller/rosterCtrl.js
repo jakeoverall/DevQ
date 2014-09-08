@@ -2,50 +2,46 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('rosterCtrl',[ '$scope', 'firebaseService', 'rosterRef', function($scope, firebaseService, rosterRef) {
-	
+devQ.controller('rosterCtrl', ['$scope', 'firebaseService', function ($scope, firebaseService) {
+
     var getMentor = function () {
         firebaseService.getMentor($scope.user.id).then(function (res) {
-            firebaseService.assignStudent(res.$id).then(function(mentees) {
-            	$scope.mentor = res;
-            	$scope.mentees = mentees;
-            });
+            $scope.mentor = res;
         });
     };
     getMentor();
 
+    $scope.addStudent = function (student) {
+        debugger;
+        student.mentorId = $scope.mentor.$id;
+        student.mentorName = $scope.mentor.name;
+        student.menteeId = $scope.mentees.length;
+        $scope.mentees.$add(student);
+        $scope.students.$save(student);
+    };
 
-	$scope.students = rosterRef.$asArray();
+    $scope.removeStudent = function (student) {
+        debugger;
+        $scope.mentees.$removeUserObject($scope.mentees, student);
+        student.mentorId = '';
+        student.mentorName = '';
+        $scope.students.$save(student);
+    };
 
-	console.log($scope.students);
+    $scope.graduate = function (student) {
+        student.alumni = true;
+        $scope.students.$save(student);
+    };
 
-	$scope.addStudent = function(student) {
-		student.mentorId = $scope.mentor.$id;
-		student.mentorName = $scope.mentor.name;
-	};
+    $scope.boot = function (student) {
+        student.dropped = true;
+        $scope.students.$save(student);
+    };
 
-	$scope.removeStudent = function(student) {
-			student.mentorId = '';
-			student.mentorName = '';
-			$scope.students.$save(student);	
-	};
-
-	$scope.graduate = function(student) {
-		student.alumni = true;
-		$scope.students.$save(student);
-	};
-
-	$scope.boot = function(student) {
-		student.dropped = true;
-		$scope.students.$save(student);
-	};
-
-	$scope.revert = function(student) {
-		student.alumni = '';
-		student.dropped = '';
-		$scope.students.$save(student);
-	};
-
-
+    $scope.revert = function (student) {
+        student.alumni = '';
+        student.dropped = '';
+        $scope.students.$save(student);
+    };
 
 }]);
