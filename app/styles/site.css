@@ -379,6 +379,7 @@ input.ng-invalid.ng-dirty {
 	border-radius: 0px;
 	border:none;
 	color:#D6D6D6;
+	width:95%;	
 	-webkit-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
 	-moz-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
 	box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
@@ -389,7 +390,7 @@ input.ng-invalid.ng-dirty {
 	background:rgba(0,0,0,0.45);
 	border-radius: 0px;
 	height:40px;
-	width:95%;
+	width:100%;
 	border:none;
 	color:#D6D6D6;
 	-webkit-box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.2);
