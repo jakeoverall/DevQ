@@ -28,7 +28,7 @@ background-image: linear-gradient(to left, #60A8F3 0%, #7FFFEC 100%);
 }
 a {
 	text-decoration: none;
-	color: #19688F;
+	color: #D6D6D6;
 }
 
 
@@ -140,34 +140,47 @@ input.ng-invalid.ng-dirty {
 }
 
 .status-light-red {
-	border-radius: 4px;
-	background: #fff;
+
+	border-radius: 0px;
+	color: #fff;
+	background:rgba(255,56,56,1); 
 	border:1px solid rgba(255,56,56,1);
-	padding:1px; 
-	margin-bottom:5px; 
-	margin-left:0px;
+	padding:15px; 
+	height: 55px !important;
+	margin-bottom:0px; 
+	margin-right:-15px;
+	margin-left:10px;
 	transition: 0.4s;
+
 
 }
 
 .status-light-green {
-	border-radius: 4px;
-	background:#fff; 
+
+	border-radius: 0px;
+	color: #fff;
+	background:#40e667; 
 	border:1px solid #40e667;
-	padding:1px; 
-	margin-bottom:5px; 
-	margin-left:0px;
+	padding:15px; 
+	height: 55px !important;
+	margin-bottom:0px; 
+	margin-right:-15px;
+	margin-left:10px;
 	transition: 0.4s;
+
 
 }
 
 .status-light-yellow {
-	border-radius: 4px;
-	background:#fff; 
+	border-radius: 0px;
+	color: #fff;
+	background:#e7a61a; 
 	border:1px solid #e7a61a;
-	padding:1px; 
-	margin-bottom:5px; 
-	margin-left:0px;
+	padding:15px; 
+	height: 55px !important;
+	margin-bottom:0px; 
+	margin-right:-15px;
+	margin-left:10px;
 	transition: 0.4s;
 
 }
@@ -373,6 +386,25 @@ input.ng-invalid.ng-dirty {
 	-webkit-box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.2);
 	-moz-box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.2);
 	box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.2);
+}
+
+.question-form {
+	background:rgba(0,0,0,0.45);
+	border-radius: 0px;
+	height: 30px;
+	padding: auto 10px;
+	border:none;
+	color:#D6D6D6;
+	transition:0.5s;
+}
+
+.question-form:focus {
+	background:rgba(0,0,0,0.45);
+	border-radius: 0px;
+	height:32px;
+	width:95%;
+	border:none;
+	color:#D6D6D6;
 }
 
 .mentee-tab-bumper {
