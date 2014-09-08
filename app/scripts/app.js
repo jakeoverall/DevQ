@@ -19,7 +19,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
         })
         .state('mentor', {
             url: '/mentor',
-            templateUrl: '/app/views/student/mentor.html',
+            templateUrl: '/app/views/mentor/mentor.html',
             controller: 'mentorCtrl'
 
         })

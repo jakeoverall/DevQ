@@ -393,7 +393,7 @@ input.ng-invalid.ng-dirty {
 	border-radius: 0px;
 	height: 30px;
 	padding: auto 10px;
-	border:none;
+	border:1px solid #D6D6D6;
 	color:#D6D6D6;
 	transition:0.5s;
 }
@@ -403,7 +403,7 @@ input.ng-invalid.ng-dirty {
 	border-radius: 0px;
 	height:32px;
 	width:95%;
-	border:none;
+	border:1px solid #D6D6D6;
 	color:#D6D6D6;
 }
 
