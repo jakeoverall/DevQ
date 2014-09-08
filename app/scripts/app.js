@@ -1,4 +1,4 @@
-﻿var devQ = angular.module('devQ', ['firebase', 'ui.router', 'restangular', 'angularMoment', 'ui.gravatar']);
+﻿var devQ = angular.module('devQ', ['firebase', 'ui.router', 'restangular', 'angularMoment', 'ui.gravatar', 'dangle']);
 
 
 //Routes
