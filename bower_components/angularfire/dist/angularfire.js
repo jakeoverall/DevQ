@@ -146,6 +146,34 @@
                       return $firebaseUtils.reject('Invalid record; could determine its key: ' + indexOrItem);
                   }
               },
+              
+              $saveUserObject: function (arr, object) {
+                  debugger;
+                  var found = false;
+                  var ref = {};
+                  var self = arr;
+                  var caller = this;
+                  var key = object.$id;
+                  this._assertNotDestroyed('$save');
+                  for (var i = 0; i < arr.length; i++) {
+                      if (arr[i].email === object.email) {
+                          ref = arr[i];
+                          found = true;
+                          break;
+                      }
+                  }
+                  if (found) {
+                      object.$id = ref.$id;
+                      return self.$inst().$set(ref.$id, $firebaseUtils.toJSON(object))
+                          .then(function (res) {
+                              debugger;
+                              caller._notify('child_changed', key);
+                              return res;
+                          });
+                  } else {
+                      return $firebaseUtils.reject('Invalid record; could not find userObject: ' + object);
+                  }
+              },
 
               /**
                * Pass either an existing item in this array or the index of that item and it will

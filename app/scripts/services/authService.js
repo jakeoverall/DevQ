@@ -125,11 +125,12 @@ angular.module('devQ')
             
               firebaseSimpleLogin.$createUser(studentInfo.email, studentInfo.password).then(function (student) {
                   // Create our own custom user object to house the user's data
-                  
+                  debugger;
                   var studentObject = $firebase(new Firebase(firebaseEndpoint + '/students/' + student.id)).$asObject();
                   studentObject.email = studentInfo.email;
                   studentObject.studentName = studentInfo.studentName;
-                  studentObject.cohortId = studentInfo.cohortId;
+                  studentObject.cohort = studentInfo.cohort.name;
+                  studentObject.cohortId = studentInfo.cohort.$id;
                   studentObject.title = 'Student';
                   studentObject.$save().then(deferred.resolve, deferred.reject);
 
