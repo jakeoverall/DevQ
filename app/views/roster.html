@@ -1,19 +1,55 @@
+<mentor-nav></mentor-nav>
 
 <div class="container">
 	<div class="dash-head">
-		<a ui-sref='secure.dashboard'>Dashboard</a>
+        <div class="row">
+            <div class="col-md-1" style="margin-right:-26px;">
+                <img class="" style="max-height:60px;max-width:60px;"  src="https://devmounta.in/img/badge.png">
+            </div>
+        <h2 style="margin-top: 14px;">Student Roster</h2>
+        </div>
+        <hr>		
 		<div ng-repeat="student in students">
-			Student Name:{{student.studentName}}, Mentor Name:{{student.mentorName}}, Alumni?:{{student.alumni}}, Dropped?:{{student.dropped}} 
-			
-
+			<div class="col-md-1">
+				<img gravatar-src-once="student.email">
+			</div>
+			<div class="col-md-11">
+				<h2>{{student.studentName}},</h2> 
+				<h3>
+					Mentor: {{student.mentorName}}
+				</h3>	
+			</div>
 			<div>
-				<a href='' ng-click="addStudent(student)">add Student</a><br>
-				<a href='' ng-click="removeStudent(student)">remove Student</a><br>
-				<a href='' ng-click="graduate(student)">graduate Student</a><br>
-				<a href='' ng-click="boot(student)">drop Student</a><br>
-				<a href='' ng-click="revert(student)">revert Student</a><br>
-			</div>	
+				<div class="dropdown">
+			  		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+			    	Manage Student
+			    	<span class="caret"></span>
+			  		</button>
+				  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				    <li role="presentation">
+				    	<a href='' ng-click="addStudent(student)">Add Student</a>
+					</li>
 
+				    <li role="presentation">
+				    	<a href='' ng-click="removeStudent(student)">Remove Student</a>
+				    </li>
+
+				    <li role="presentation">
+				    	<a href='' ng-click="graduate(student)">Graduate Student</a>
+				    </li>
+
+				    <li role="presentation">
+				    	<a href='' ng-click="boot(student)">Drop Student</a>
+				    </li>
+
+				    <li role="presentation">
+				    	<a href='' ng-click="revert(student)">Revert Student</a>
+				    </li>
+				  </ul>
+			</div>
+			</div>						
+			
+			<hr>
 		</div>
 	</div>
 </div>

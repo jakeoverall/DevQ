@@ -12,7 +12,6 @@ devQ.controller('rosterCtrl', ['$scope', 'firebaseService', function ($scope, fi
     getMentor();
 
     $scope.addStudent = function (student) {
-        debugger;
         student.mentorId = $scope.mentor.$id;
         student.mentorName = $scope.mentor.name;
         student.menteeId = $scope.mentees.length;
@@ -20,23 +19,32 @@ devQ.controller('rosterCtrl', ['$scope', 'firebaseService', function ($scope, fi
         $scope.students.$save(student);
     };
 
+
+	$scope.students = rosterRef.$asArray();
+
+	console.log($scope.students);
+
+	$scope.addStudent = function(student) {
+		student.mentorId = $scope.mentor.$id;
+		student.mentorName = $scope.mentor.name;
+		$scope.students.$save(student);
+	};
+
     $scope.removeStudent = function (student) {
-        debugger;
         $scope.mentees.$removeUserObject($scope.mentees, student);
         student.mentorId = '';
         student.mentorName = '';
         $scope.students.$save(student);
     };
+	$scope.graduate = function(student) {
+		student.alumni = true;
+		$scope.students.$save(student);
+	};
 
-    $scope.graduate = function (student) {
-        student.alumni = true;
-        $scope.students.$save(student);
-    };
-
-    $scope.boot = function (student) {
-        student.dropped = true;
-        $scope.students.$save(student);
-    };
+	$scope.boot = function(student) {
+		student.dropped = true;
+		$scope.students.$save(student);
+	};
 
     $scope.revert = function (student) {
         student.alumni = '';
