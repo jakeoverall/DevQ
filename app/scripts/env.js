@@ -1,4 +1,4 @@
 ﻿window.env = {
     "environment": "development",
-    "firebase": "https://devqueue.firebaseio.com/public"   
+    "firebase": "https://devqueue.firebaseio.com/dev"   
 };

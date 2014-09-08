@@ -1,71 +1,30 @@
 <mentor-nav></mentor-nav>
 
-<div class="container" >
+<div class="container">
     <div class="dash-head">
         <div class="row">
             <div class="col-md-1" style="margin-right:-26px;">
-                <img class="" style="max-height:60px;max-width:60px;"  src="https://devmounta.in/img/badge.png">
+                <img class="" style="max-height:60px;max-width:60px;" src="https://devmounta.in/img/badge.png">
             </div>
             <h2 style="margin-top: 14px;">My Students</h2>
         </div>
     </div>
-    
-    <div ng-repeat="student in mentor.students">
-        {{student.studentName}}
-        {{student.email}}
+
+    <div ng-repeat="student in mentees" class="col-md-3 mentee-tab-bumper">
+        <div class="col-md-12 cardo">
+            <div style="height:150px;"></div>
+            <div style="background:#D6D6D6; margin-left:-15px;margin-right:-15px;margin-bottom:-15px; padding-bottom:30px ">
+                <img class="mentee-face" gravatar-src-once="'{{student.email}}'">
+                <div style="padding:10px">
+                    <h3 style="margin-bottom:5px">{{student.studentName}}</h3>
+                    <p style="margin-bottom:5px">{{student.email}}</p>
+                    <p style="margin-bottom:5px">{{student.cohortName}}</p>
+                </div>
+                <a class="btn btn-primary" href="" ui-sref="secure.mentor.review({studentId: student.userId})">View Assignments</a>
+                <br/>
+                <a href="" class="btn btn-danger" ng-click="removeStudent(student)">Remove Mentee</a>
+            </div>
+        </div>
     </div>
 
-    <div class="col-md-3 mentee-tab-bumper">
-		<div class="col-md-12 cardo" >
-			<div style="height:150px;"></div>
-			<div style="background:#D6D6D6; margin-left:-15px;margin-right:-15px;margin-bottom:-15px; padding-bottom:30px ">
-				<img class="mentee-face" src="https://media.licdn.com/mpr/mpr/shrink_200_200/p/5/005/015/1ed/03a04f0.jpg">
-				<div style="padding:10px">
-					<h3 style="margin-bottom:5px">Ean Platter</h3>
-					<p style="margin-bottom:5px">eanplatter@gmail.com</p>
-					<p style="margin-bottom:5px">Cohort: Salt Lake City Summer 2014</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3 mentee-tab-bumper">
-		<div class="col-md-12 cardo" >
-			<div style="height:150px;"></div>
-			<div style="background:#D6D6D6; margin-left:-15px;margin-right:-15px;margin-bottom:-15px; padding-bottom:30px ">
-				<img class="mentee-face" src="https://media.licdn.com/mpr/mpr/shrink_200_200/p/5/005/015/1ed/03a04f0.jpg">
-				<h3 style="padding:10px;">Ean Platter</h3>
-				<p style="padding:10px;">eanplatter@gmail.com</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3 mentee-tab-bumper">
-		<div class="col-md-12 cardo" >
-			<div style="height:150px;"></div>
-			<div style="background:#D6D6D6; margin-left:-15px;margin-right:-15px;margin-bottom:-15px; padding-bottom:30px ">
-				<img class="mentee-face" src="https://media.licdn.com/mpr/mpr/shrink_200_200/p/5/005/015/1ed/03a04f0.jpg">
-				<h3 style="padding:10px;">Ean Platter</h3>
-				<p style="padding:10px;">eanplatter@gmail.com</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3 mentee-tab-bumper">
-		<div class="col-md-12 cardo" >
-			<div style="height:150px;"></div>
-			<div style="background:#D6D6D6; margin-left:-15px;margin-right:-15px;margin-bottom:-15px; padding-bottom:30px ">
-				<img class="mentee-face" src="https://media.licdn.com/mpr/mpr/shrink_200_200/p/5/005/015/1ed/03a04f0.jpg">
-				<h3 style="padding:10px;">Ean Platter</h3>
-				<p style="padding:10px;">eanplatter@gmail.com</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-3 mentee-tab-bumper">
-		<div class="col-md-12 cardo" >
-			<div style="height:150px;"></div>
-			<div style="background:#D6D6D6; margin-left:-15px;margin-right:-15px;margin-bottom:-15px; padding-bottom:30px ">
-				<img class="mentee-face" src="https://media.licdn.com/mpr/mpr/shrink_200_200/p/5/005/015/1ed/03a04f0.jpg">
-				<h3 style="padding:10px;">Ean Platter</h3>
-				<p style="padding:10px;">eanplatter@gmail.com</p>
-			</div>
-		</div>
-	</div>							
 </div>

@@ -147,6 +147,34 @@
                   }
               },
 
+              $saveUserObject: function (arr, object) {
+                  debugger;
+                  var found = false;
+                  var ref = {};
+                  var self = arr;
+                  var caller = this;
+                  var key = object.$id;
+                  this._assertNotDestroyed('$save');
+                  for (var i = 0; i < arr.length; i++) {
+                      if (arr[i].email === object.email) {
+                          ref = arr[i];
+                          found = true;
+                          break;
+                      }
+                  }
+                  if (found) {
+                      object.$id = ref.$id;
+                        self.$inst().$set(ref.$id, $firebaseUtils.toJSON(object))
+                          .then(function (res) {
+                              return res;
+                          });
+                        caller._notify('child_changed', key);
+                  } else {
+                      return $firebaseUtils.reject('Invalid record; could not find userObject: ' + object);
+                  }
+                  
+              },
+
               /**
                * Pass either an existing item in this array or the index of that item and it will
                * be removed both locally and in Firebase. This should be used in place of
@@ -171,7 +199,7 @@
                       return $firebaseUtils.reject('Invalid record; could not find key: ' + indexOrItem);
                   }
               },
-              
+
               $removeUserObject: function (arr, object) {
                   var found = false;
                   var ref = {};
@@ -1067,8 +1095,8 @@
                     }
                     return promise;
                 },
-                
-                $removeUserObject: function(object) {
+
+                $removeUserObject: function (object) {
                     var ref = this._ref, self = this, promise;
                     var def = $firebaseUtils.defer();
                     if (arguments.length > 0) {
