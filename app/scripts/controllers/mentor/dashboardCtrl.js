@@ -60,7 +60,7 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseSe
     };
 
     $scope.viewCohort = function (cohort) {
-        $state.go('secure.queue', { queueId: cohort.$id });
+        $state.go('secure.mentor.queue', { queueId: cohort.$id, mentorId: $scope.mentor.id });
     };
-    console.log($scope.cohorts)
+    
 }]);
