@@ -18,7 +18,7 @@
                 </p>
             </div>
             <div class="panel-body">
-                <input type='submit' value="Remove" class="btn btn-danger" ng-click="leaveQueue(question)">
+                <a class="btn btn-danger" ng-click="leaveQueue(question)" ng-show="currentStudent(question)" >Remove</a>
             </div>
         </div>
     </div>

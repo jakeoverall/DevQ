@@ -14,6 +14,9 @@
                 <div class="">
                     <h4>{{cohort.name}}</h4>
                 </div>
+                <div>
+                    <fs-area bind="results.facets.date" plot-false />
+                </div>
                 <div class="">
                     <a type='submit' value="" class="btn btn-info" ng-click="viewCohort(cohort)">View Cohort</a>
                     <input type='submit' value="Remove Cohort" class="btn btn-danger" ng-click="removeCohort(cohort)">
@@ -28,7 +31,9 @@
             <div class="col-md-6" ng-repeat="mentor in mentors | filter: searchMentors" style="background:#424242; margin:-10px; padding:10px;">
                 <div class="panel name-plate mentor-roster" ng-class="setOpacity(mentor)">
                     <div class="name-plate-name">
-                        <h4 style="color:#424242">{{mentor.name}} <br/> <span style="color:#424242" class="text-muted reduce-font">{{mentor.title}}</span></h4>
+                        <div class="">
+                            <h4 style="color:#424242">{{mentor.name}} <br/> <span style="color:#424242" class="text-muted reduce-font">{{mentor.title}}</span></h4>
+                        </div>                    
                         <div class=" text-center" ng-class="statusClass(mentor)" style="color:#424242">{{mentor.status}}</div>
                     </div>
                     <div class="text-right mentor-image-box">
