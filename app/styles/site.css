@@ -334,10 +334,10 @@ input.ng-invalid.ng-dirty {
 	background: rgba(0, 0, 0, 0.368627);
 	margin-top:4%; 
 	color: #D6D6D6; 
-/*	-webkit-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.45);
-	-moz-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.45);
-	box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.45);
-*/}
+	-webkit-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
+	box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
+}
 
 .dash-head-modal { 
 	padding:10px;
