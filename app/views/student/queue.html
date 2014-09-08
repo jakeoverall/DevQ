@@ -1,19 +1,4 @@
-<nav class="navbar-nav nav-dash-head navbar-fixed-top" role="navigation" ng-show="!isMentor">
-    <div class="container-fluid">
-        <img class=" mentor-image pull-left" style="margin-left:-14px;" gravatar-src-once="student.email">
-        <h2 style="margin-top:10px" class="col-md-4">{{student.studentName}}</h2>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                    <label>Ask a question</label>
-                    <input type="text" ng-model="text" ng-enter="enterQueue()" class="nav-form form-control" placeholder="Question">
-                </div>
-                <a class="btn btn-info" ng-click="enterQueue()">Enter Queue</a>
-                <a class="btn btn-danger" ng-click="logOff()">Sign Out</a>
-            </form>
-        </div>
-    </div>
-</nav>
+<student-nav></student-nav>
 
 <div class="col-md-12"></div>
 <div class="panel queue col-md-5 dash-head">

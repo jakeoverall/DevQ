@@ -9,7 +9,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
     $stateProvider
         .state('cohort', {
             url: '/cohort',
-            templateUrl: '/app/views/cohort.html',
+            templateUrl: '/app/views/student/cohort.html',
             controller: 'cohortCtrl',
             resolve: {
                 cohortsRef: function (firebaseService) {
@@ -19,7 +19,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
         })
         .state('mentor', {
             url: '/mentor',
-            templateUrl: '/app/views/mentor.html',
+            templateUrl: '/app/views/student/mentor.html',
             controller: 'mentorCtrl'
 
         })
@@ -39,7 +39,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
         })
         .state('student.queue', {
             url: '/cohort/:queueId',
-            templateUrl: '/app/views/queue.html',
+            templateUrl: '/app/views/student/queue.html',
             controller: 'queueCtrl',
             resolve: {
                 queueRef: function (firebaseService, $stateParams) {
@@ -69,7 +69,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
          })
         .state('secure.dashboard', {
             url: '/dashboard',
-            templateUrl: '/app/views/dashboard.html',
+            templateUrl: '/app/views/mentor/dashboard.html',
             controller: 'dashboardCtrl',
         })
         .state('secure.mentor', {
@@ -85,7 +85,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
         })
         .state('secure.mentor.queue', {
             url: '/cohort/:queueId',
-            templateUrl: '/app/views/mentor-queue.html',
+            templateUrl: '/app/views/mentor/mentor-queue.html',
             controller: 'queueCtrl',
             resolve: {
                 queueRef: function (firebaseService, $stateParams) {
@@ -95,12 +95,12 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
         })
         .state('secure.mentor.studentRoster', {
             url: '/roster',
-            templateUrl: '/app/views/roster.html',
+            templateUrl: '/app/views/mentor/roster.html',
             controller: 'rosterCtrl'
         })
         .state('secure.mentor.mentees', {
             url: '/mentees',
-            templateUrl: '/app/views/mentees.html',
+            templateUrl: '/app/views/mentor/mentees.html',
             controller: 'menteesCtrl'
         });
 }]);

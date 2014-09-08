@@ -3,7 +3,8 @@
 <head>
     <title>Queue</title>
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>    <link rel="stylesheet" type="text/css" href="app/styles/site.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="app/styles/site.css">
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="app/styles/site.css">
 </head>
@@ -32,26 +33,36 @@
         <script src="bower_components/angular-moment/angular-moment.min.js"></script>
         <script src="bower_components/angular-gravatar/build/md5.min.js"></script>
         <script src="bower_components/angular-gravatar/build/angular-gravatar.min.js"></script>
+        
         <!-- App -->
         <script src="app/scripts/app.js"></script>
-        <!-- Controllers -->
-        <script src="app/scripts/controller/cohortCtrl.js"></script>
-        <script src="app/scripts/controller/secureCtrl.js"></script>
-        <script src="app/scripts/controller/mentorCtrl.js"></script>
-        <script src="app/scripts/controller/queueCtrl.js"></script>
-        <script src="app/scripts/controller/studentCtrl.js"></script>
-        <script src="app/scripts/controller/dashboardCtrl.js"></script>
-        <script src="app/scripts/controller/rosterCtrl.js"></script>
-        <script src="app/scripts/controller/secureMentorCtrl.js"></script>
+        <!------------- Controllers -------------->
+        <!-- Student -->
+        <script src="app/scripts/controllers/student/cohortCtrl.js"></script>
+        <script src="app/scripts/controllers/student/studentCtrl.js"></script>
+        <script src="app/scripts/controllers/student/studentDashboardCtrl.js"></script>
 
-        <!-- Services -->
+        <!-- Mentor -->
+        <script src="app/scripts/controllers/mentor/secureMentorCtrl.js"></script>
+        <script src="app/scripts/controllers/mentor/secureCtrl.js"></script>
+        <script src="app/scripts/controllers/mentor/rosterCtrl.js"></script>
+        <script src="app/scripts/controllers/mentor/mentorCtrl.js"></script>
+        <script src="app/scripts/controllers/mentor/menteesCtrl.js"></script>
+        <script src="app/scripts/controllers/mentor/dashboardCtrl.js"></script>
+
+        <!-- Shared -->
+        <script src="app/scripts/controllers/shared/assignmentsCtrl.js"></script>
+        <script src="app/scripts/controllers/shared/queueCtrl.js"></script>
+
+        <!------------- Services -------------->
         <script src="app/scripts/services/environmentService.js"></script>
         <script src="app/scripts/services/firebaseService.js"></script>
         <script src="app/scripts/services/authService.js"></script>
 
-        <!-- Directives -->
+        <!------------- Directives -------------->
         <script src="app/scripts/directives/mentorNav.js"></script>
         <script src="app/scripts/directives/ngEnter.js"></script>
+        <script src="app/scripts/directives/studentNav.js"></script>
     </scripts>
 </body>
 </html>

@@ -1,5 +1,3 @@
-<mentor-nav></mentor-nav>
-
 <div class="jumbotron col-md-6 col-md-offset-3 dash-head">
     <img class="icon" src="https://devmounta.in/img/badge.png">
 
@@ -22,7 +20,7 @@
             <p ng-show="error" class="text-danger">{{ error }}</p>
             <input class="form-control" type="text" placeholder="Full Name" ng-model="mentorInfo.name" required /><br />
             <select class="form-control" ng-options="title for title in titles" ng-model="mentorInfo.title" required>
-                 <option value="">-- Select Title --</option>
+                <option value="">-- Select Title --</option>
             </select><br />
             <input class="form-control" type="email" placeholder="Email" ng-model="mentorInfo.email" required /><br />
             <input class="form-control" type="password" placeholder="Password" ng-model="mentorInfo.password" required /><br />

@@ -2,14 +2,7 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('rosterCtrl', ['$scope', 'firebaseService', function ($scope, firebaseService) {
-
-    var getMentor = function () {
-        firebaseService.getMentor($scope.user.id).then(function (res) {
-            $scope.mentor = res;
-        });
-    };
-    getMentor();
+devQ.controller('rosterCtrl', ['$scope', 'firebaseService', function ($scope) {
 
     $scope.addStudent = function (student) {
         student.mentorId = $scope.mentor.$id;
@@ -18,11 +11,6 @@ devQ.controller('rosterCtrl', ['$scope', 'firebaseService', function ($scope, fi
         $scope.mentees.$add(student);
         $scope.students.$save(student);
     };
-
-
-	$scope.students = rosterRef.$asArray();
-
-	console.log($scope.students);
 
 	$scope.addStudent = function(student) {
 		student.mentorId = $scope.mentor.$id;

@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('devQ')
-  .controller('secureCtrl', function ($scope,  $state, mentorRef, cohortsRef, mentorsRef, studentsRef) {
+  .controller('secureCtrl', function ($scope, $state, mentorRef, cohortsRef, mentorsRef, studentsRef) {
       if (!mentorRef) {
           $state.go('cohort');
       }
