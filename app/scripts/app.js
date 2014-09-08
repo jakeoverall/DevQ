@@ -49,7 +49,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
         })
          .state('secure', {
              abstract: true,
-             url: '/mentor',
+             url: '/secure',
              template: '<div ui-view></div>',
              controller: 'secureCtrl',
              resolve: {
@@ -61,6 +61,9 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                  },
                  mentorsRef: function (firebaseService) {
                      return firebaseService.getMentors();
+                 },
+                 studentsRef: function(firebaseService) {
+                     return firebaseService.getStudents();
                  }
              }
          })
@@ -79,32 +82,25 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                 }
             }
         })
-        .state('secure.studentRoster', {
-            url:'/roster',
-            templateUrl: '/app/views/roster.html',
-            controller: 'rosterCtrl',
+        .state('secure.mentor', {
+            abstract: true,
+            url: '/mentor/:mentorId',
+            template: '<div ui-view></div>',
+            controller: 'secureMentorCtrl',
             resolve: {
-                rosterRef: function(firebaseService) {
-                    return firebaseService.getStudents();
+                menteesRef: function (firebaseService, $stateParams) {
+                    return firebaseService.getMentees($stateParams.mentorId);
                 }
             }
-        }).state('secure.mentees', {
-            url:'/mentees',
+        })
+        .state('secure.mentor.studentRoster', {
+            url:'/roster',
+            templateUrl: '/app/views/roster.html',
+            controller: 'rosterCtrl'
+        })
+        .state('secure.mentor.mentees', {
+            url: '/mentees',
             templateUrl: '/app/views/mentees.html',
-            controller: 'rosterCtrl',
-            // resolve: {
-            //     rosterRef: function(firebaseService) {
-            //         return firebaseService.getStudents();
-            //     }
-            // }
+            controller: 'menteesCtrl'
         });
-
-
-
-
-
-
-
-
-
 }]);

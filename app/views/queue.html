@@ -8,35 +8,16 @@
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
             <label>Ask a question</label>
-          <input type="text" ng-model="text" class="nav-form form-control" placeholder="Question">
+          <input type="text" ng-model="text" ng-enter="enterQueue()" class="nav-form form-control" placeholder="Question">
         </div>
-        <a  class="btn btn-info" ng-click="enterQueue()">Enter Queue</a>
-        <button type="submit" class="btn btn-danger" ng-click="logOff()">Sign Out</button>
+        <a class="btn btn-info" ng-click="enterQueue()">Enter Queue</a>
+        <a class="btn btn-danger" ng-click="logOff()">Sign Out</a>
       </form>
-<!--     <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown">Present Mentors <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-        <li>
-            <a>Ean Platter{{mentor.name}}</a>
-        </li>
-        <li>
-            <div class="status-light-green nav-status text-center col-md-8" style="margin-left:10px;">Available</div>
-        </li>   
-                <li>
-            <a>Ean Platter{{mentor.name}}</a>
-        </li>
-        <li>
-            <div class="status-light-green nav-status text-center col-md-8" style="margin-left:10px;">Available</div>
-        </li>
-          </ul>
-        </li>
-      </ul>  -->     
     </div>
   </div>
 </nav>
-<div class="pull-right" style="position:fixed; right:0; top:0;">
-    <a ui-sref="secure.dashboard" ng-show="isMentor" class="btn btn-danger" style="margin-top:"-50px>To Dashboard</a>
+<div style="position:fixed; right:0; top:0;">
+    <a ui-sref="secure.dashboard" ng-show="isMentor" class="btn btn-danger" style="margin-top:-50px">To Dashboard</a>
 </div>
 <div class="col-md-12"></div>
 <div class="panel queue col-md-5 dash-head">
