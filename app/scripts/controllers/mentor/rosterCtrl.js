@@ -8,15 +8,9 @@ devQ.controller('rosterCtrl', ['$scope', 'firebaseService', function ($scope) {
         student.mentorId = $scope.mentor.$id;
         student.mentorName = $scope.mentor.name;
         student.menteeId = $scope.mentees.length;
+        student.userId = student.$id;
         $scope.mentees.$add(student);
         $scope.students.$save(student);
-    };
-
-    $scope.addStudent = function (student) {
-		student.mentorId = $scope.mentor.$id;
-		student.mentorName = $scope.mentor.name;
-		$scope.students.$save(student);
-        $scope.mentees.$add(student);
     };
 
 	$scope.graduate = function(student) {

@@ -146,7 +146,7 @@
                       return $firebaseUtils.reject('Invalid record; could determine its key: ' + indexOrItem);
                   }
               },
-              
+
               $saveUserObject: function (arr, object) {
                   debugger;
                   var found = false;
@@ -164,15 +164,15 @@
                   }
                   if (found) {
                       object.$id = ref.$id;
-                      return self.$inst().$set(ref.$id, $firebaseUtils.toJSON(object))
+                        self.$inst().$set(ref.$id, $firebaseUtils.toJSON(object))
                           .then(function (res) {
-                              debugger;
-                              caller._notify('child_changed', key);
                               return res;
                           });
+                        caller._notify('child_changed', key);
                   } else {
                       return $firebaseUtils.reject('Invalid record; could not find userObject: ' + object);
                   }
+                  
               },
 
               /**
@@ -199,7 +199,7 @@
                       return $firebaseUtils.reject('Invalid record; could not find key: ' + indexOrItem);
                   }
               },
-              
+
               $removeUserObject: function (arr, object) {
                   var found = false;
                   var ref = {};
@@ -1095,8 +1095,8 @@
                     }
                     return promise;
                 },
-                
-                $removeUserObject: function(object) {
+
+                $removeUserObject: function (object) {
                     var ref = this._ref, self = this, promise;
                     var def = $firebaseUtils.defer();
                     if (arguments.length > 0) {
