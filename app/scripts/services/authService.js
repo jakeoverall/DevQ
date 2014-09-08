@@ -130,6 +130,7 @@ angular.module('devQ')
                   studentObject.email = studentInfo.email;
                   studentObject.studentName = studentInfo.studentName;
                   studentObject.cohortId = studentInfo.cohortId;
+                  studentObject.title = 'Student';
                   studentObject.$save().then(deferred.resolve, deferred.reject);
 
               }, deferred.reject);
