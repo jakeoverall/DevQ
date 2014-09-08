@@ -8,6 +8,8 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseSe
         $scope.mentor = res;
     });
 
+    $scope.questionStatusFilter = 'Red';
+
     $scope.statusClass = function(mentor) {
         if(mentor) {
             if(mentor.status === 'Available') {
