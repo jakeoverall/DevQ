@@ -50,4 +50,13 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef', 'firebaseService', 'authServ
             $scope.queue.$save(question);
         }
     };
+
+    $scope.currentStudent = function(question) {
+        if(question.submittedBy.email === $scope.student.email) {
+            return true;
+        }
+    }
+
+
+
 }]);
