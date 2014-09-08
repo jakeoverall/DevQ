@@ -21,7 +21,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             url: '/mentor',
             templateUrl: '/app/views/mentor.html',
             controller: 'mentorCtrl'
-            
+
         })
         .state('student', {
             abstract: true,
@@ -32,7 +32,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                 studentRef: function (authService) {
                     return authService.getStudent();
                 },
-                mentorsRef: function(firebaseService) {
+                mentorsRef: function (firebaseService) {
                     return firebaseService.getMentors();
                 }
             }
@@ -62,7 +62,7 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                  mentorsRef: function (firebaseService) {
                      return firebaseService.getMentors();
                  },
-                 studentsRef: function(firebaseService) {
+                 studentsRef: function (firebaseService) {
                      return firebaseService.getStudents();
                  }
              }
@@ -71,16 +71,6 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             url: '/dashboard',
             templateUrl: '/app/views/dashboard.html',
             controller: 'dashboardCtrl',
-        })
-        .state('secure.queue', {
-            url: '/cohort/:queueId',
-            templateUrl: '/app/views/queue.html',
-            controller: 'queueCtrl',
-            resolve: {
-                queueRef: function (firebaseService, $stateParams) {
-                    return firebaseService.getQueue($stateParams.queueId);
-                }
-            }
         })
         .state('secure.mentor', {
             abstract: true,
@@ -93,8 +83,18 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                 }
             }
         })
+        .state('secure.mentor.queue', {
+            url: '/cohort/:queueId',
+            templateUrl: '/app/views/mentor-queue.html',
+            controller: 'queueCtrl',
+            resolve: {
+                queueRef: function (firebaseService, $stateParams) {
+                    return firebaseService.getQueue($stateParams.queueId);
+                }
+            }
+        })
         .state('secure.mentor.studentRoster', {
-            url:'/roster',
+            url: '/roster',
             templateUrl: '/app/views/roster.html',
             controller: 'rosterCtrl'
         })
