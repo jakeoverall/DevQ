@@ -6,7 +6,12 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseSe
 
     firebaseService.getMentor($scope.user.id).then(function(res) {
         $scope.mentor = res;
+        if ($scope.mentor.title === undefined) {
+            $state.go('cohort');
+        }
     });
+
+    $scope.questionStatusFilter = 'Red';
 
     $scope.statusClass = function(mentor) {
         if(mentor) {

@@ -4,9 +4,9 @@
     <div class="col-sm-12 dash-head">
         <div class="row">
             <div class="col-md-1" style="margin-right:-26px;">
-                <img class="" style="max-height:60px;max-width:60px;"  src="https://devmounta.in/img/badge.png">
+                <img class="" style="max-height:60px;max-width:60px;" src="https://devmounta.in/img/badge.png">
             </div>
-        <h2 style="margin-top: 14px;">Mentor Dashboard</h2>
+            <h2 style="margin-top: 14px;">Mentor Dashboard</h2>
         </div>
         <hr>
         <div class="col-md-4" style="margin-bottom:10px">
@@ -18,15 +18,17 @@
                 <div class="">
                     <h4>{{cohort.name}}</h4>
                 </div>
+                <!--<p ng-repeat="question in cohort.questions">{{question}}</p>-->
                 <div>
                     <fs-area bind="results.facets.date" plot-false />
                 </div>
+
                 <div class="">
                     <a type='submit' value="" class="btn btn-info" ng-click="viewCohort(cohort)">View Cohort</a>
                     <input type='submit' value="Remove Cohort" class="btn btn-danger" ng-click="removeCohort(cohort)">
                 </div>
                 <hr>
-            </div>            
+            </div>
         </div>
         <div class="col-md-8" style="margin-right:-40px;">
                 <div class="col-md-12"  style="background:#424242; margin:-10px; padding:10px;">
@@ -49,14 +51,13 @@
                     </div>
 
                 </div>  
-          
-        </div>
+            </div>
     </div>
-    
+
 </div>
-<div class="modal fade" id="myModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" >
-        <div class=" dash-head-modal" >
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class=" dash-head-modal">
             <div class="modal-header ">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="myModalLabel">Add Cohort</h4>

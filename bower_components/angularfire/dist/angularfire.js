@@ -177,7 +177,6 @@
                   var ref = {};
                   this._assertNotDestroyed('$remove');
                   for (var i = 0; i < arr.length; i++) {
-                      debugger;
                       if (arr[i].email === object.email) {
                           ref = arr[i];
                           found = true;
