@@ -36,7 +36,7 @@
                         <h2>Search Mentors</h2>
                         <input type='text' class="form-control" ng-model="searchMentors" placeholder="Search Mentors">
                     </div>
-                    <div class="col-md-6" ng-repeat="mentor in mentors | filter: searchMentors">
+                    <div class="col-md-6" ng-repeat="mentor in mentors | filter: searchMentors | filter: {status: 'Available'}">
                         <div class="name-plate mentor-roster" ng-class="setOpacity(mentor)">
                             <div class="name-plate-name">
                                 <div class="">
@@ -49,6 +49,32 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6" ng-repeat="mentor in mentors | filter: searchMentors | filter: {status: 'Busy'}">
+                        <div class="name-plate mentor-roster" ng-class="setOpacity(mentor)">
+                            <div class="name-plate-name">
+                                <div class="">
+                                    <h4 style="color:#D6D6D6">{{mentor.name}} <br/> <span style="color:#D6D6D6" class="text-muted reduce-font">{{mentor.title}}</span></h4>
+                                </div>                    
+                                <div class=" text-center" ng-class="statusClass(mentor)" style="color:#424242; margin: 0 -160px -1px -5px"></div>
+                            </div>
+                            <div class="text-right mentor-image-box">
+                                <img class="mentors-image pull-right" gravatar-src-once="'{{mentor.email}}'">
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-md-6" ng-repeat="mentor in mentors | filter: searchMentors | filter: {status: 'Away'}">
+                        <div class="name-plate mentor-roster" ng-class="setOpacity(mentor)">
+                            <div class="name-plate-name">
+                                <div class="">
+                                    <h4 style="color:#D6D6D6">{{mentor.name}} <br/> <span style="color:#D6D6D6" class="text-muted reduce-font">{{mentor.title}}</span></h4>
+                                </div>                    
+                                <div class=" text-center" ng-class="statusClass(mentor)" style="color:#424242; margin: 0 -160px -1px -5px"></div>
+                            </div>
+                            <div class="text-right mentor-image-box">
+                                <img class="mentors-image pull-right" gravatar-src-once="'{{mentor.email}}'">
+                            </div>
+                        </div>
+                    </div>                                         
 
                 </div>  
             </div>
