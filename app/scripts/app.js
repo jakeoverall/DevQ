@@ -37,14 +37,22 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             }
         })
         .state('student.dashboard', {
-            url: '/cohort/:queueId',
+            url: '/dashboard',
             templateUrl: '/app/views/student/queue.html',
-            controller: 'studentDashboardCtrl'
+            controller: 'studentDashboardCtrl',
         })
         .state('student.assignments', {
-            url: '/cohort/:queueId',
+            url: '/assignments/:queueId',
             templateUrl: '/app/views/student/assignments.html',
-            controller: 'assignmentsCtrl'
+            controller: 'assignmentsCtrl',
+            resolve: {
+                studentAssignmentsRef: function(firebaseService, $stateParams) {
+                    return firebaseService.getstudentAssignments($stateParams.studentId);
+                },
+                cohortAssignmentsRef: function (firebaseService, $stateParams) {
+                    return firebaseService.getstudentAssignments($stateParams.queueId);
+                }
+            }
         })
         .state('student.queue', {
             url: '/cohort/:queueId',
@@ -119,6 +127,19 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             resolve: {
                 studentRef: function (firebaseService, $stateParams) {
                     return firebaseService.currentStudent($stateParams.studentId);
+                },
+                studentAssignmentsRef: function(firebaseService, $stateParams) {
+                    return firebaseService.getstudentAssignments($stateParams.studentId);
+                }
+            }
+        })
+        .state('secure.mentor.assignments', {
+            url: '/mentees/:studentId/review',
+            templateUrl: '/app/views/mentor/assignments-list.html',
+            controller: 'assignmentsListCtrl',
+            resolve: {
+                assignmentsRef: function (firebaseService) {
+                    return firebaseService.getAssignments();
                 }
             }
         });
