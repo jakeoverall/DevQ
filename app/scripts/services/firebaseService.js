@@ -36,14 +36,16 @@ angular.module('devQ')
           getMentees: function (mentorId) {
               return $firebase(new Firebase(firebaseUrl + '/users/' + mentorId + '/students'));
           },
-          getstudentAssignments: function(studentId) {
+          getStudentAssignments: function(studentId) {
               return $firebase(new Firebase(firebaseUrl + '/students/' + studentId + '/assignments'));
           },
           getCohortAssignments: function(cohortId) {
-              return $firebase(new Firebase(firebaseUrl + 'db/cohorts/' + cohortId + '/assignments'));
+              return $firebase(new Firebase(firebaseUrl + '/db/cohorts/' + cohortId + '/assignments')).$asArray().$loaded().then(function (res) {
+                  return res;
+              });;
           },
           getAssignmentsList: function() {
-              return $firebase(new Firebase(firebaseUrl + 'db/assignments'));
+              return $firebase(new Firebase(firebaseUrl + '/db/assignments'));
           }
       };
   });

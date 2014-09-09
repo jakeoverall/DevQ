@@ -128,18 +128,18 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                 studentRef: function (firebaseService, $stateParams) {
                     return firebaseService.currentStudent($stateParams.studentId);
                 },
-                studentAssignmentsRef: function(firebaseService, $stateParams) {
-                    return firebaseService.getstudentAssignments($stateParams.studentId);
+                studentAssignmentsRef: function (firebaseService, $stateParams) {
+                    return firebaseService.getStudentAssignments($stateParams.studentId);
                 }
             }
         })
         .state('secure.mentor.assignments', {
-            url: '/mentees/:studentId/review',
+            url: '/assignments',
             templateUrl: '/app/views/mentor/assignments-list.html',
             controller: 'assignmentsListCtrl',
             resolve: {
                 assignmentsRef: function (firebaseService) {
-                    return firebaseService.getAssignments();
+                    return firebaseService.getAssignmentsList();
                 }
             }
         });

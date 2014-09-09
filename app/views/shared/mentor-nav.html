@@ -1,20 +1,24 @@
 <nav class="navbar navbar-default nav-dash-head navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-      <img class=" mentor-image pull-left" style="margin-left:-14px;" ng-src="http://www.gravatar.com/avatar/{{user.md5_hash}}">
-    <h2 style="margin-top:10px" class="col-md-4"><a ui-sref="secure.dashboard">{{mentor.name}}</a></h2> 
+    <div class="container-fluid">
+        <img class=" mentor-image pull-left" style="margin-left:-14px;" ng-src="http://www.gravatar.com/avatar/{{user.md5_hash}}">
+        <h2 style="margin-top:10px" class="col-md-4"><a ui-sref="secure.dashboard">{{mentor.name}}</a></h2>
 
 
 
-    <div class="col-md-1 pull-right text-center" ng-class="statusClass(mentor)" style="">{{mentor.status}}</div>
+        <div class="col-md-1 pull-right text-center" ng-class="statusClass(mentor)" style="">{{mentor.status}}</div>
 
-      <form class="navbar-form navbar-right pull-right">
-        <a ng-click="toggleMonitorMode()" class="btn btn-danger">Monitor Mode</a>
-<!--           <a class="btn btn-warning" ui-sref="secure.mentor.mentees({mentorId: mentor.$id})">My Students</a>              
- -->        <a class="btn btn-info" ui-sref="secure.mentor.studentRoster({mentorId: mentor.$id})" >Student Roster</a>      
-        <a  class="btn btn-info " ng-click="toggleStatus()">Change Status</a>
-        <a type="submit" class="btn btn-danger " ng-click="logOff()">Sign Out</a>
-      </form>
+        <form class="navbar-form navbar-right pull-right">
+            
+            <a ng-click="toggleMonitorMode()" class="btn btn-danger">Monitor Mode</a>
+            
+            <a class="btn btn-warning" ui-sref="secure.mentor.assignments({mentorId: mentor.$id})">Assignments</a>
+            
+            <a class="btn btn-warning" ui-sref="secure.mentor.mentees({mentorId: mentor.$id})">My Students</a>
+            <a class="btn btn-info" ui-sref="secure.mentor.studentRoster({mentorId: mentor.$id})">Student Roster</a>
+            <a class="btn btn-info " ng-click="toggleStatus()">Change Status</a>
+            <a type="submit" class="btn btn-danger " ng-click="logOff()">Sign Out</a>
+        </form>
 
 
     </div>
-  </nav>
+</nav>
