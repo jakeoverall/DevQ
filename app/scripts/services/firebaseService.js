@@ -25,7 +25,6 @@ angular.module('devQ')
                   return res;
               });
           },
-
           getStudents: function () {
               return $firebase(new Firebase(firebaseUrl + '/students'));
           },
@@ -36,6 +35,15 @@ angular.module('devQ')
           },
           getMentees: function (mentorId) {
               return $firebase(new Firebase(firebaseUrl + '/users/' + mentorId + '/students'));
+          },
+          getstudentAssignments: function(studentId) {
+              return $firebase(new Firebase(firebaseUrl + '/students/' + studentId + '/assignments'));
+          },
+          getCohortAssignments: function(cohortId) {
+              return $firebase(new Firebase(firebaseUrl + 'db/cohorts/' + cohortId + '/assignments'));
+          },
+          getAssignmentsList: function() {
+              return $firebase(new Firebase(firebaseUrl + 'db/assignments'));
           }
       };
   });
