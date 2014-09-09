@@ -2,11 +2,11 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('assignmentsCtrl', ['$scope', 'studentRef', 'assignmentsRef', function ($scope, studentRef, assignmentsRef) {
+devQ.controller('assignmentsCtrl', ['$scope', 'studentRef', 'studentAssignmentsRef', function ($scope, studentRef, studentAssignmentsRef) {
     $scope.student = studentRef;
-    $scope.assignments = assignmentsRef.$asArray();
+    $scope.assignments = studentAssignmentsRef.$asArray();
 
-    $scope.submitAssignment = function() {
+    $scope.submitAssignment = function(assignment) {
 
     };
 
