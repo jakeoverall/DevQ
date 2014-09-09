@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-var pin = '123456';
+var pin = '';
 
 app.use(express.static(__dirname + '/'));
 app.use(express.static(__dirname + '/bower_components'));
