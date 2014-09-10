@@ -7,6 +7,7 @@
                 <img class="" style="max-height:60px;max-width:60px;" src="https://devmounta.in/img/badge.png">
             </div>
             <h2>Create Assignment</h2>
+            <hr>
         </div>
 
         <form ng-submit="createAssignment()">
@@ -20,7 +21,7 @@
             <select class="form-control" ng-options="type for type in types" ng-model="assignment.type" required>
                 <option value="">-- Select Type --</option>
             </select><br />
-            <input type="submit" class="btn btn-info btn-lg" value="Add Assignment" />
+            <input type="submit" class="btn btn-info btn-lg" value="Add" />
         </form>
 
 
@@ -32,7 +33,7 @@
                 <select class="form-control" ng-model="cohortId" ng-options="cohort as cohort.name for cohort in cohorts | filter: {status: true}">
                     <option value="">-- choose cohort --</option>
                 </select><br>
-                <a href="" ng-click="addAssignment()" class="btn btn-info">Add marked assignments to this Cohort</a>
+                <a href="" ng-click="addAssignment()" class="btn btn-info">Add marked</a>
                 <p>{{message}}</p>    
             </div>
             
@@ -43,11 +44,15 @@
                 Add Question: <input type="checkbox" ng-bind="assignment.add" ng-model="assignment.add"/>
 
                 <div class="">
-                    <a class="btn btn-info" ng-click="">Edit Assignment</a>
-                    <input type='submit' value="Remove Assignment" class="btn btn-danger" ng-click="">
+                    <a class="btn btn-info" ng-click="">Edit</a>
+                    <input type='submit' value="Remove" class="btn btn-danger" ng-click="">
                 </div>
                 <hr>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
