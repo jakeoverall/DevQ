@@ -4,7 +4,7 @@
 //Routes
 devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/cohort');
+    $urlRouterProvider.otherwise('/secure/dashboard');
 
     $stateProvider
         .state('cohort', {
@@ -59,7 +59,8 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             templateUrl: '/app/views/student/queue.html',
             controller: 'queueCtrl',
             resolve: {
-                queueRef: function(firebaseService, $stateParams) {
+                queueRef: function (firebaseService, $stateParams) {
+                    debugger;
                     return firebaseService.getQueue($stateParams.queueId);
                 }
             }
@@ -140,6 +141,16 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             resolve: {
                 assignmentsRef: function (firebaseService) {
                     return firebaseService.getAssignmentsList();
+                }
+            }
+        })
+        .state('secure.mentor.cohortAssignments', {
+            url: '/assignments/:cohortId',
+            templateUrl: '/app/views/mentor/assignments-cohort.html',
+            controller: 'assignmentsCtrl',
+            resolve: {
+                cohortAssignmentsRef: function (firebaseService, $routeParams) {
+                    return firebaseService.getAssignmentsList($routeParams.cohortId);
                 }
             }
         });

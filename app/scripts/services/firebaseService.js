@@ -40,9 +40,9 @@ angular.module('devQ')
               return $firebase(new Firebase(firebaseUrl + '/students/' + studentId + '/assignments'));
           },
           getCohortAssignments: function(cohortId) {
-              return $firebase(new Firebase(firebaseUrl + '/db/cohorts/' + cohortId + '/assignments')).$asArray().$loaded().then(function (res) {
+              return $firebase(new Firebase(firebaseUrl + '/db/cohorts/' + cohortId + '/assignments')).$asArray().$loaded().then(function(res) {
                   return res;
-              });;
+              });
           },
           getAssignmentsList: function() {
               return $firebase(new Firebase(firebaseUrl + '/db/assignments'));
