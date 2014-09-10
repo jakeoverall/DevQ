@@ -20,11 +20,12 @@
                     <p style="margin-bottom:5px">{{student.email}}</p>
                     <p style="margin-bottom:5px">{{student.cohortName}}</p>
                 </div>
-                <a class="btn btn-primary" href="" ui-sref="secure.mentor.review({studentId: student.userId})">View Assignments</a>
-                <br/>
-                <a href="" class="btn btn-danger" ng-click="removeStudent(student)">Remove Mentee</a>
+                <div>
+                    <a class="btn btn-default" href="" ui-sref="secure.mentor.review({studentId: student.userId})">Assignments</a>
+                    <br/>
+                    <a href="" class="btn btn-default" ng-click="removeStudent(student)">Remove</a>
+                </div>
             </div>
         </div>
     </div>
-
 </div>

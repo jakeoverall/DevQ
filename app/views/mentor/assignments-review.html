@@ -1,3 +1,22 @@
 ﻿<mentor-nav></mentor-nav>
 
+<div class="jumbotron">
 {{student}}
+</div>
+
+<div class="container">
+	<div class="dash-head">
+		<div class="row">
+            <div class="col-md-1" style="margin-right:-26px;">
+                <img class="" style="max-height:60px;max-width:60px;" gravatar-src-once="'{{student.email}}'">
+            </div>
+            <h2 style="margin-left:80px;">{{student.studentName}}</h2>
+            <hr>
+        </div>
+        <div class="details">
+        	<h2>{{student.cohort}}</h2>
+        	<h3>{{student.email}}</h3>
+        </div>
+	</div>
+
+</div>
