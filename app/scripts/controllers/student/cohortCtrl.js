@@ -23,7 +23,7 @@ angular.module('devQ')
           authService.logIn($scope.student).then(function (res) {
               authService.getStudent().then(function (studentObj) {
                   firebaseService.currentStudent(studentObj.id).then(function (curStudent) {
-                      $state.go('student.queue', { queueId: curStudent.cohortId });
+                      $state.go('student.dashboard');
                   });
               });
           }, function (error) {
@@ -33,7 +33,7 @@ angular.module('devQ')
 
       $scope.registerStudent = function () {
           authService.registerStudent($scope.register).then(function(res) {
-              $state.go('cohort', { cohortId: $scope.currentStudent.cohortId });
+              $state.go('student.dashboard');
           });
           $scope.register = '';
           $scope.showReg();

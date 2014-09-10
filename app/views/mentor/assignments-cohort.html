@@ -28,23 +28,14 @@
             <h2>Search Assignments</h2>
             <input type='text' class="form-control" ng-model="searchAssignments" placeholder="Search Assignments" style="margin-bottom:20px;">
             
-            <div>
-                <select class="form-control" ng-model="cohortId" ng-options="cohort as cohort.name for cohort in cohorts | filter: {status: true}">
-                    <option value="">-- choose cohort --</option>
-                </select><br>
-                <a href="" ng-click="addAssignment()" class="btn btn-info">Add marked assignments to this Cohort</a>
-                <p>{{message}}</p>    
-            </div>
-            
-            <div ng-repeat="assignment in assignments | filter: searchAssignments">
-                <h4>{{assignment.name}}</h4>
+           <div ng-repeat="assignment in assignments | filter: searchAssignments">
+                <h4>{{assignment}}</h4>
                 <p>{{assignment.info}}</p>
                 <p>{{assignment.type}}</p>
-                Add Question: <input type="checkbox" ng-bind="assignment.add" ng-model="assignment.add"/>
 
                 <div class="">
                     <a class="btn btn-info" ng-click="">Edit Assignment</a>
-                    <input type='submit' value="Remove Assignment" class="btn btn-danger" ng-click="">
+                    <input type='submit' value="Remove Assignment" class="btn btn-danger" ng-click="removeAssignment(assignment)">
                 </div>
                 <hr>
             </div>

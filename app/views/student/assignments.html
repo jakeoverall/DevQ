@@ -1,1 +1,46 @@
 <student-nav></student-nav>
+
+<div class="container">
+    <div class="col-sm-12 dash-head">
+        <div class="row">
+            <div class="col-md-1" style="margin-right:-26px;">
+                <img class="" style="max-height:60px;max-width:60px;" src="https://devmounta.in/img/badge.png">
+            </div>
+            <h2>{{student.cohortName}} Assignments</h2>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <h2>Search Assignments</h2>
+                <input type='text' class="form-control" ng-model="searchAssignments" placeholder="Search Assignments" style="margin-bottom:20px;">
+
+                <div ng-repeat="assignment in assignments | filter: searchAssignments| orderBy: 'week'">
+                    <h3>{{assignment.name}}</h3>
+                    <h4>Week {{assignment.week}}</h4>
+                    <p>{{assignment.details}}</p>
+                    <p>{{assignment.url}}</p>
+                    <form class="navbar-form">
+                        <div class="form-group">
+                            <input type="url" ng-model="assignment.studentUrl" ng-enter="submitAssignment(assignment)" class="nav-form question-form" placeholder=" Submit Repo URL">
+                            <a class="btn btn-info" ng-click="submitAssignment(assignment)">Submit Assignment</a>
+                        </div>
+                    </form>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <h2>Search Assignments</h2>
+                <input type='text' class="form-control" ng-model="searchAssignments" placeholder="Search Assignments" style="margin-bottom:20px;">
+
+                <div ng-repeat="assignment in studentAssignments | filter: searchAssignments| orderBy: 'week'">
+                    <h3>{{assignment.name}}: {{assignment.studentUrl}}</h3>
+                    <p>Submitted: {{assignment.submittedAt}}</p>
+                    <h4>Reviewed: {{assignment.mentorUrl}}</h4>
+                    <p>{{assignment.reviewedAt}}</p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

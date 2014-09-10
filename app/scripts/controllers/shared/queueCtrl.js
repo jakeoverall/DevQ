@@ -50,7 +50,4 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef', 'firebaseService', 'authServ
             $scope.queue.$save(question);
         }
     };
-
-   
-
 }]);

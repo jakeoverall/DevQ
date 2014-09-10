@@ -1,7 +1,9 @@
 ﻿<nav class="navbar-nav nav-dash-head navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <img class=" mentor-image pull-left" style="margin-left:-14px;" gravatar-src-once="student.email">
-        <h2 style="margin-top:10px" class="col-md-4">{{student.studentName}}</h2>
+        <h2 style="margin-top:10px" class="col-md-4">
+            <a ui-sref="student.dashboard">{{student.studentName}}</a>
+        </h2>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
@@ -9,6 +11,8 @@
                     <input type="text" ng-model="text" ng-enter="enterQueue()" class="nav-form question-form" placeholder=" Question">
                 </div>
                 <a class="btn btn-info" ng-click="enterQueue()">Enter Queue</a>
+                <a class="btn btn-info" ui-sref="student.queue({queueId: student.cohortId})">View Queue</a>
+                <a class="btn btn-info" href="" ui-sref="student.assignments({studentId: student.$id, cohortId: student.cohortId})">Assignments</a>
                 <a class="btn btn-danger" ng-click="logOff()">Sign Out</a>
             </form>
         </div>

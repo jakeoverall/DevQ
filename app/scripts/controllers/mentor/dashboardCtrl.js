@@ -4,20 +4,26 @@ var devQ = angular.module('devQ');
 
 devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseService', function ($scope, $state, authService, firebaseService) {
 
-    firebaseService.getMentor($scope.user.id).then(function(res) {
+    firebaseService.getMentor($scope.user.id).then(function (res) {
         $scope.mentor = res;
         if ($scope.mentor.title === undefined) {
             $state.go('cohort');
         }
+        $scope.isMonitorMode = function () {
+            if ($scope.mentor.status === 'Monitor') {
+                return true;
+            } else
+                return false;
+        };
     });
 
     $scope.questionStatusFilter = 'Red';
 
-    $scope.statusClass = function(mentor) {
-        if(mentor) {
-            if(mentor.status === 'Available') {
+    $scope.statusClass = function (mentor) {
+        if (mentor) {
+            if (mentor.status === 'Available') {
                 return 'status-light-green';
-            } else if(mentor.status === 'Busy') {
+            } else if (mentor.status === 'Busy') {
                 return 'status-light-yellow';
             } else {
                 return 'status-light-red';
@@ -25,9 +31,9 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseSe
         }
     };
 
-    $scope.setOpacity = function(mentor) {
-        if(mentor) {
-            if(mentor.status === 'Away') {
+    $scope.setOpacity = function (mentor) {
+        if (mentor) {
+            if (mentor.status === 'Away') {
                 return 'opacity';
             }
         }
@@ -51,27 +57,21 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseSe
             $scope.mentor.status = 'Available';
             $scope.mentor.$save();
         }
-    };    
+    };
 
-    $scope.activateMonitorMode = function() {
+    $scope.activateMonitorMode = function () {
         $scope.mentor.status = 'Monitor';
     };
 
-    $scope.isMonitorMode = function() {
-        if($scope.mentor.status === 'Monitor') {
-            return true;
-        }
-    }; 
-
-    $scope.logOff = function() {
+    $scope.logOff = function () {
         $scope.mentor.status = 'Away';
         $scope.mentor.$save();
-        authService.logOut().then(function() {
-           $state.go('mentor');
+        authService.logOut().then(function () {
+            $state.go('mentor');
         });
     };
 
-    $scope.addCohort = function() {
+    $scope.addCohort = function () {
         var cohort = {};
         cohort.status = true;
         cohort.name = $scope.cohortName;
@@ -79,17 +79,17 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseSe
         $scope.cohortName = '';
     };
 
-    $scope.removeCohort = function(cohort) {
+    $scope.removeCohort = function (cohort) {
         cohort.status = false;
         $scope.cohorts.$save(cohort);
     };
 
     $scope.viewCohort = function (cohort) {
-        $state.go('secure.mentor.queue', { queueId: cohort.$id, mentorId: $scope.mentor.id });
+        $state.go('secure.mentor.queue', { queueId: cohort.$id, mentorId: $scope.mentor.$id });
     };
 
     $scope.viewCohortAssignments = function (cohort) {
-        $state.go('secure.mentor.cohortAssignmnets', { queueId: cohort.$id, mentorId: $scope.mentor.id });
+        $state.go('secure.mentor.cohortAssignments', { cohortId: cohort.$id, mentorId: $scope.mentor.$id });
     };
-    
+
 }]);

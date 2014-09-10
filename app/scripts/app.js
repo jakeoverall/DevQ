@@ -38,19 +38,19 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
         })
         .state('student.dashboard', {
             url: '/dashboard',
-            templateUrl: '/app/views/student/queue.html',
-            controller: 'studentDashboardCtrl',
+            templateUrl: '/app/views/student/dashboard.html',
+            controller: 'studentDashboardCtrl'
         })
         .state('student.assignments', {
-            url: '/assignments/:queueId',
+            url: '/:studentId/assignments/:cohortId',
             templateUrl: '/app/views/student/assignments.html',
-            controller: 'assignmentsCtrl',
+            controller: 'studentAssignmentsCtrl',
             resolve: {
-                studentAssignmentsRef: function(firebaseService, $stateParams) {
-                    return firebaseService.getstudentAssignments($stateParams.studentId);
+                studentAssignmentsRef: function (firebaseService, $stateParams) {
+                    return firebaseService.getStudentAssignments($stateParams.studentId);
                 },
                 cohortAssignmentsRef: function (firebaseService, $stateParams) {
-                    return firebaseService.getstudentAssignments($stateParams.queueId);
+                    return firebaseService.getCohortAssignments($stateParams.cohortId);
                 }
             }
         })
@@ -60,7 +60,6 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             controller: 'queueCtrl',
             resolve: {
                 queueRef: function (firebaseService, $stateParams) {
-                    debugger;
                     return firebaseService.getQueue($stateParams.queueId);
                 }
             }
@@ -145,12 +144,12 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             }
         })
         .state('secure.mentor.cohortAssignments', {
-            url: '/assignments/:cohortId',
+            url: '/cohort/:cohortId/assignments',
             templateUrl: '/app/views/mentor/assignments-cohort.html',
-            controller: 'assignmentsCtrl',
+            controller: 'cohortAssignmentsCtrl',
             resolve: {
-                cohortAssignmentsRef: function (firebaseService, $routeParams) {
-                    return firebaseService.getAssignmentsList($routeParams.cohortId);
+                cohortAssignmentsRef: function (firebaseService, $stateParams) {
+                    return firebaseService.getAssignmentsList($stateParams.cohortId);
                 }
             }
         });
