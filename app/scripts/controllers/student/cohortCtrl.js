@@ -32,7 +32,9 @@ angular.module('devQ')
       };
 
       $scope.registerStudent = function () {
-          authService.registerStudent($scope.register);
+          authService.registerStudent($scope.register).then(function(res) {
+              $state.go('cohort', { cohortId: $scope.currentStudent.cohortId });
+          });
           $scope.register = '';
           $scope.showReg();
       }, function (error) {

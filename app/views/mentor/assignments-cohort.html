@@ -1,0 +1,53 @@
+﻿<mentor-nav></mentor-nav>
+
+<div class="container">
+    <div class="col-sm-12 dash-head">
+        <div class="row">
+            <div class="col-md-1" style="margin-right:-26px;">
+                <img class="" style="max-height:60px;max-width:60px;" src="https://devmounta.in/img/badge.png">
+            </div>
+            <h2>Create Assignment</h2>
+        </div>
+
+        <form ng-submit="createAssignment()">
+            <p ng-show="error" class="text-danger">{{ error }}</p>
+            <input class="form-control" type="text" placeholder="Name" ng-model="assignment.name" required /><br />
+            <input class="form-control" type="url" placeholder="Repo or Assignment URL" ng-model="assignment.repoUrl" required /><br />
+            <input class="form-control" type="text" placeholder="Details" ng-model="assignment.details" /><br />
+            <select class="form-control" ng-options="week for week in weeks" ng-model="assignment.week" required>
+                <option value="">-- Select Week --</option>
+            </select><br />
+            <select class="form-control" ng-options="type for type in types" ng-model="assignment.type" required>
+                <option value="">-- Select Type --</option>
+            </select><br />
+            <input type="submit" class="btn btn-info btn-lg" value="Add Assignment" />
+        </form>
+
+
+        <div class="col-md-10">
+            <h2>Search Assignments</h2>
+            <input type='text' class="form-control" ng-model="searchAssignments" placeholder="Search Assignments" style="margin-bottom:20px;">
+            
+            <div>
+                <select class="form-control" ng-model="cohortId" ng-options="cohort as cohort.name for cohort in cohorts | filter: {status: true}">
+                    <option value="">-- choose cohort --</option>
+                </select><br>
+                <a href="" ng-click="addAssignment()" class="btn btn-info">Add marked assignments to this Cohort</a>
+                <p>{{message}}</p>    
+            </div>
+            
+            <div ng-repeat="assignment in assignments | filter: searchAssignments">
+                <h4>{{assignment.name}}</h4>
+                <p>{{assignment.info}}</p>
+                <p>{{assignment.type}}</p>
+                Add Question: <input type="checkbox" ng-bind="assignment.add" ng-model="assignment.add"/>
+
+                <div class="">
+                    <a class="btn btn-info" ng-click="">Edit Assignment</a>
+                    <input type='submit' value="Remove Assignment" class="btn btn-danger" ng-click="">
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
