@@ -363,7 +363,7 @@ input.ng-invalid.ng-dirty {
 	border-radius: 10px;
 	padding:10px;
 	background: rgba(0, 0, 0, 0.368627);
-	margin-top:4%; 
+	margin:4% auto; 
 	color: #D6D6D6; 
 }
 

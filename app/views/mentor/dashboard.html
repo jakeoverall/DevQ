@@ -18,11 +18,9 @@
                 <div class="">
                     <h4>{{cohort.name}}</h4>
                 </div>
-                <!--<p ng-repeat="question in cohort.questions">{{question}}</p>-->
                 <div>
                     <fs-area bind="results.facets.date" plot-false />
                 </div>
-
                 <div class="">
                     <a type='submit' value="" class="btn btn-info" ng-click="viewCohort(cohort)">View Cohort</a>
                     <a type='submit' value="" class="btn btn-default" ng-click="viewCohortAssignments(cohort)">Assignments</a>
@@ -32,7 +30,7 @@
             </div>
         </div>
         <div class="col-md-8" style="margin-right:-40px;">
-                <div class="col-md-12"  style="background:#424242; margin:-10px; padding:10px;">
+                <div class="col-md-12"  style="background:#424242; margin:-10px auto 10px auto; padding:10px;">
                     <div class="col-md-12">
                         <h2>Search Mentors</h2>
                         <input type='text' class="form-control" ng-model="searchMentors" placeholder="Search Mentors">
