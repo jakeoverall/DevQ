@@ -7,7 +7,6 @@ devQ.controller('assignmentsListCtrl', ['$scope', 'assignmentsRef', 'firebaseSer
     $scope.assignments = assignmentsRef.$asArray();
 
     $scope.createAssignment = function () {
-        debugger;
         var assignment = {
             name: $scope.assignment.name,
             week: $scope.assignment.week,

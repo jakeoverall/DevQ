@@ -393,7 +393,6 @@ input.ng-invalid.ng-dirty {
 .form-control:focus {
 	background:rgba(0,0,0,0.45);
 	border-radius: 0px;
-	height:40px;
 	/*width:100%;*/
 	border:none;
 	color:#D6D6D6;
@@ -449,4 +448,12 @@ input.ng-invalid.ng-dirty {
 	display: inline-block;
 	float: left;
 	padding: 0 30px 0 30px;
+}
+.assignment{
+	min-height: 200px;
+	width: 500px;
+	color: #fff;
+	padding: 15px;
+	border-bottom: 1px solid #fff;
+	margin: 0 auto;
 }

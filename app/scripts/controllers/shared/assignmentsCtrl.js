@@ -6,8 +6,9 @@ devQ.controller('assignmentsCtrl', ['$scope', 'studentRef', 'studentAssignmentsR
     $scope.student = studentRef;
     $scope.assignments = studentAssignmentsRef.$asArray();
 
-    $scope.submitAssignment = function(assignment) {
-
+    $scope.review = function(assignment) {
+    	assignment.reviewedBy = $scope.mentor.name;
+    	$scope.assignments.$save(assignment);
     };
 
 }]);

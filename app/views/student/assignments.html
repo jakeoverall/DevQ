@@ -10,33 +10,38 @@
         </div>
         <div class="col-md-12">
             <div class="col-md-6">
-                <h2>Search Assignments</h2>
+                <h2>Outstanding Assignments</h2>
                 <input type='text' class="form-control" ng-model="searchAssignments" placeholder="Search Assignments" style="margin-bottom:20px;">
-
+                
+                <button ng-click="removeSubmitted()" class="btn btn-warning">Filter Submitted</button>
+                
                 <div ng-repeat="assignment in assignments | filter: searchAssignments| orderBy: 'week'">
-                    <h3>{{assignment.name}}</h3>
-                    <h4>Week {{assignment.week}}</h4>
-                    <p>{{assignment.details}}</p>
-                    <p>{{assignment.url}}</p>
-                    <form class="navbar-form">
-                        <div class="form-group">
-                            <input type="url" ng-model="assignment.studentUrl" ng-enter="submitAssignment(assignment)" class="nav-form question-form" placeholder=" Submit Repo URL">
-                            <a class="btn btn-info" ng-click="submitAssignment(assignment)">Submit Assignment</a>
-                        </div>
-                    </form>
-                    <hr>
+                    <div ng-show="!assignment.isSubmitted">
+                        <h3>{{assignment.name}}</h3>
+                        <h4>Week {{assignment.week}}</h4>
+                        <p>{{assignment.details}}</p>
+                        <p>{{assignment.url}}</p>
+                        Assignment Completed: <input type="checkbox" ng-model="assignment.completed" ng-change="saveAssignment(assigment)">
+                        <form class="navbar-form">
+                            <div class="form-group">
+                                <input type="url" ng-model="assignment.studentUrl" ng-enter="submitAssignment(assignment)" class="nav-form question-form" placeholder=" Submit Repo URL">
+                                <a class="btn btn-info" ng-click="submitAssignment(assignment)">Submit Assignment</a>
+                            </div>
+                        </form>
+                        <hr>
+                    </div>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <h2>Search Assignments</h2>
-                <input type='text' class="form-control" ng-model="searchAssignments" placeholder="Search Assignments" style="margin-bottom:20px;">
+                <h2>Completed Assignments</h2>
+                <input type='text' class="form-control" ng-model="searchCompletedAssignments" placeholder="Search Assignments" style="margin-bottom:20px;">
 
-                <div ng-repeat="assignment in studentAssignments | filter: searchAssignments| orderBy: 'week'">
+                <div ng-repeat="assignment in studentAssignments | filter: searchCompletedAssignments| orderBy: 'week'">
                     <h3>{{assignment.name}}: {{assignment.studentUrl}}</h3>
-                    <p>Submitted: {{assignment.submittedAt}}</p>
-                    <h4>Reviewed: {{assignment.mentorUrl}}</h4>
-                    <p>{{assignment.reviewedAt}}</p>
+                    <p>Submitted: {{assignment.submittedAt | date}}</p>
+                    <h4>Review: {{assignment.review}}</h4>
+                    <p>Reviewed by: {{assignment.reviewedBy}}</p>
                     <hr>
                 </div>
             </div>
