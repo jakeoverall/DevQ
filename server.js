@@ -24,7 +24,7 @@ app.post('/pin', function(req, res) {
     }
 });
 
-var port = Number(process.env.PORT || 1212);
+var port = Number(process.env.PORT || 8888);
 
 app.listen(port, function () {
     console.log("Listening on " + port);

@@ -11,11 +11,11 @@
             
             <a ng-click="toggleMonitorMode()" class="btn btn-danger">Monitor Mode</a>
             
-            <a class="btn btn-warning" ui-sref="secure.mentor.assignments({mentorId: mentor.$id})">Assignments</a>
+            <a class="btn btn-default" ui-sref="secure.mentor.assignments({mentorId: mentor.$id})">Assignments</a>
             
             <a class="btn btn-warning" ui-sref="secure.mentor.mentees({mentorId: mentor.$id})">My Students</a>
             <a class="btn btn-info" ui-sref="secure.mentor.studentRoster({mentorId: mentor.$id})">Student Roster</a>
-            <a class="btn btn-info " ng-click="toggleStatus()">Change Status</a>
+            <a class="btn btn-success" ng-click="toggleStatus()">Change Status</a>
             <a type="submit" class="btn btn-danger " ng-click="logOff()">Sign Out</a>
         </form>
 
