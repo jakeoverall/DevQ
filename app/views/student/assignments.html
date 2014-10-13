@@ -1,5 +1,4 @@
 <student-nav></student-nav>
-
 <div class="container">
     <div class="col-sm-12 dash-head">
         <div class="row">
@@ -12,16 +11,13 @@
             <div class="col-md-6">
                 <h2>Outstanding Assignments</h2>
                 <input type='text' class="form-control" ng-model="searchAssignments" placeholder="Search Assignments" style="margin-bottom:20px;">
-                
-                <button ng-click="removeSubmitted()" class="btn btn-warning">Filter Submitted</button>
-                
+                <button ng-click="removeSubmitted()" class="btn btn-warning">Hide Submitted</button>
                 <div ng-repeat="assignment in assignments | filter: searchAssignments| orderBy: 'week'">
                     <div ng-show="!assignment.isSubmitted">
                         <h3>{{assignment.name}}</h3>
                         <h4>Week {{assignment.week}}</h4>
                         <p>{{assignment.details}}</p>
                         <p>{{assignment.url}}</p>
-                        Assignment Completed: <input type="checkbox" ng-model="assignment.completed" ng-change="saveAssignment(assigment)">
                         <form class="navbar-form">
                             <div class="form-group">
                                 <input type="url" ng-model="assignment.studentUrl" ng-enter="submitAssignment(assignment)" class="nav-form question-form" placeholder=" Submit Repo URL">
@@ -32,7 +28,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-md-6">
                 <h2>Completed Assignments</h2>
                 <input type='text' class="form-control" ng-model="searchCompletedAssignments" placeholder="Search Assignments" style="margin-bottom:20px;">
@@ -46,6 +41,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>

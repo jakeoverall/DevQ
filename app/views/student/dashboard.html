@@ -1,1 +1,23 @@
 <student-nav></student-nav>
+
+<div class="container">
+	<div class="dash-head">
+		<h2>Hello {{student.studentName}}</h2>
+		<hr/>
+		<h3>Announcements</h3>
+		<div ng-repeat="announcement in annoucements">
+			<div>
+				<div class="announcement-actions">
+					<a ng-click=""><i class="glyphicon glyphicon-minus"></i></a>
+					<a ng-click=""><i class="glyphicon glyphicon-remove"></i></a>
+					<a ng-click=""><i class="glyphicon glyphicon-star-open"></i></a>
+				</div>
+				<h4>{{announcement.title}}</h4>
+				<p>{{announcement.text}}</p>
+				<p class="pull-right"> - {{announcement.from}}<p>
+				<br/>
+				<hr/>
+			</div>
+		</div>
+	</div>	
+</div>
