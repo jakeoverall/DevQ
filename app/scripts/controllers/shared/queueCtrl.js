@@ -50,4 +50,41 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef', 'firebaseService', 'authServ
             $scope.queue.$save(question);
         }
     };
+    var queueLength = $scope.queue.length;
+    var queueWatch = function(){
+        if($scope.queue.length > queueLength){
+            notify();
+        } 
+        queueLength = $scope.queue.length;
+    }
+
+    var notify = function(){
+        if($scope.mentor){
+
+            var Notification = window.Notification || window.mozNotification || window.webkitNotification;
+
+            Notification.requestPermission(function (permission) {
+                //console.log(permission);
+            });
+                var question = $scope.queue[$scope.queue.length - 1];
+                console.log(question);
+
+                var instance = new Notification(question.submittedBy.studentName, { body: question.text || '', icon: question.icon || '' });
+
+                instance.onclick = function () {
+                    // Something to do
+                };
+                instance.onerror = function () {
+                    // Something to do
+                };
+                instance.onshow = function () {
+                    // Something to do
+                };
+                instance.onclose = function () {
+                    // Something to do
+                };
+                return false;
+        }
+    }
+    $scope.$watch(queueWatch);
 }]);

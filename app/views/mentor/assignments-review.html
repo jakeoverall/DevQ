@@ -5,8 +5,8 @@
 </div>
 
 <div class="container">
-	<div class="dash-head">
-		<div class="row">
+    <div class="dash-head">
+        <div class="row">
             <div class="col-md-1" style="margin-right:-26px;">
                 <img class="" style="max-height:60px;max-width:60px;" gravatar-src-once="'{{student.email}}'">
             </div>
@@ -14,9 +14,17 @@
             <hr>
         </div>
         <div class="details">
-        	<h2>{{student.cohort}}</h2>
-        	<h3>{{student.email}}</h3>
+            <h2>{{student.cohort}}</h2>
+            <h3>{{student.email}}</h3>
         </div>
-	</div>
+    </div>
+    <div>
+        <h3>Assignments</h3>
+        <div class="assignment" ng-repeat="assignment in studentAssignments">
+            <h3>{{asssignment}}</h3>
+            <p>{{assignment.url}}</p>
+            <p>{{assignment.studentUrl}}</p>
+        </div>
+    </div>
 
 </div>

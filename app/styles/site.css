@@ -11,7 +11,10 @@ font-family: 'Roboto', sans-serif;
     height: 100%;
     margin: 0;
     margin-top:50px;
-background-image: -webkit-gradient(
+}
+
+.bg-gradient{
+	background-image: -webkit-gradient(
 	linear,
 	right bottom,
 	left bottom,
@@ -26,6 +29,7 @@ background-image: linear-gradient(to left, #60A8F3 0%, #7FFFEC 100%);
 
 
 }
+
 a {
 	text-decoration: none;
 	color: #D6D6D6;
@@ -379,7 +383,7 @@ input.ng-invalid.ng-dirty {
 	border-radius: 0px;
 	border:none;
 	color:#D6D6D6;
-	width:95%;	
+	/*width:95%;	*/
 	-webkit-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
 	-moz-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
 	box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2);
@@ -390,7 +394,7 @@ input.ng-invalid.ng-dirty {
 	background:rgba(0,0,0,0.45);
 	border-radius: 0px;
 	height:40px;
-	width:100%;
+	/*width:100%;*/
 	border:none;
 	color:#D6D6D6;
 	-webkit-box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.2);
@@ -400,7 +404,6 @@ input.ng-invalid.ng-dirty {
 
 .question-form {
 	background:rgba(0,0,0,0.45);
-	border-radius: 0px;
 	height: 30px;
 	padding: auto 10px;
 	border:1px solid #D6D6D6;
@@ -409,12 +412,8 @@ input.ng-invalid.ng-dirty {
 }
 
 .question-form:focus {
-	background:rgba(0,0,0,0.45);
-	border-radius: 0px;
-	height:32px;
-	width:95%;
+	/*width:40%;*/
 	border:1px solid #D6D6D6;
-	color:#D6D6D6;
 }
 
 .mentee-tab-bumper {
@@ -427,11 +426,27 @@ input.ng-invalid.ng-dirty {
 	margin-left:30%;
 	margin-right:30%;
 	margin-top:-50px;
-
 }
 
 .cardo {
 	background-color: rgba(0, 0, 0, 0.368627);
 	background-size: cover;
 	background-image: url('https://devmounta.in/img/bg-speck.png');
+}
+
+.monitor-mode{
+	background-color: #000;
+	color: #f6f6f6;
+	width: 100%;
+	height: 10000px;
+	z-index: 99;
+	position: absolute;
+	top: 0;
+	padding: 50px;
+}
+.monitor-mode-column{
+	min-width: 699px;
+	display: inline-block;
+	float: left;
+	padding: 0 30px 0 30px;
 }

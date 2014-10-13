@@ -48,6 +48,8 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseSe
             $scope.mentor.$save();
         }
     };
+    
+    var body = document.getElementById('body');
 
     $scope.toggleMonitorMode = function () {
         if ($scope.mentor.status !== 'Monitor') {

@@ -34,6 +34,7 @@
             <div class="col-md-12">
                 <h2><img gravatar-src-once="item.submittedBy.email"> {{item.submittedBy.studentName}}</h2>
                 <p>
+                    {{question.text}}
                     <img gravatar-src-once="item.mentor.email" class="img-grav">
                     {{item.mentor.name}}
                     <a ng-click="leaveQueue(item)" class="pull-right btn btn-danger">Done</a>
@@ -43,39 +44,37 @@
         </div>
     </div>
 </div>
-<div ng-show="isMonitorMode()" style="background: rgba(0, 0, 0, 0.368627);">
-    <div >
+<div ng-show="isMonitorMode()" class="monitor-mode">
+    <div>
         <a ng-click="toggleMonitorMode()" class="btn btn-danger navbar-fixed-top">Monitor Mode</a>
     </div>
-    <div class="col-md-6" >
-        <div class="col-md-1">
-            <img class="" style="max-height:60px;max-width:60px; margin-top:-7px" src="https://devmounta.in/img/badge.png">
-        </div>
-        <h1 style="margin-top: 0px;font-size:50px; margin-left:70px">Queue</h1>
+    <div class="monitor-mode-column" >
+        <img class="" style="max-height:60px;max-width:60px; margin-top:-7px" src="https://devmounta.in/img/badge.png">
+        <h1 style="margin-top: -60px;font-size:50px; margin-left:70px">Queue</h1>
         <hr>
         <div ng-repeat="question in queue | filter: {status: 'Red'}">
             <div class="">
                 <div class="">
-                    <h1 style="font-size:70px;"> {{question.submittedBy.studentName}}</h1>
+                    <h1><img gravatar-src-once="question.submittedBy.email"> {{question.submittedBy.studentName}}</h1>
                     <p>
+                        {{question.text}}
                         <p am-time-ago="question.submittedAt"></p>
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    <div class=" col-md-6" >
-        <div class="col-md-1">
-            <img class="" style="max-height:60px;max-width:60px; margin-top:-7px" src="https://devmounta.in/img/badge.png">
-        </div>
-        <h2 style="margin-top: 0px;font-size:50px; margin-left:70px">Being Helped</h2>
+    <div class="monitor-mode-column" >    
+        <img class="" style="max-height:60px;max-width:60px; margin-top:-7px" src="https://devmounta.in/img/badge.png">
+        <h2 style="margin-top: -60px; font-size:50px; margin-left:70px">Being Helped</h2>
         <hr>
         <div ng-repeat="item in queue | filter: {status: 'Yellow'}">
-                <div class="col-md-12">
-                    <h1 style="font-size:70px;margin-top:-1px"> {{item.submittedBy.studentName}}</h1>
-                    <p am-time-ago="item.submittedAt"></p>
-                </div>
-
+            <h2><img gravatar-src-once="item.submittedBy.email"> {{item.submittedBy.studentName}}</h2>
+            <p>
+                {{question.text}}
+                <img gravatar-src-once="item.mentor.email" class="img-grav" />
+                {{item.mentor.name}}
+            </p>
         </div>
     </div>
 </div>
