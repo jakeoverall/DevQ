@@ -4,13 +4,11 @@
 </div>
 <div class="container">
     <div class="col-sm-12 dash-head">
-        <div class="row">
-            <div class="col-md-1" style="margin-right:-26px;">
-                <img class="" style="max-height:60px;max-width:60px;" src="https://devmounta.in/img/badge.png">
+        <div class="row custom-panel-header">
+            <div class="col-md-1">
             </div>
-            <h2 style="margin-top: 14px;">Mentor Dashboard</h2>
+            <h2> <span class="glyphicon glyphicon-stats"></span> Mentor Dashboard</h2>
         </div>
-        <hr>
         <div class="col-md-4" style="margin-bottom:10px">
                     <div class="col-md-12">
                         <h2>Search Cohorts</h2>
@@ -27,8 +25,8 @@
 
                 <div class="">
                     <a type='submit' value="" class="btn btn-info" ng-click="viewCohort(cohort)">View Cohort</a>
-                    <a type='submit' value="" class="btn btn-info" ng-click="viewCohortAssignments(cohort)">View Cohort Assignments</a>
-                    <input type='submit' value="Remove Cohort" class="btn btn-danger" ng-click="removeCohort(cohort)">
+                    <a type='submit' value="" class="btn btn-default" ng-click="viewCohortAssignments(cohort)">Assignments</a>
+                    <input type='submit' value="Remove Cohort" class="btn btn-danger btn-block" ng-click="removeCohort(cohort)">
                 </div>
                 <hr>
             </div>

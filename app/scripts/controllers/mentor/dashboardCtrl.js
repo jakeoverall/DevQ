@@ -2,7 +2,7 @@
 
 var devQ = angular.module('devQ');
 
-devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseService', function ($scope, $state, authService, firebaseService) {
+devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseService', '$idle', function ($scope, $state, authService, firebaseService, $idle) {
 
     firebaseService.getMentor($scope.user.id).then(function (res) {
         $scope.mentor = res;
@@ -94,4 +94,40 @@ devQ.controller('dashboardCtrl', ['$scope', '$state', 'authService', 'firebaseSe
         $state.go('secure.mentor.cohortAssignments', { cohortId: cohort.$id, mentorId: $scope.mentor.$id });
     };
 
-}]);
+
+    $scope.events = [];
+
+
+    $scope.$on('$idleTimeout', function() {
+        $scope.mentor.status = 'Away'
+        $scope.mentor.$save();
+    });
+
+
+
+
+    var closeWindow = function() {
+        $scope.mentor.status = 'Away';
+        $scope.mentor.$save();
+    }
+
+    window.addEventListener("beforeunload", function(e) {
+        return closeWindow();
+    });
+
+
+
+
+
+
+
+}]).config(function($idleProvider, $keepaliveProvider) {
+    $idleProvider.idleDuration(108000);
+    $idleProvider.warningDuration(5); 
+    $keepaliveProvider.interval(2);
+})
+.run(function($idle){
+    $idle.watch();
+});
+
+
