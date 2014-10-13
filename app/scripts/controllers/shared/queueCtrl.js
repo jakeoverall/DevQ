@@ -9,6 +9,8 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef', 'firebaseService', 'authServ
 
     $scope.enterQueue = function () {
         var question = {};
+        var studentImage = document.getElementById('studentImage');
+        question.studentImage = studentImage.src;
         question.text = $scope.text || '';
         question.status = 'Red';
         question.submittedBy = $scope.student || '';
@@ -66,10 +68,8 @@ devQ.controller('queueCtrl', ['$scope', 'queueRef', 'firebaseService', 'authServ
             Notification.requestPermission(function (permission) {
                 //console.log(permission);
             });
-                var question = $scope.queue[$scope.queue.length - 1];
-                console.log(question);
-
-                var instance = new Notification(question.submittedBy.studentName, { body: question.text || '', icon: question.icon || '' });
+                var question = $scope.queue[$scope.queue.length - 1];                
+                var instance = new Notification(question.submittedBy.studentName, { body: question.text || '', icon: question.studentImage });
 
                 instance.onclick = function () {
                     // Something to do

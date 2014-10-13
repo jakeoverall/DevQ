@@ -32,13 +32,16 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
                 },
                 mentorsRef: function(firebaseService) {
                     return firebaseService.getMentors();
+                },
+                announcementsRef: function(firebaseService){
+                    return firebaseService.getAnnouncements();
                 }
             }
         })
         .state('student.dashboard', {
             url: '/dashboard',
             templateUrl: '/app/views/student/dashboard.html',
-            controller: 'studentDashboardCtrl'
+            controller: 'studentDashboardCtrl',
         })
         .state('student.assignments', {
             url: '/:studentId/assignments/:cohortId',
@@ -96,7 +99,10 @@ devQ.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $
             resolve: {
                 menteesRef: function(firebaseService, $stateParams) {
                     return firebaseService.getMentees($stateParams.mentorId);
-                }
+                },
+                announcementsRef: function(firebaseService){
+                    return firebaseService.getAnnouncements();
+                }   
             }
         })
         .state('secure.mentor.queue', {

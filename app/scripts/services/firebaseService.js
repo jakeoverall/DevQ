@@ -1,13 +1,16 @@
 ﻿'use strict';
 
 angular.module('devQ')
-  .service('firebaseService', function (environmentService, $firebase) {
+  .factory('firebaseService', function (environmentService, $firebase) {
 
       var firebaseUrl = environmentService.getEnv().firebase;
 
       return {
           getCohorts: function () {
               return $firebase(new Firebase(firebaseUrl + '/db/cohorts'));
+          },
+          getAnnouncements: function(){
+              return $firebase(new Firebase(firebaseUrl + '/db/announcements')); 
           },
           getQueue: function (queueId) {
               return $firebase(new Firebase(firebaseUrl + '/db/cohorts/' + queueId + '/questions'));
