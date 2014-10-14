@@ -14,7 +14,7 @@ font-family: 'Roboto', sans-serif;
 }
 
 .bg-gradient {
-	background: #585858;
+	background: #d6d6d6;
 }
 
 /*.bg-gradient{
@@ -363,7 +363,7 @@ input.ng-invalid.ng-dirty {
 	border-radius: 10px;
 	padding:10px;
 	background: rgba(0, 0, 0, 0.368627);
-	margin-top:4%; 
+	margin:4%; 
 	color: #D6D6D6; 
 }
 
@@ -462,20 +462,8 @@ input.ng-invalid.ng-dirty {
 
 
 .custom-panel-header {
-background-image: -webkit-gradient(
-	linear,
-	left top,
-	left bottom,
-	color-stop(0, #7DFFF4),
-	color-stop(1, #5FFFFF)
-);
-background-image: -o-linear-gradient(bottom, #7DFFF4 0%, #5FFFFF 100%);
-background-image: -moz-linear-gradient(bottom, #7DFFF4 0%, #5FFFFF 100%);
-background-image: -webkit-linear-gradient(bottom, #7DFFF4 0%, #5FFFFF 100%);
-background-image: -ms-linear-gradient(bottom, #7DFFF4 0%, #5FFFFF 100%);
-background-image: linear-gradient(to bottom, #7DFFF4 0%, #5FFFFF 100%);
-
-color: #424242;
+background: #585858;
+color: #d6d6d6;
 margin: -20px -10px 20px -10px;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
